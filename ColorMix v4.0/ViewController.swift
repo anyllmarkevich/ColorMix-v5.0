@@ -42,6 +42,7 @@ class ViewController: UIViewController {
         colorView.backgroundColor = color
         updateControls()
     }
+    
     func resetColor(){
         // switches
         redSwitch.isOn = false

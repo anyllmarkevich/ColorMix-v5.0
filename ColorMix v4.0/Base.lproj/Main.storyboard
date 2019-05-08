@@ -103,6 +103,13 @@
                                     <constraint firstItem="L2P-yb-oXm" firstAttribute="leading" secondItem="Zo4-cV-LdS" secondAttribute="trailing" constant="19" id="fzg-Ap-bDp"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obc-Ps-kwo">
+                                <rect key="frame" x="285" y="617" width="74" height="30"/>
+                                <state key="normal" title="View Color"/>
+                                <connections>
+                                    <segue destination="VYk-WS-zGe" kind="presentation" id="JkK-1h-0am"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -114,6 +121,8 @@
                             <constraint firstItem="Vjf-1n-5SP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Ugx-Mg-1Zk"/>
                             <constraint firstItem="jIT-wL-p6o" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="42" id="b0S-8t-Cj7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vjf-1n-5SP" secondAttribute="trailing" constant="18" id="n2f-i5-4yg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="obc-Ps-kwo" secondAttribute="bottom" constant="20" id="sxh-dH-N8c"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="obc-Ps-kwo" secondAttribute="trailing" constant="16" id="tWO-SA-HVa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ywl-7B-NPJ" secondAttribute="bottom" constant="20" id="wKy-vf-d9L"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -133,19 +142,44 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="100.29985007496252"/>
         </scene>
-        <!--View Controller-->
+        <!--Full frame color-->
         <scene sceneID="ekV-XE-Q5d">
             <objects>
-                <viewController id="VYk-WS-zGe" sceneMemberID="viewController">
+                <viewController id="VYk-WS-zGe" userLabel="Full frame color" customClass="FullScreenColorViewController" customModule="ColorMix_v4_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aDu-7P-esa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bx2-tr-egC">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ic0-pG-B83" appends="YES" id="9Pk-g5-nKf"/>
+                                </connections>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Bx2-tr-egC" firstAttribute="trailing" secondItem="qwF-gl-9cf" secondAttribute="trailing" id="46g-Be-LfF"/>
+                            <constraint firstItem="Bx2-tr-egC" firstAttribute="bottom" secondItem="qwF-gl-9cf" secondAttribute="bottom" id="UWF-TG-95i"/>
+                            <constraint firstItem="Bx2-tr-egC" firstAttribute="top" secondItem="aDu-7P-esa" secondAttribute="top" id="nLo-4s-7TG"/>
+                            <constraint firstItem="Bx2-tr-egC" firstAttribute="leading" secondItem="qwF-gl-9cf" secondAttribute="leading" id="pEH-Hn-RGw"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="qwF-gl-9cf"/>
                     </view>
+                    <connections>
+                        <outlet property="FullScreenColorView" destination="Bx2-tr-egC" id="p8E-xx-DW3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FUx-bc-oJL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ic0-pG-B83">
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" id="YMO-E1-6KY"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="838" y="100"/>
         </scene>
     </scenes>
 </document>

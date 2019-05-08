@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F4541D37228352A600E1552B /* FullScreenColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4541D36228352A600E1552B /* FullScreenColorViewController.swift */; };
 		F48E97E02235CE3900171A87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48E97DF2235CE3900171A87 /* AppDelegate.swift */; };
 		F48E97E22235CE3900171A87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48E97E12235CE3900171A87 /* ViewController.swift */; };
 		F48E97E52235CE3900171A87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F48E97E32235CE3900171A87 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F4541D36228352A600E1552B /* FullScreenColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenColorViewController.swift; sourceTree = "<group>"; };
 		F48E97DC2235CE3900171A87 /* ColorMix v4.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ColorMix v4.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F48E97DF2235CE3900171A87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F48E97E12235CE3900171A87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			children = (
 				F48E97DF2235CE3900171A87 /* AppDelegate.swift */,
 				F48E97E12235CE3900171A87 /* ViewController.swift */,
+				F4541D36228352A600E1552B /* FullScreenColorViewController.swift */,
 				F48E97E32235CE3900171A87 /* Main.storyboard */,
 				F48E97E62235CE3A00171A87 /* Assets.xcassets */,
 				F48E97E82235CE3A00171A87 /* LaunchScreen.storyboard */,
@@ -137,6 +140,7 @@
 			files = (
 				F48E97E22235CE3900171A87 /* ViewController.swift in Sources */,
 				F48E97E02235CE3900171A87 /* AppDelegate.swift in Sources */,
+				F4541D37228352A600E1552B /* FullScreenColorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
