@@ -20,6 +20,10 @@ class ViewController: UIViewController {
         updateControls()
     }
     //setup
+    class colorTransfer{
+        static var transferedColor: UIColor = .black
+    }
+    //
     func updateControls(){
         redSlider.isEnabled = redSwitch.isOn
         greenSlider.isEnabled = greenSwitch.isOn
@@ -41,6 +45,7 @@ class ViewController: UIViewController {
         let color = UIColor(red: red, green: green, blue: blue, alpha: 1)
         colorView.backgroundColor = color
         updateControls()
+        colorTransfer.transferedColor = color
     }
     
     func resetColor(){

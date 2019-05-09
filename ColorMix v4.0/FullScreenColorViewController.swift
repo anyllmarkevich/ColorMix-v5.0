@@ -12,12 +12,10 @@ class FullScreenColorViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        FullScreenColorView.backgroundColor = ViewController.colorTransfer.transferedColor
     }
     @IBOutlet weak var FullScreenColorView: UIView!
-    
-
     /*
     // MARK: - Navigation
 
