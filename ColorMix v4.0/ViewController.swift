@@ -33,20 +33,25 @@ class ViewController: UIViewController {
             blueSlider.value = Float(getBlue)
             if redSlider.value > 0{
                 redSwitch.isOn = true
+                redSlider.isEnabled = true
             }else{
                 redSwitch.isOn = false
+                redSlider.isEnabled = false
             }
             if greenSlider.value > 0{
                 greenSwitch.isOn = true
+                greenSlider.isEnabled = true
             }else{
                 greenSwitch.isOn = false
+                greenSlider.isEnabled = false
             }
             if blueSlider.value > 0{
                 blueSwitch.isOn = true
+                blueSlider.isEnabled = true
             }else{
                 blueSwitch.isOn = false
+                blueSlider.isEnabled = false
             }
-            updateControls()
         }
     }
     //setup
