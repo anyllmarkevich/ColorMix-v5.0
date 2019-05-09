@@ -13,11 +13,41 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        colorView.backgroundColor = .black
         colorView.layer.borderWidth = 5
         colorView.layer.cornerRadius = 20
         colorView.layer.borderColor = UIColor.black.cgColor
         updateControls()
+        if appRunning.appJustStartedRunning == true {
+            appRunning.appJustStartedRunning = false
+            colorView.backgroundColor = .black
+        }else{
+            colorView.backgroundColor = FullScreenColorViewController.rememberColor.rememberedColor
+            let converter = FullScreenColorViewController.rememberColor.rememberedColor
+            var getRed: CGFloat = 0
+            var getGreen: CGFloat = 0
+            var getBlue: CGFloat = 0
+            var getAlpha: CGFloat = 0
+            converter.getRed(&getRed, green: &getGreen, blue: &getBlue, alpha: &getAlpha)
+            redSlider.value = Float(getRed)
+            greenSlider.value = Float(getGreen)
+            blueSlider.value = Float(getBlue)
+            if redSlider.value > 0{
+                redSwitch.isOn = true
+            }else{
+                redSwitch.isOn = false
+            }
+            if greenSlider.value > 0{
+                greenSwitch.isOn = true
+            }else{
+                greenSwitch.isOn = false
+            }
+            if blueSlider.value > 0{
+                blueSwitch.isOn = true
+            }else{
+                blueSwitch.isOn = false
+            }
+            updateControls()
+        }
     }
     //setup
     class colorTransfer{

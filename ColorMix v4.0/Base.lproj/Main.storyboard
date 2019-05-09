@@ -107,7 +107,7 @@
                                 <rect key="frame" x="285" y="617" width="74" height="30"/>
                                 <state key="normal" title="View Color"/>
                                 <connections>
-                                    <segue destination="VYk-WS-zGe" kind="presentation" modalTransitionStyle="crossDissolve" id="JkK-1h-0am"/>
+                                    <segue destination="VYk-WS-zGe" kind="presentation" modalTransitionStyle="crossDissolve" id="ddk-Lr-3M2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -175,7 +175,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FUx-bc-oJL" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="ic0-pG-B83">
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="presentation" modalTransitionStyle="partialCurl" id="YMO-E1-6KY"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" modalTransitionStyle="crossDissolve" id="YMO-E1-6KY"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

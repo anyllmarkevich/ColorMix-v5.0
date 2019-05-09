@@ -16,6 +16,9 @@ class FullScreenColorViewController: UIViewController {
         FullScreenColorView.backgroundColor = ViewController.colorTransfer.transferedColor
     }
     @IBOutlet weak var FullScreenColorView: UIView!
+    class rememberColor{
+        static var rememberedColor: UIColor = ViewController.colorTransfer.transferedColor
+    }
     /*
     // MARK: - Navigation
 

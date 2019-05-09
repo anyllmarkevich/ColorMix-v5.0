@@ -13,9 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        appRunning.appJustStartedRunning = true
         return true
     }
 
@@ -44,3 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+class appRunning{
+    static var appJustStartedRunning: Bool = false
+}
