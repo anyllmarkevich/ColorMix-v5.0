@@ -22,41 +22,30 @@ class ViewController: UIViewController {
             colorView.backgroundColor = .black
         }else{
             colorView.backgroundColor = FullScreenColorViewController.rememberColor.rememberedColor
-            let converter = FullScreenColorViewController.rememberColor.rememberedColor
-            var getRed: CGFloat = 0
-            var getGreen: CGFloat = 0
-            var getBlue: CGFloat = 0
-            var getAlpha: CGFloat = 0
-            converter.getRed(&getRed, green: &getGreen, blue: &getBlue, alpha: &getAlpha)
-            redSlider.value = Float(getRed)
-            greenSlider.value = Float(getGreen)
-            blueSlider.value = Float(getBlue)
-            if redSlider.value > 0{
-                redSwitch.isOn = true
-                redSlider.isEnabled = true
-            }else{
-                redSwitch.isOn = false
-                redSlider.isEnabled = false
-            }
-            if greenSlider.value > 0{
-                greenSwitch.isOn = true
-                greenSlider.isEnabled = true
-            }else{
-                greenSwitch.isOn = false
-                greenSlider.isEnabled = false
-            }
-            if blueSlider.value > 0{
-                blueSwitch.isOn = true
-                blueSlider.isEnabled = true
-            }else{
-                blueSwitch.isOn = false
-                blueSlider.isEnabled = false
-            }
+            let revertToState = FullScreenColorViewController.rememberColor.rememberedState
+            redSwitch.isOn = revertToState.rsw
+            greenSwitch.isOn = revertToState.gsw
+            blueSwitch.isOn = revertToState.bsw
+            redSlider.value = revertToState.rsl
+            greenSlider.value = revertToState.gsl
+            blueSlider.value = revertToState.bsl
+            updateControls()
         }
+        colorTransfer.storeThisState = stateStorage(rsw: true, rsl: 1, gsw: true, gsl: 1, bsw: true, bsl: 1)
+        updateColor()
     }
     //setup
+    struct stateStorage{
+        var rsw: Bool = true
+        var rsl: Float = 1
+        var gsw: Bool = true
+        var gsl: Float = 1
+        var bsw: Bool = true
+        var bsl: Float = 1
+    }
     class colorTransfer{
         static var transferedColor: UIColor = .black
+        static var storeThisState: stateStorage = stateStorage(rsw: true, rsl: 1, gsw: true, gsl: 1, bsw: true, bsl: 1)
     }
     //
     func updateControls(){
@@ -81,6 +70,7 @@ class ViewController: UIViewController {
         colorView.backgroundColor = color
         updateControls()
         colorTransfer.transferedColor = color
+        colorTransfer.storeThisState = stateStorage(rsw: redSwitch.isOn, rsl: redSlider.value, gsw: greenSwitch.isOn, gsl: greenSlider.value, bsw: blueSwitch.isOn, bsl: blueSlider.value)
     }
     
     func resetColor(){

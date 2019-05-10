@@ -15,9 +15,11 @@ class FullScreenColorViewController: UIViewController {
         // Do any additional setup after loading the view.
         FullScreenColorView.backgroundColor = ViewController.colorTransfer.transferedColor
     }
-    @IBOutlet weak var FullScreenColorView: UIView!
-    class rememberColor{
+    @IBOutlet weak var FullScreenColorView: UIView!  //color part of view
+    
+    class rememberColor{  // remembers color and state to pass back to ViewController and set teh correct state there
         static var rememberedColor: UIColor = ViewController.colorTransfer.transferedColor
+        static var rememberedState: ViewController.stateStorage = ViewController.colorTransfer.storeThisState
     }
     /*
     // MARK: - Navigation
