@@ -110,6 +110,13 @@
                                     <segue destination="VYk-WS-zGe" kind="presentation" modalTransitionStyle="crossDissolve" id="ddk-Lr-3M2"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPT-kU-1i6">
+                                <rect key="frame" x="16" y="617" width="71" height="30"/>
+                                <state key="normal" title="Pro Adjust"/>
+                                <connections>
+                                    <segue destination="ZYc-vP-1wh" kind="presentation" modalTransitionStyle="crossDissolve" id="CJg-Jt-2kF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -120,7 +127,9 @@
                             <constraint firstItem="jIT-wL-p6o" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="S8U-z7-sxX"/>
                             <constraint firstItem="Vjf-1n-5SP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Ugx-Mg-1Zk"/>
                             <constraint firstItem="jIT-wL-p6o" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="42" id="b0S-8t-Cj7"/>
+                            <constraint firstItem="cPT-kU-1i6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="cIl-Es-fMm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vjf-1n-5SP" secondAttribute="trailing" constant="18" id="n2f-i5-4yg"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="cPT-kU-1i6" secondAttribute="bottom" constant="20" id="p26-wF-SEa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="obc-Ps-kwo" secondAttribute="bottom" constant="20" id="sxh-dH-N8c"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="obc-Ps-kwo" secondAttribute="trailing" constant="16" id="tWO-SA-HVa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ywl-7B-NPJ" secondAttribute="bottom" constant="20" id="wKy-vf-d9L"/>
@@ -181,5 +190,78 @@
             </objects>
             <point key="canvasLocation" x="838" y="100"/>
         </scene>
+        <!--Full Screen Adjust-->
+        <scene sceneID="pMw-8z-QDp">
+            <objects>
+                <viewController id="ZYc-vP-1wh" userLabel="Full Screen Adjust" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DUl-mG-p1X">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aD9-1c-u7g">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fUf-pG-TC6">
+                                        <rect key="frame" x="170" y="629" width="34" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Back">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="presentation" modalTransitionStyle="crossDissolve" id="Cnd-yo-1lM"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="130" translatesAutoresizingMaskIntoConstraints="NO" id="qTX-eI-wjR">
+                                        <rect key="frame" x="14" y="158" width="351" height="350"/>
+                                        <subviews>
+                                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hSL-Hr-ycf" userLabel="Red Slider">
+                                                <rect key="frame" x="-2" y="0.0" width="355" height="31"/>
+                                                <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </slider>
+                                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="58K-3n-dtw" userLabel="Green Slider">
+                                                <rect key="frame" x="-2" y="160" width="355" height="31"/>
+                                                <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </slider>
+                                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="uJK-xx-liY" userLabel="Blue Slider">
+                                                <rect key="frame" x="-2" y="320" width="355" height="31"/>
+                                                <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </slider>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="58K-3n-dtw" firstAttribute="leading" secondItem="qTX-eI-wjR" secondAttribute="leading" id="10W-Dy-2k5"/>
+                                            <constraint firstAttribute="trailing" secondItem="uJK-xx-liY" secondAttribute="trailing" id="MFT-Fl-moh"/>
+                                            <constraint firstItem="hSL-Hr-ycf" firstAttribute="leading" secondItem="qTX-eI-wjR" secondAttribute="leading" id="T8G-Vg-uOg"/>
+                                            <constraint firstAttribute="trailing" secondItem="hSL-Hr-ycf" secondAttribute="trailing" id="XL2-Xd-GgD"/>
+                                            <constraint firstItem="uJK-xx-liY" firstAttribute="leading" secondItem="qTX-eI-wjR" secondAttribute="leading" id="naQ-ob-vsm"/>
+                                            <constraint firstAttribute="trailing" secondItem="58K-3n-dtw" secondAttribute="trailing" id="utC-xz-ljE"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.5" green="0.0058224531920000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="aD9-1c-u7g" secondAttribute="bottom" id="DTW-0u-Lct"/>
+                            <constraint firstAttribute="trailing" secondItem="aD9-1c-u7g" secondAttribute="trailing" id="hG4-eG-lwW"/>
+                            <constraint firstItem="aD9-1c-u7g" firstAttribute="leading" secondItem="DUl-mG-p1X" secondAttribute="leading" id="jko-DD-x3g"/>
+                            <constraint firstItem="aD9-1c-u7g" firstAttribute="top" secondItem="DUl-mG-p1X" secondAttribute="top" id="sbj-GI-anL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ia8-Im-m5z"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yff-fe-1mL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="842.42878560719646"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Cnd-yo-1lM"/>
+    </inferredMetricsTieBreakers>
 </document>
