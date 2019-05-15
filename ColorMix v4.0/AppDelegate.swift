@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        appRunning.appJustStartedRunning = true
+        appRunning.appJustStartedRunning = true  //warn app that the app has just started running by setting this static var to true (see below)
         return true
     }
 
@@ -44,6 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
-class appRunning{
-    static var appJustStartedRunning: Bool = false
+class appRunning{  //will tell ViewController.swift if the app has just started running. It will be equal to true if that is true, and false if it is not
+    static var appJustStartedRunning: Bool = false  //start out false
 }

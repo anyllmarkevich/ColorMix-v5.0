@@ -13,29 +13,33 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        // Set up the color area
         colorView.layer.borderWidth = 5
         colorView.layer.cornerRadius = 20
         colorView.layer.borderColor = UIColor.black.cgColor
+        // enable and disable controls by using update controls
         updateControls()
-        if appRunning.appJustStartedRunning == true {
-            appRunning.appJustStartedRunning = false
-            colorView.backgroundColor = .black
-        }else{
-            colorView.backgroundColor = FullScreenColorViewController.rememberColor.rememberedColor
-            let revertToState = FullScreenColorViewController.rememberColor.rememberedState
+        // Check to see if app was just opened (links to AppDelegate file through static var)
+        if appRunning.appJustStartedRunning == true {  //App just started running
+            appRunning.appJustStartedRunning = false  //Set that variable to false so that it doesn't retrigger
+            colorView.backgroundColor = .black  //reset display color
+        }else{  //If we were just on another view
+            colorView.backgroundColor = FullScreenColorViewController.rememberColor.rememberedColor  //Remember color is passed into FullScreenColorView, where it is remembered and passed back here
+            let revertToState = FullScreenColorViewController.rememberColor.rememberedState  //putting the state in a variable
+            //Set everything to its correct value
             redSwitch.isOn = revertToState.rsw
             greenSwitch.isOn = revertToState.gsw
             blueSwitch.isOn = revertToState.bsw
             redSlider.value = revertToState.rsl
             greenSlider.value = revertToState.gsl
             blueSlider.value = revertToState.bsl
-            updateControls()
+            updateControls()  //enable/disable apropriate things
         }
-        colorTransfer.storeThisState = stateStorage(rsw: true, rsl: 1, gsw: true, gsl: 1, bsw: true, bsl: 1)
-        updateColor()
+        colorTransfer.storeThisState = stateStorage(rsw: true, rsl: 1, gsw: true, gsl: 1, bsw: true, bsl: 1) //reset this static var
+        updateColor()  //in update color, the stored state is updated, meaning that this is all we have to do to reset to a correct state
     }
     //setup
-    struct stateStorage{
+    struct stateStorage{  //this is what we use to store the state of the app.
         var rsw: Bool = true
         var rsl: Float = 1
         var gsw: Bool = true
@@ -43,20 +47,23 @@ class ViewController: UIViewController {
         var bsw: Bool = true
         var bsl: Float = 1
     }
-    class colorTransfer{
-        static var transferedColor: UIColor = .black
+    
+    class colorTransfer{  //this is the class we use to transfer colors and stuff
+        static var transferedColor: UIColor = .black  //unessesary?
         static var storeThisState: stateStorage = stateStorage(rsw: true, rsl: 1, gsw: true, gsl: 1, bsw: true, bsl: 1)
     }
-    //
-    func updateControls(){
+    
+    func updateControls(){  //this enables and disables sliders
         redSlider.isEnabled = redSwitch.isOn
         greenSlider.isEnabled = greenSwitch.isOn
         blueSlider.isEnabled = blueSwitch.isOn
     }
-    func updateColor(){
+    func updateColor(){  //this is where we update the colors
+        //reset variables
         var red: CGFloat = 0
         var green: CGFloat = 0
         var blue: CGFloat = 0
+        //Check whether a switch is on or not to know if a color should be dispalyed or not
         if redSwitch.isOn {
             red = CGFloat(redSlider.value)
         }
@@ -66,30 +73,40 @@ class ViewController: UIViewController {
         if blueSwitch.isOn {
             blue = CGFloat(blueSlider.value)
         }
-        let color = UIColor(red: red, green: green, blue: blue, alpha: 1)
-        colorView.backgroundColor = color
-        updateControls()
+        
+        let color = UIColor(red: red, green: green, blue: blue, alpha: 1) //put the final color into a variable
+        colorView.backgroundColor = color  //set display area color to that color
+        updateControls()  // enable and disable stuff
+        // Set stuff to be tranfered to other views when the time comes
         colorTransfer.transferedColor = color
         colorTransfer.storeThisState = stateStorage(rsw: redSwitch.isOn, rsl: redSlider.value, gsw: greenSwitch.isOn, gsl: greenSlider.value, bsw: blueSwitch.isOn, bsl: blueSlider.value)
     }
     
-    func resetColor(){
-        // switches
+    func resetColor(){  //this is called when the reset button is pressed
+        // reset switches
         redSwitch.isOn = false
         greenSwitch.isOn = false
         blueSwitch.isOn = false
-        // sliders
+        // reset sliders
         redSlider.value = 1
         greenSlider.value = 1
         blueSlider.value = 1
         // finish by updating color
         updateColor()
     }
-    //functions and structures
     
     //views
-    @IBOutlet weak var colorView: UIView!
+    @IBOutlet weak var colorView: UIView!  // this is the display
+    
     //sliders
+    
+    /*
+     Note that these will come in the form of:
+     -Outlet
+     -Activation function
+     and that when eack is activated it will run a function (all are updateColor exept the reset button that has updateColor in resetColor)
+ */
+    
     @IBOutlet var redSlider: UISlider!
     @IBAction func redSliderActivated(_ sender: UISlider) {
         updateColor()
@@ -115,9 +132,10 @@ class ViewController: UIViewController {
     @IBAction func blueSwitchActivated(_ sender: UISwitch) {
         updateColor()
     }
+    
     //buttons
     
-    @IBOutlet weak var resetButton: UIButton!
+    @IBOutlet weak var resetButton: UIButton!  //reset button
     @IBAction func resetButtonPressed(_ sender: Any) {
         resetColor()
     }
