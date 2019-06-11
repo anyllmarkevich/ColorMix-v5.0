@@ -198,12 +198,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aD9-1c-u7g">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aD9-1c-u7g">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fUf-pG-TC6">
-                                        <rect key="frame" x="170" y="629" width="34" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fUf-pG-TC6">
+                                        <rect key="frame" x="170.5" y="629" width="34" height="30"/>
                                         <state key="normal" title="Back">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -211,48 +210,39 @@
                                             <segue destination="BYZ-38-t0r" kind="presentation" modalTransitionStyle="crossDissolve" id="Cnd-yo-1lM"/>
                                         </connections>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="130" translatesAutoresizingMaskIntoConstraints="NO" id="qTX-eI-wjR">
-                                        <rect key="frame" x="14" y="158" width="359" height="350"/>
+                                    <stackView opaque="NO" contentMode="center" fixedFrame="YES" axis="vertical" alignment="center" spacing="128" translatesAutoresizingMaskIntoConstraints="NO" id="3WR-gp-M4B">
+                                        <rect key="frame" x="29" y="160" width="320" height="346"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hSL-Hr-ycf" userLabel="Red Slider">
-                                                <rect key="frame" x="-2" y="0.0" width="363" height="31"/>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hSL-Hr-ycf" userLabel="Red Slider">
+                                                <rect key="frame" x="-2" y="0.0" width="324" height="31"/>
                                                 <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </slider>
-                                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="58K-3n-dtw" userLabel="Green Slider">
-                                                <rect key="frame" x="-2" y="160" width="363" height="31"/>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="58K-3n-dtw" userLabel="Green Slider">
+                                                <rect key="frame" x="-2" y="158" width="324" height="31"/>
                                                 <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </slider>
-                                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="uJK-xx-liY" userLabel="Blue Slider">
-                                                <rect key="frame" x="-2" y="320" width="363" height="31"/>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="uJK-xx-liY" userLabel="Blue Slider">
+                                                <rect key="frame" x="-2" y="316" width="324" height="31"/>
                                                 <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </slider>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="58K-3n-dtw" firstAttribute="leading" secondItem="qTX-eI-wjR" secondAttribute="leading" id="10W-Dy-2k5"/>
-                                            <constraint firstAttribute="trailing" secondItem="uJK-xx-liY" secondAttribute="trailing" id="MFT-Fl-moh"/>
-                                            <constraint firstItem="hSL-Hr-ycf" firstAttribute="leading" secondItem="qTX-eI-wjR" secondAttribute="leading" id="T8G-Vg-uOg"/>
-                                            <constraint firstAttribute="trailing" secondItem="hSL-Hr-ycf" secondAttribute="trailing" id="XL2-Xd-GgD"/>
-                                            <constraint firstItem="uJK-xx-liY" firstAttribute="leading" secondItem="qTX-eI-wjR" secondAttribute="leading" id="naQ-ob-vsm"/>
-                                            <constraint firstAttribute="trailing" secondItem="58K-3n-dtw" secondAttribute="trailing" id="utC-xz-ljE"/>
-                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.5" green="0.0058224531920000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="fUf-pG-TC6" secondAttribute="bottom" constant="8" id="BjZ-sD-jDF"/>
+                                    <constraint firstItem="fUf-pG-TC6" firstAttribute="centerX" secondItem="aD9-1c-u7g" secondAttribute="centerX" id="P0w-Vp-i1F"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="aD9-1c-u7g" secondAttribute="bottom" id="DTW-0u-Lct"/>
-                            <constraint firstAttribute="trailing" secondItem="aD9-1c-u7g" secondAttribute="trailing" id="hG4-eG-lwW"/>
-                            <constraint firstItem="aD9-1c-u7g" firstAttribute="leading" secondItem="DUl-mG-p1X" secondAttribute="leading" id="jko-DD-x3g"/>
-                            <constraint firstItem="aD9-1c-u7g" firstAttribute="top" secondItem="DUl-mG-p1X" secondAttribute="top" id="sbj-GI-anL"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ia8-Im-m5z"/>
                     </view>
                 </viewController>
