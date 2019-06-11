@@ -193,7 +193,7 @@
         <!--Full Screen Adjust-->
         <scene sceneID="pMw-8z-QDp">
             <objects>
-                <viewController id="ZYc-vP-1wh" userLabel="Full Screen Adjust" sceneMemberID="viewController">
+                <viewController id="ZYc-vP-1wh" userLabel="Full Screen Adjust" customClass="FullScreenAdjustViewController" customModule="ColorMix_v4_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DUl-mG-p1X">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -211,26 +211,36 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="center" fixedFrame="YES" axis="vertical" alignment="center" spacing="128" translatesAutoresizingMaskIntoConstraints="NO" id="3WR-gp-M4B">
-                                        <rect key="frame" x="29" y="160" width="320" height="346"/>
+                                        <rect key="frame" x="29" y="160" width="328" height="346"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hSL-Hr-ycf" userLabel="Red Slider">
-                                                <rect key="frame" x="-2" y="0.0" width="324" height="31"/>
+                                                <rect key="frame" x="-2" y="0.0" width="332" height="31"/>
                                                 <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="redSlider:" destination="ZYc-vP-1wh" eventType="valueChanged" id="MGe-gV-f4u"/>
+                                                    <action selector="redSliderChanged:" destination="ZYc-vP-1wh" eventType="valueChanged" id="q5l-og-xNM"/>
+                                                </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="58K-3n-dtw" userLabel="Green Slider">
-                                                <rect key="frame" x="-2" y="158" width="324" height="31"/>
+                                                <rect key="frame" x="-2" y="158" width="332" height="31"/>
                                                 <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="greenSliderChanged:" destination="ZYc-vP-1wh" eventType="valueChanged" id="aKw-Gd-ELe"/>
+                                                </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="uJK-xx-liY" userLabel="Blue Slider">
-                                                <rect key="frame" x="-2" y="316" width="324" height="31"/>
+                                                <rect key="frame" x="-2" y="316" width="332" height="31"/>
                                                 <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="blueSliderChanged:" destination="ZYc-vP-1wh" eventType="valueChanged" id="oKL-UV-rSl"/>
+                                                </connections>
                                             </slider>
                                         </subviews>
                                     </stackView>
@@ -245,6 +255,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ia8-Im-m5z"/>
                     </view>
+                    <connections>
+                        <outlet property="BlueSlider" destination="uJK-xx-liY" id="vkg-Tw-MEX"/>
+                        <outlet property="GreenSlider" destination="58K-3n-dtw" id="9dw-zF-n3E"/>
+                        <outlet property="RedSlider" destination="hSL-Hr-ycf" id="yf8-KD-L7X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yff-fe-1mL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
