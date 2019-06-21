@@ -198,61 +198,75 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aD9-1c-u7g">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aD9-1c-u7g">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fUf-pG-TC6">
-                                        <rect key="frame" x="170.5" y="629" width="34" height="30"/>
-                                        <state key="normal" title="Back">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="BYZ-38-t0r" kind="presentation" modalTransitionStyle="crossDissolve" id="Cnd-yo-1lM"/>
-                                        </connections>
-                                    </button>
-                                    <stackView opaque="NO" contentMode="center" fixedFrame="YES" axis="vertical" alignment="center" spacing="128" translatesAutoresizingMaskIntoConstraints="NO" id="3WR-gp-M4B">
-                                        <rect key="frame" x="29" y="160" width="328" height="346"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hSL-Hr-ycf" userLabel="Red Slider">
-                                                <rect key="frame" x="-2" y="0.0" width="332" height="31"/>
-                                                <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <action selector="redSlider:" destination="ZYc-vP-1wh" eventType="valueChanged" id="MGe-gV-f4u"/>
-                                                    <action selector="redSliderChanged:" destination="ZYc-vP-1wh" eventType="valueChanged" id="q5l-og-xNM"/>
-                                                </connections>
-                                            </slider>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="58K-3n-dtw" userLabel="Green Slider">
-                                                <rect key="frame" x="-2" y="158" width="332" height="31"/>
-                                                <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <action selector="greenSliderChanged:" destination="ZYc-vP-1wh" eventType="valueChanged" id="aKw-Gd-ELe"/>
-                                                </connections>
-                                            </slider>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="uJK-xx-liY" userLabel="Blue Slider">
-                                                <rect key="frame" x="-2" y="316" width="332" height="31"/>
-                                                <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <action selector="blueSliderChanged:" destination="ZYc-vP-1wh" eventType="valueChanged" id="oKL-UV-rSl"/>
-                                                </connections>
-                                            </slider>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
                                 <color key="backgroundColor" red="0.5" green="0.0058224531920000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="fUf-pG-TC6" secondAttribute="bottom" constant="8" id="BjZ-sD-jDF"/>
-                                    <constraint firstItem="fUf-pG-TC6" firstAttribute="centerX" secondItem="aD9-1c-u7g" secondAttribute="centerX" id="P0w-Vp-i1F"/>
-                                </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fUf-pG-TC6">
+                                <rect key="frame" x="170.5" y="629" width="34" height="30"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" modalTransitionStyle="crossDissolve" id="Cnd-yo-1lM"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="center" axis="vertical" alignment="center" spacing="128" translatesAutoresizingMaskIntoConstraints="NO" id="3WR-gp-M4B">
+                                <rect key="frame" x="37" y="160.5" width="301" height="346"/>
+                                <subviews>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="uJK-xx-liY" userLabel="Blue Slider">
+                                        <rect key="frame" x="-2" y="0.0" width="305" height="31"/>
+                                        <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="blueSliderChanged:" destination="ZYc-vP-1wh" eventType="valueChanged" id="oKL-UV-rSl"/>
+                                        </connections>
+                                    </slider>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="58K-3n-dtw" userLabel="Green Slider">
+                                        <rect key="frame" x="-2" y="158" width="305" height="31"/>
+                                        <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="greenSliderChanged:" destination="ZYc-vP-1wh" eventType="valueChanged" id="aKw-Gd-ELe"/>
+                                        </connections>
+                                    </slider>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hSL-Hr-ycf" userLabel="Red Slider">
+                                        <rect key="frame" x="-2" y="316" width="305" height="31"/>
+                                        <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="redSlider:" destination="ZYc-vP-1wh" eventType="valueChanged" id="MGe-gV-f4u"/>
+                                            <action selector="redSliderChanged:" destination="ZYc-vP-1wh" eventType="valueChanged" id="q5l-og-xNM"/>
+                                        </connections>
+                                    </slider>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="58K-3n-dtw" secondAttribute="trailing" id="Dfh-cs-3Uq"/>
+                                    <constraint firstItem="uJK-xx-liY" firstAttribute="leading" secondItem="3WR-gp-M4B" secondAttribute="leading" id="H73-rh-W8a"/>
+                                    <constraint firstAttribute="trailing" secondItem="uJK-xx-liY" secondAttribute="trailing" id="MZv-mK-Dac"/>
+                                    <constraint firstAttribute="height" constant="346" id="Yha-6F-fNe"/>
+                                    <constraint firstItem="58K-3n-dtw" firstAttribute="leading" secondItem="3WR-gp-M4B" secondAttribute="leading" id="aXd-Ax-sQk"/>
+                                    <constraint firstAttribute="trailing" secondItem="hSL-Hr-ycf" secondAttribute="trailing" id="zT3-u3-rAL"/>
+                                    <constraint firstItem="hSL-Hr-ycf" firstAttribute="leading" secondItem="3WR-gp-M4B" secondAttribute="leading" id="zzw-xk-22q"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ia8-Im-m5z" firstAttribute="bottom" secondItem="fUf-pG-TC6" secondAttribute="bottom" constant="8" id="7GY-VS-Jev"/>
+                            <constraint firstItem="3WR-gp-M4B" firstAttribute="centerX" secondItem="DUl-mG-p1X" secondAttribute="centerX" id="CLV-HB-rje"/>
+                            <constraint firstAttribute="trailing" secondItem="aD9-1c-u7g" secondAttribute="trailing" id="F6L-TU-lpb"/>
+                            <constraint firstItem="3WR-gp-M4B" firstAttribute="centerY" secondItem="DUl-mG-p1X" secondAttribute="centerY" id="Ivi-JO-QCa"/>
+                            <constraint firstItem="fUf-pG-TC6" firstAttribute="centerX" secondItem="DUl-mG-p1X" secondAttribute="centerX" id="LWf-9p-hO8"/>
+                            <constraint firstAttribute="bottom" secondItem="aD9-1c-u7g" secondAttribute="bottom" id="Sxr-hV-Fh3"/>
+                            <constraint firstItem="aD9-1c-u7g" firstAttribute="top" secondItem="DUl-mG-p1X" secondAttribute="top" id="d7Y-lf-qxa"/>
+                            <constraint firstItem="3WR-gp-M4B" firstAttribute="leading" secondItem="ia8-Im-m5z" secondAttribute="leading" constant="37" id="fYZ-Fk-lpr"/>
+                            <constraint firstItem="aD9-1c-u7g" firstAttribute="leading" secondItem="DUl-mG-p1X" secondAttribute="leading" id="h89-5n-h6e"/>
+                            <constraint firstItem="ia8-Im-m5z" firstAttribute="trailing" secondItem="3WR-gp-M4B" secondAttribute="trailing" constant="37" id="wKl-L4-Z4s"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ia8-Im-m5z"/>
                     </view>
                     <connections>
