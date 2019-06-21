@@ -24,8 +24,8 @@ class ViewController: UIViewController {
             appRunning.appJustStartedRunning = false  //Set that variable to false so that it doesn't retrigger
             colorView.backgroundColor = .black  //reset display color
         }else{  //If we were just on another view
-            colorView.backgroundColor = FullScreenColorViewController.rememberColor.rememberedColor  //Remember color is passed into FullScreenColorView, where it is remembered and passed back here
-            let revertToState = FullScreenColorViewController.rememberColor.rememberedState  //putting the state in a variable
+            colorView.backgroundColor = saveState.color  //Remember color is passed into FullScreenColorView, where it is remembered and passed back here
+            let revertToState = saveState.sliders  //putting the state in a variable
             //Set everything to its correct value
             redSwitch.isOn = revertToState.rsw
             greenSwitch.isOn = revertToState.gsw
@@ -35,7 +35,7 @@ class ViewController: UIViewController {
             blueSlider.value = revertToState.bsl
             updateControls()  //enable/disable apropriate things
         }
-        colorTransfer.storeThisState = stateStorage(rsw: true, rsl: 1, gsw: true, gsl: 1, bsw: true, bsl: 1) //reset this static var
+        saveState.sliders = stateStorage(rsw: true, rsl: 1, gsw: true, gsl: 1, bsw: true, bsl: 1) //reset this static var
         updateColor()  //in update color, the stored state is updated, meaning that this is all we have to do to reset to a correct state
     }
     //setup
@@ -46,11 +46,6 @@ class ViewController: UIViewController {
         var gsl: Float = 1
         var bsw: Bool = true
         var bsl: Float = 1
-    }
-    
-    class colorTransfer{  //this is the class we use to transfer colors and stuff
-        static var transferedColor: UIColor = .black  //unessesary?
-        static var storeThisState: stateStorage = stateStorage(rsw: true, rsl: 1, gsw: true, gsl: 1, bsw: true, bsl: 1)
     }
     
     func updateControls(){  //this enables and disables sliders
@@ -78,8 +73,8 @@ class ViewController: UIViewController {
         colorView.backgroundColor = color  //set display area color to that color
         updateControls()  // enable and disable stuff
         // Set stuff to be tranfered to other views when the time comes
-        colorTransfer.transferedColor = color
-        colorTransfer.storeThisState = stateStorage(rsw: redSwitch.isOn, rsl: redSlider.value, gsw: greenSwitch.isOn, gsl: greenSlider.value, bsw: blueSwitch.isOn, bsl: blueSlider.value)
+        saveState.color = color
+        saveState.sliders = stateStorage(rsw: redSwitch.isOn, rsl: redSlider.value, gsw: greenSwitch.isOn, gsl: greenSlider.value, bsw: blueSwitch.isOn, bsl: blueSlider.value)
     }
     
     func resetColor(){  //this is called when the reset button is pressed

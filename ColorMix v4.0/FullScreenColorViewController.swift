@@ -13,15 +13,9 @@ class FullScreenColorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        FullScreenColorView.backgroundColor = ViewController.colorTransfer.transferedColor  //set dipaly color to color in ViewController
-        rememberColor.rememberedState = ViewController.colorTransfer.storeThisState  //remember ViewController state to pass back to it
+        FullScreenColorView.backgroundColor = saveState.color  //set dipaly color to color in ViewController
     }
     @IBOutlet weak var FullScreenColorView: UIView!  //color part of view
-    
-    class rememberColor{  // remembers color and state to pass back to ViewController and set teh correct state there
-        static var rememberedColor: UIColor = ViewController.colorTransfer.transferedColor  //necessary? (same note on ViewController)
-        static var rememberedState: ViewController.stateStorage = ViewController.colorTransfer.storeThisState  //remembers state of ViewController
-    }
     /*
     // MARK: - Navigation
 

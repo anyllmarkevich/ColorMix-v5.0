@@ -14,6 +14,10 @@ class FullScreenAdjustViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        colorView.backgroundColor = saveState.color
+        RedSlider.value = saveState.sliders.rsl
+        GreenSlider.value = saveState.sliders.gsl
+        BlueSlider.value = saveState.sliders.bsl
     }
     
     //Variables and Constants
@@ -26,6 +30,7 @@ class FullScreenAdjustViewController: UIViewController {
     @IBOutlet weak var RedSlider: UISlider!
     @IBOutlet weak var GreenSlider: UISlider!
     @IBOutlet weak var BlueSlider: UISlider!
+    @IBOutlet weak var colorView: UIView!
     
     //actions
     @IBAction func redSliderChanged(_ sender: Any) {
