@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-class saveState: UIViewController{
+class saveState: NSCoder{
     static var sliders: ViewController.stateStorage = ViewController.stateStorage(rsw: false, rsl: 1, gsw: false, gsl: 1, bsw: false, bsl: 1)
     static var color: UIColor = .black
     static var commingFromView: String = "ViewController"
