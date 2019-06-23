@@ -18,13 +18,26 @@ class FullScreenAdjustViewController: UIViewController {
         RedSlider.value = saveState.sliders.rsl
         GreenSlider.value = saveState.sliders.gsl
         BlueSlider.value = saveState.sliders.bsl
+        changeSliderColor(color: .red)
     }
     
     //Variables and Constants
     
     
     //Functions
-    
+    func changeSliderColor(color: UIColor) {
+        let redS = RedSlider
+        let greenS = GreenSlider
+        let blueS = BlueSlider
+        sliderColorer(slider: redS ?? RedSlider, color: color)
+        sliderColorer(slider: greenS ?? GreenSlider, color: color)
+        sliderColorer(slider: blueS ?? BlueSlider, color: color)
+    }
+    func sliderColorer(slider: UISlider, color: UIColor) {
+        slider.maximumTrackTintColor = color
+        slider.minimumTrackTintColor = color
+        slider.thumbTintColor = color
+    }
     
     //outlets
     @IBOutlet weak var RedSlider: UISlider!
