@@ -27,6 +27,7 @@ class FullScreenAdjustViewController: UIViewController {
     //Functions
     
     func goodColors(){
+        findAverageColor()
         if averageColor > 1{
             changeSliderColor(color: .black)
         }else{
