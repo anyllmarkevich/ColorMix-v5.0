@@ -26,6 +26,11 @@ class FullScreenAdjustViewController: UIViewController {
     
     //Functions
     
+    func changeColors(){
+        let thisColor: UIColor = UIColor(red: Float(RedSlider.value), green: Float(GreenSlider.value), blue: Float(BlueSlider.value), alpha: 1)
+        saveState.color = thisColor
+    }
+    
     func goodColors(){
         findAverageColor()
         if averageColor > 1{
@@ -61,10 +66,16 @@ class FullScreenAdjustViewController: UIViewController {
     
     //actions
     @IBAction func redSliderChanged(_ sender: Any) {
+        saveState.sliders.rsw = true
+        changeColors()
     }
     @IBAction func greenSliderChanged(_ sender: Any) {
+        saveState.sliders.gsw = true
+        changeColors()
     }
     @IBAction func blueSliderChanged(_ sender: Any) {
+        saveState.sliders.bsw = true
+        changeColors()
     }
     
     
