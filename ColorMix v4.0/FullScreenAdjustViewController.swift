@@ -27,21 +27,46 @@ class FullScreenAdjustViewController: UIViewController {
     //Functions
     
     func changeColors(){
-        let thisColor: UIColor = UIColor(red: Float(RedSlider.value), green: Float(GreenSlider.value), blue: Float(BlueSlider.value), alpha: 1)
+        let redval = RedSlider.value
+        let greenval = GreenSlider.value
+        let Blueval = BlueSlider.value
+        let thisColor = UIColor(red: CGFloat(redval), green: CGFloat(greenval), blue: CGFloat(Blueval), alpha: 1)
         saveState.color = thisColor
+        saveState.sliders.rsl = RedSlider.value
+        saveState.sliders.gsl = GreenSlider.value
+        saveState.sliders.bsl = BlueSlider.value
+        colorView.backgroundColor = thisColor
+        goodColors()
     }
     
     func goodColors(){
         findAverageColor()
-        if averageColor > 1{
+        if averageColor > 0.4{
             changeSliderColor(color: .black)
+            backButton.setTitleColor(.black, for: .normal)
         }else{
             changeSliderColor(color: .white)
+            backButton.setTitleColor(.white, for: .normal)
         }
     }
     
     func findAverageColor(){
-        averageColor = Float(RedSlider.value + GreenSlider.value + BlueSlider.value)
+        let r = RedSlider.value
+        let g = GreenSlider.value
+        let b = BlueSlider.value
+        if r > g && r > b {
+            averageColor = r
+        }else if g > r && g > b {
+            averageColor = g
+        }else if b > r && b > g {
+            averageColor = b
+        }else{
+            if r+g+b > 0.5{
+                averageColor = 1
+            }else{
+                averageColor = 0
+            }
+        }
     }
     
     func changeSliderColor(color: UIColor) {
@@ -63,6 +88,7 @@ class FullScreenAdjustViewController: UIViewController {
     @IBOutlet weak var GreenSlider: UISlider!
     @IBOutlet weak var BlueSlider: UISlider!
     @IBOutlet weak var colorView: UIView!
+    @IBOutlet weak var backButton: UIButton!
     
     //actions
     @IBAction func redSliderChanged(_ sender: Any) {

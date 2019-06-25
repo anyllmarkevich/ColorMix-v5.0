@@ -220,7 +220,6 @@
                                         <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <action selector="redSlider:" destination="ZYc-vP-1wh" eventType="valueChanged" id="MGe-gV-f4u"/>
                                             <action selector="redSliderChanged:" destination="ZYc-vP-1wh" eventType="valueChanged" id="q5l-og-xNM"/>
                                         </connections>
                                     </slider>
@@ -273,6 +272,7 @@
                         <outlet property="BlueSlider" destination="uJK-xx-liY" id="vkg-Tw-MEX"/>
                         <outlet property="GreenSlider" destination="58K-3n-dtw" id="9dw-zF-n3E"/>
                         <outlet property="RedSlider" destination="hSL-Hr-ycf" id="yf8-KD-L7X"/>
+                        <outlet property="backButton" destination="fUf-pG-TC6" id="Mpe-AN-e43"/>
                         <outlet property="colorView" destination="aD9-1c-u7g" id="8lb-s7-P0P"/>
                     </connections>
                 </viewController>
