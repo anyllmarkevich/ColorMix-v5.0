@@ -51,21 +51,17 @@ class FullScreenAdjustViewController: UIViewController {
     }
     
     func findAverageColor(){
-        let r = RedSlider.value
-        let g = GreenSlider.value
-        let b = BlueSlider.value
-        if r > g && r > b {
-            averageColor = r
-        }else if g > r && g > b {
-            averageColor = g
-        }else if b > r && b > g {
-            averageColor = b
-        }else{
-            if r+g+b > 0.5{
-                averageColor = 1
-            }else{
-                averageColor = 0
+        let valueList = [RedSlider.value, GreenSlider.value, BlueSlider.value]
+        var biggestSliderValue: Float = 0
+        for i in valueList{
+            if i > biggestSliderValue{
+                biggestSliderValue = i
             }
+        }
+        if biggestSliderValue > 0.3{
+            averageColor = 1
+        }else{
+            averageColor = 0
         }
     }
     
