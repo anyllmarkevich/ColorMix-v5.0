@@ -69,9 +69,9 @@ class FullScreenAdjustViewController: UIViewController {
         let redS = RedSlider
         let greenS = GreenSlider
         let blueS = BlueSlider
-        sliderColorer(slider: redS ?? RedSlider, color: color)
-        sliderColorer(slider: greenS ?? GreenSlider, color: color)
-        sliderColorer(slider: blueS ?? BlueSlider, color: color)
+        sliderColorer(slider: redS ?? RedSlider, color: onOffTint(on: saveState.sliders.rsw, originalColor: color))
+        sliderColorer(slider: greenS ?? GreenSlider, color: onOffTint(on: saveState.sliders.gsw, originalColor: color))
+        sliderColorer(slider: blueS ?? BlueSlider, color: onOffTint(on: saveState.sliders.bsw, originalColor: color))
     }
     
     func sliderColorer(slider: UISlider, color: UIColor) {
@@ -81,8 +81,17 @@ class FullScreenAdjustViewController: UIViewController {
     }
     
     func onOffTint(on: Bool, originalColor: UIColor) -> UIColor{
-        
-        return .black
+        var returnThis: UIColor = .green
+        if on == true{
+            returnThis = originalColor
+        }else{
+            if originalColor == .black{
+                returnThis = UIColor(red: 0.3, green: 0.3, blue: 0.3, alpha: 1)
+            }else if originalColor == .white{
+                returnThis = UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 1)
+            }
+        }
+        return returnThis
     }
     
     //Corect Value Functions
