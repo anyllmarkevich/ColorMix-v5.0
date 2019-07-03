@@ -27,9 +27,9 @@ class FullScreenAdjustViewController: UIViewController {
     //Functions
     
     func changeColors(){
-        let redval = RedSlider.value
-        let greenval = GreenSlider.value
-        let Blueval = BlueSlider.value
+        let redval = redFinal()
+        let greenval = greenFinal()
+        let Blueval = blueFinal()
         let thisColor = UIColor(red: CGFloat(redval), green: CGFloat(greenval), blue: CGFloat(Blueval), alpha: 1)
         saveState.color = thisColor
         saveState.sliders.rsl = RedSlider.value
@@ -41,7 +41,7 @@ class FullScreenAdjustViewController: UIViewController {
     
     func goodColors(){
         findAverageColor()
-        if averageColor > 0.4{
+        if averageColor > 0.5{
             changeSliderColor(color: .black)
             backButton.setTitleColor(.black, for: .normal)
         }else{
@@ -51,7 +51,7 @@ class FullScreenAdjustViewController: UIViewController {
     }
     
     func findAverageColor(){
-        let valueList = [RedSlider.value, GreenSlider.value, BlueSlider.value]
+        let valueList = [redFinal(), greenFinal(), blueFinal()]
         var biggestSliderValue: Float = 0
         for i in valueList{
             if i > biggestSliderValue{
@@ -73,10 +73,41 @@ class FullScreenAdjustViewController: UIViewController {
         sliderColorer(slider: greenS ?? GreenSlider, color: color)
         sliderColorer(slider: blueS ?? BlueSlider, color: color)
     }
+    
     func sliderColorer(slider: UISlider, color: UIColor) {
         slider.maximumTrackTintColor = color
         slider.minimumTrackTintColor = color
         slider.thumbTintColor = color
+    }
+    
+    func onOffTint(on: Bool, originalColor: UIColor) -> UIColor{
+        
+        return .black
+    }
+    
+    //Corect Value Functions
+    func redFinal() -> Float{
+        if saveState.sliders.rsw == true{
+            return RedSlider.value
+        }else{
+            return 0
+        }
+    }
+    
+    func greenFinal() -> Float{
+        if saveState.sliders.gsw == true{
+            return GreenSlider.value
+        }else{
+            return 0
+        }
+    }
+    
+    func blueFinal() -> Float{
+        if saveState.sliders.bsw == true{
+            return BlueSlider.value
+        }else{
+            return 0
+        }
     }
     
     //outlets
