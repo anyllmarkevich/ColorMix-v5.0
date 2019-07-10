@@ -170,10 +170,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Bx2-tr-egC" firstAttribute="trailing" secondItem="qwF-gl-9cf" secondAttribute="trailing" id="46g-Be-LfF"/>
-                            <constraint firstItem="Bx2-tr-egC" firstAttribute="bottom" secondItem="qwF-gl-9cf" secondAttribute="bottom" id="UWF-TG-95i"/>
-                            <constraint firstItem="Bx2-tr-egC" firstAttribute="top" secondItem="aDu-7P-esa" secondAttribute="top" id="nLo-4s-7TG"/>
-                            <constraint firstItem="Bx2-tr-egC" firstAttribute="leading" secondItem="qwF-gl-9cf" secondAttribute="leading" id="pEH-Hn-RGw"/>
+                            <constraint firstAttribute="bottom" secondItem="Bx2-tr-egC" secondAttribute="bottom" id="9pF-xU-Xpk"/>
+                            <constraint firstItem="Bx2-tr-egC" firstAttribute="top" secondItem="aDu-7P-esa" secondAttribute="top" id="GKo-MA-FdP"/>
+                            <constraint firstAttribute="trailing" secondItem="Bx2-tr-egC" secondAttribute="trailing" id="gsA-H3-2Zv"/>
+                            <constraint firstItem="Bx2-tr-egC" firstAttribute="leading" secondItem="aDu-7P-esa" secondAttribute="leading" id="hk9-7J-gpk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qwF-gl-9cf"/>
                     </view>
