@@ -24,7 +24,7 @@ class ViewController: UIViewController {
             appRunning.appJustStartedRunning = false  //Set that variable to false so that it doesn't retrigger
             colorView.backgroundColor = .black  //reset display color
         }else{  //If we were just on another view
-            colorView.backgroundColor = saveState.color  //Remember color is passed into FullScreenColorView, where it is remembered and passed back here
+            colorView.backgroundColor = saveState.color  //set color back to saved color
             let revertToState = saveState.sliders  //putting the state in a variable
             //Set everything to its correct value
             redSwitch.isOn = revertToState.rsw
@@ -72,7 +72,7 @@ class ViewController: UIViewController {
         let color = UIColor(red: red, green: green, blue: blue, alpha: 1) //put the final color into a variable
         colorView.backgroundColor = color  //set display area color to that color
         updateControls()  // enable and disable stuff
-        // Set stuff to be tranfered to other views when the time comes
+        // Save color and state
         saveState.color = color
         saveState.sliders = stateStorage(rsw: redSwitch.isOn, rsl: redSlider.value, gsw: greenSwitch.isOn, gsl: greenSlider.value, bsw: blueSwitch.isOn, bsl: blueSlider.value)
     }

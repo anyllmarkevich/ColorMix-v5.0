@@ -6,10 +6,11 @@
 //  Copyright © 2019 Anyll Markevich. All rights reserved.
 //
 
-import Foundation
-import UIKit
-class saveState: NSCoder{
+import Foundation  //basics
+import UIKit  //UI capabilities
+class saveState: NSCoder{  //save stuff for other views
+    //save sliders
     static var sliders: ViewController.stateStorage = ViewController.stateStorage(rsw: false, rsl: 1, gsw: false, gsl: 1, bsw: false, bsl: 1)
+    //save color, for quick access
     static var color: UIColor = .black
-    static var commingFromView: String = "ViewController"
 }

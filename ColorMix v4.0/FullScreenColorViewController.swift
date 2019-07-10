@@ -13,7 +13,7 @@ class FullScreenColorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        FullScreenColorView.backgroundColor = saveState.color  //set dipaly color to color in ViewController
+        FullScreenColorView.backgroundColor = saveState.color  //set dipaly color to saved color
     }
     @IBOutlet weak var FullScreenColorView: UIView!  //color part of view
     /*
