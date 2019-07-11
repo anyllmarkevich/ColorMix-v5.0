@@ -79,13 +79,13 @@ class ViewController: UIViewController {
     
     func resetColor(){  //this is called when the reset button is pressed
         // reset switches
-        redSwitch.isOn = false
-        greenSwitch.isOn = false
-        blueSwitch.isOn = false
+        redSwitch.isOn = true
+        greenSwitch.isOn = true
+        blueSwitch.isOn = true
         // reset sliders
-        redSlider.value = 1
-        greenSlider.value = 1
-        blueSlider.value = 1
+        redSlider.value = 0
+        greenSlider.value = 0
+        blueSlider.value = 0
         // finish by updating color
         updateColor()
     }
