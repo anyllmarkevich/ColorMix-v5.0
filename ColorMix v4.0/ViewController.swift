@@ -35,7 +35,7 @@ class ViewController: UIViewController {
             blueSlider.value = revertToState.bsl
             updateControls()  //enable/disable apropriate things
         }
-        saveState.sliders = stateStorage(rsw: true, rsl: 1, gsw: true, gsl: 1, bsw: true, bsl: 1) //reset this static var
+        saveState.sliders = stateStorage(rsw: true, rsl: 0, gsw: true, gsl: 0, bsw: true, bsl: 0) //reset this static var
         updateColor()  //in update color, the stored state is updated, meaning that this is all we have to do to reset to a correct state
     }
     //setup
