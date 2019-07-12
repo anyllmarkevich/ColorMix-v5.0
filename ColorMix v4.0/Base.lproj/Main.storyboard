@@ -216,6 +216,9 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fUf-pG-TC6">
                                 <rect key="frame" x="170.5" y="629" width="34" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="w5y-Z9-CmW"/>
+                                </constraints>
                                 <state key="normal" title="Back">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -223,11 +226,14 @@
                                     <segue destination="BYZ-38-t0r" kind="presentation" modalTransitionStyle="crossDissolve" id="Cnd-yo-1lM"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="center" axis="vertical" alignment="center" spacing="128" translatesAutoresizingMaskIntoConstraints="NO" id="3WR-gp-M4B">
-                                <rect key="frame" x="37" y="160.5" width="301" height="346"/>
+                            <stackView opaque="NO" contentMode="center" axis="vertical" alignment="center" spacing="188" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3WR-gp-M4B">
+                                <rect key="frame" x="37" y="106" width="301" height="466"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hSL-Hr-ycf" userLabel="Red Slider">
                                         <rect key="frame" x="-2" y="0.0" width="305" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="mqH-3a-zJe"/>
+                                        </constraints>
                                         <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -236,7 +242,7 @@
                                         </connections>
                                     </slider>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="58K-3n-dtw" userLabel="Green Slider">
-                                        <rect key="frame" x="-2" y="158" width="305" height="31"/>
+                                        <rect key="frame" x="-2" y="218" width="305" height="31"/>
                                         <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -245,7 +251,7 @@
                                         </connections>
                                     </slider>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="uJK-xx-liY" userLabel="Blue Slider">
-                                        <rect key="frame" x="-2" y="316" width="305" height="31"/>
+                                        <rect key="frame" x="-2" y="436" width="305" height="31"/>
                                         <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -255,28 +261,25 @@
                                     </slider>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="58K-3n-dtw" secondAttribute="trailing" id="Dfh-cs-3Uq"/>
-                                    <constraint firstItem="uJK-xx-liY" firstAttribute="leading" secondItem="3WR-gp-M4B" secondAttribute="leading" id="H73-rh-W8a"/>
-                                    <constraint firstAttribute="trailing" secondItem="uJK-xx-liY" secondAttribute="trailing" id="MZv-mK-Dac"/>
-                                    <constraint firstAttribute="height" constant="346" id="Yha-6F-fNe"/>
-                                    <constraint firstItem="58K-3n-dtw" firstAttribute="leading" secondItem="3WR-gp-M4B" secondAttribute="leading" id="aXd-Ax-sQk"/>
-                                    <constraint firstAttribute="trailing" secondItem="hSL-Hr-ycf" secondAttribute="trailing" id="zT3-u3-rAL"/>
-                                    <constraint firstItem="hSL-Hr-ycf" firstAttribute="leading" secondItem="3WR-gp-M4B" secondAttribute="leading" id="zzw-xk-22q"/>
+                                    <constraint firstItem="hSL-Hr-ycf" firstAttribute="leading" secondItem="3WR-gp-M4B" secondAttribute="leading" id="0ib-jz-qf0"/>
+                                    <constraint firstItem="58K-3n-dtw" firstAttribute="leading" secondItem="uJK-xx-liY" secondAttribute="leading" id="35r-n6-Gje"/>
+                                    <constraint firstItem="58K-3n-dtw" firstAttribute="centerY" secondItem="3WR-gp-M4B" secondAttribute="centerY" id="Z0a-CM-E6L"/>
+                                    <constraint firstItem="hSL-Hr-ycf" firstAttribute="leading" secondItem="58K-3n-dtw" secondAttribute="leading" id="r6E-vX-qqF"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ia8-Im-m5z" firstAttribute="bottom" secondItem="fUf-pG-TC6" secondAttribute="bottom" constant="8" id="7GY-VS-Jev"/>
-                            <constraint firstItem="3WR-gp-M4B" firstAttribute="centerX" secondItem="DUl-mG-p1X" secondAttribute="centerX" id="CLV-HB-rje"/>
-                            <constraint firstAttribute="trailing" secondItem="aD9-1c-u7g" secondAttribute="trailing" id="F6L-TU-lpb"/>
-                            <constraint firstItem="3WR-gp-M4B" firstAttribute="centerY" secondItem="DUl-mG-p1X" secondAttribute="centerY" id="Ivi-JO-QCa"/>
-                            <constraint firstItem="fUf-pG-TC6" firstAttribute="centerX" secondItem="DUl-mG-p1X" secondAttribute="centerX" id="LWf-9p-hO8"/>
-                            <constraint firstAttribute="bottom" secondItem="aD9-1c-u7g" secondAttribute="bottom" id="Sxr-hV-Fh3"/>
-                            <constraint firstItem="aD9-1c-u7g" firstAttribute="top" secondItem="DUl-mG-p1X" secondAttribute="top" id="d7Y-lf-qxa"/>
-                            <constraint firstItem="3WR-gp-M4B" firstAttribute="leading" secondItem="ia8-Im-m5z" secondAttribute="leading" constant="37" id="fYZ-Fk-lpr"/>
-                            <constraint firstItem="aD9-1c-u7g" firstAttribute="leading" secondItem="DUl-mG-p1X" secondAttribute="leading" id="h89-5n-h6e"/>
-                            <constraint firstItem="ia8-Im-m5z" firstAttribute="trailing" secondItem="3WR-gp-M4B" secondAttribute="trailing" constant="37" id="wKl-L4-Z4s"/>
+                            <constraint firstItem="aD9-1c-u7g" firstAttribute="top" secondItem="DUl-mG-p1X" secondAttribute="top" id="5sJ-MM-GUJ"/>
+                            <constraint firstItem="aD9-1c-u7g" firstAttribute="leading" secondItem="DUl-mG-p1X" secondAttribute="leading" id="A8q-xL-0E0"/>
+                            <constraint firstItem="3WR-gp-M4B" firstAttribute="top" secondItem="DUl-mG-p1X" secondAttribute="topMargin" constant="86" id="BAi-FC-ceJ"/>
+                            <constraint firstAttribute="trailing" secondItem="aD9-1c-u7g" secondAttribute="trailing" id="E4z-rc-GuK"/>
+                            <constraint firstItem="3WR-gp-M4B" firstAttribute="leading" secondItem="ia8-Im-m5z" secondAttribute="leading" constant="37" id="H1W-bb-Omc"/>
+                            <constraint firstItem="ia8-Im-m5z" firstAttribute="trailing" secondItem="3WR-gp-M4B" secondAttribute="trailing" constant="37" id="Kuz-ey-QdJ"/>
+                            <constraint firstAttribute="bottom" secondItem="aD9-1c-u7g" secondAttribute="bottom" id="Ly2-E2-CPh"/>
+                            <constraint firstItem="ia8-Im-m5z" firstAttribute="bottom" secondItem="fUf-pG-TC6" secondAttribute="bottom" constant="8" id="Nx3-cw-O4h"/>
+                            <constraint firstItem="3WR-gp-M4B" firstAttribute="centerX" secondItem="fUf-pG-TC6" secondAttribute="centerX" id="SPU-1R-0tA"/>
+                            <constraint firstItem="fUf-pG-TC6" firstAttribute="top" secondItem="3WR-gp-M4B" secondAttribute="bottom" constant="57" id="ssv-fA-oVU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ia8-Im-m5z"/>
                     </view>
@@ -299,6 +302,6 @@
         <image name="Reset Button PDF" width="288" height="288"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YMO-E1-6KY"/>
+        <segue reference="Cnd-yo-1lM"/>
     </inferredMetricsTieBreakers>
 </document>
