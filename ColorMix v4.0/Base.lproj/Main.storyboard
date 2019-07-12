@@ -18,9 +18,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ywl-7B-NPJ">
-                                <rect key="frame" x="168" y="617" width="39" height="30"/>
-                                <state key="normal" title="Reset"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ywl-7B-NPJ">
+                                <rect key="frame" x="162.5" y="597" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="VcP-Cn-cWB"/>
+                                    <constraint firstAttribute="height" constant="50" id="vhd-lQ-jV8"/>
+                                </constraints>
+                                <state key="normal" title="Reset" image="Reset Button PDF"/>
                                 <connections>
                                     <action selector="resetButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mXr-q7-HjL"/>
                                 </connections>
@@ -103,16 +107,24 @@
                                     <constraint firstItem="L2P-yb-oXm" firstAttribute="leading" secondItem="Zo4-cV-LdS" secondAttribute="trailing" constant="19" id="fzg-Ap-bDp"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obc-Ps-kwo">
-                                <rect key="frame" x="285" y="617" width="74" height="30"/>
-                                <state key="normal" title="View Color"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obc-Ps-kwo">
+                                <rect key="frame" x="309" y="597" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="IcL-Nu-58P"/>
+                                    <constraint firstAttribute="width" constant="50" id="vDU-1W-X0H"/>
+                                </constraints>
+                                <state key="normal" title="View Color" image="Full screen button PDF"/>
                                 <connections>
                                     <segue destination="VYk-WS-zGe" kind="presentation" modalTransitionStyle="crossDissolve" id="ddk-Lr-3M2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPT-kU-1i6">
-                                <rect key="frame" x="16" y="617" width="71" height="30"/>
-                                <state key="normal" title="Pro Adjust"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPT-kU-1i6">
+                                <rect key="frame" x="16" y="597" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="5TX-SO-Fh7"/>
+                                    <constraint firstAttribute="height" constant="50" id="hlx-ES-cVM"/>
+                                </constraints>
+                                <state key="normal" title="Pro Adjust" image="Full screen adjust button PDF"/>
                                 <connections>
                                     <segue destination="ZYc-vP-1wh" kind="presentation" modalTransitionStyle="crossDissolve" id="CJg-Jt-2kF"/>
                                 </connections>
@@ -281,7 +293,12 @@
             <point key="canvasLocation" x="136.80000000000001" y="842.42878560719646"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Full screen adjust button PDF" width="288" height="288"/>
+        <image name="Full screen button PDF" width="288" height="288"/>
+        <image name="Reset Button PDF" width="288" height="288"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Cnd-yo-1lM"/>
+        <segue reference="YMO-E1-6KY"/>
     </inferredMetricsTieBreakers>
 </document>
