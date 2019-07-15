@@ -17,6 +17,9 @@ class ViewController: UIViewController {
         colorView.layer.borderWidth = 5
         colorView.layer.cornerRadius = 20
         colorView.layer.borderColor = UIColor.black.cgColor
+        // Set up output text
+        outputText.isEditable = false
+        outputText.isSelectable = true
         // enable and disable controls by using update controls
         updateControls()
         // Check to see if app was just opened (links to AppDelegate file through static var)
@@ -134,4 +137,5 @@ class ViewController: UIViewController {
     @IBAction func resetButtonPressed(_ sender: Any) {
         resetColor()
     }
+    @IBOutlet weak var outputText: UITextView!
 }

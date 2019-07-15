@@ -129,6 +129,15 @@
                                     <segue destination="ZYc-vP-1wh" kind="presentation" modalTransitionStyle="crossDissolve" id="CJg-Jt-2kF"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="12" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8m5-Aw-r0u">
+                                <rect key="frame" x="16" y="417" width="343" height="41"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="RD6-Mn-s5h"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -138,13 +147,16 @@
                             <constraint firstItem="Vjf-1n-5SP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Ca8-sK-ldz"/>
                             <constraint firstItem="jIT-wL-p6o" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="S8U-z7-sxX"/>
                             <constraint firstItem="Vjf-1n-5SP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Ugx-Mg-1Zk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8m5-Aw-r0u" secondAttribute="trailing" constant="16" id="akj-lk-Jyv"/>
                             <constraint firstItem="jIT-wL-p6o" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="42" id="b0S-8t-Cj7"/>
                             <constraint firstItem="cPT-kU-1i6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="cIl-Es-fMm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vjf-1n-5SP" secondAttribute="trailing" constant="18" id="n2f-i5-4yg"/>
                             <constraint firstAttribute="bottomMargin" secondItem="cPT-kU-1i6" secondAttribute="bottom" constant="20" id="p26-wF-SEa"/>
+                            <constraint firstItem="8m5-Aw-r0u" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="qfb-na-uhj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="obc-Ps-kwo" secondAttribute="bottom" constant="20" id="sxh-dH-N8c"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="obc-Ps-kwo" secondAttribute="trailing" constant="16" id="tWO-SA-HVa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ywl-7B-NPJ" secondAttribute="bottom" constant="20" id="wKy-vf-d9L"/>
+                            <constraint firstItem="8m5-Aw-r0u" firstAttribute="top" secondItem="Vjf-1n-5SP" secondAttribute="bottom" constant="8" id="yHK-6w-QgF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -154,6 +166,7 @@
                         <outlet property="colorView" destination="jIT-wL-p6o" id="4fo-9M-M0i"/>
                         <outlet property="greenSlider" destination="YQr-cF-UHF" id="hQu-K7-e3e"/>
                         <outlet property="greenSwitch" destination="XOk-pV-GbS" id="MMO-Rp-Aow"/>
+                        <outlet property="outputText" destination="8m5-Aw-r0u" id="VHC-P3-ZFz"/>
                         <outlet property="redSlider" destination="vdJ-EF-aFn" id="HMq-HU-bXp"/>
                         <outlet property="redSwitch" destination="BR0-Gx-hsu" id="2d7-Gb-c9N"/>
                         <outlet property="resetButton" destination="Ywl-7B-NPJ" id="Ejf-dJ-17F"/>
