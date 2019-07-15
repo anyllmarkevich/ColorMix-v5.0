@@ -18,17 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ywl-7B-NPJ">
-                                <rect key="frame" x="162.5" y="597" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="VcP-Cn-cWB"/>
-                                    <constraint firstAttribute="height" constant="50" id="vhd-lQ-jV8"/>
-                                </constraints>
-                                <state key="normal" title="Reset" image="Reset Button PDF"/>
-                                <connections>
-                                    <action selector="resetButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mXr-q7-HjL"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jIT-wL-p6o">
                                 <rect key="frame" x="42" y="20" width="291" height="169"/>
                                 <color key="backgroundColor" red="0.4791446808" green="0.076676772219999995" blue="0.022240891209999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -107,28 +96,6 @@
                                     <constraint firstItem="L2P-yb-oXm" firstAttribute="leading" secondItem="Zo4-cV-LdS" secondAttribute="trailing" constant="19" id="fzg-Ap-bDp"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obc-Ps-kwo">
-                                <rect key="frame" x="309" y="597" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="IcL-Nu-58P"/>
-                                    <constraint firstAttribute="width" constant="50" id="vDU-1W-X0H"/>
-                                </constraints>
-                                <state key="normal" title="View Color" image="Full screen button PDF"/>
-                                <connections>
-                                    <segue destination="VYk-WS-zGe" kind="presentation" modalTransitionStyle="crossDissolve" id="ddk-Lr-3M2"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPT-kU-1i6">
-                                <rect key="frame" x="16" y="597" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="5TX-SO-Fh7"/>
-                                    <constraint firstAttribute="height" constant="50" id="hlx-ES-cVM"/>
-                                </constraints>
-                                <state key="normal" title="Pro Adjust" image="Full screen adjust button PDF"/>
-                                <connections>
-                                    <segue destination="ZYc-vP-1wh" kind="presentation" modalTransitionStyle="crossDissolve" id="CJg-Jt-2kF"/>
-                                </connections>
-                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="12" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8m5-Aw-r0u">
                                 <rect key="frame" x="16" y="417" width="343" height="41"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -138,24 +105,73 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="nK3-tH-wZb">
+                                <rect key="frame" x="16" y="597" width="344" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPT-kU-1i6">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="5TX-SO-Fh7"/>
+                                            <constraint firstAttribute="height" constant="50" id="hlx-ES-cVM"/>
+                                        </constraints>
+                                        <state key="normal" title="Pro Adjust" image="Full screen adjust button PDF"/>
+                                        <connections>
+                                            <segue destination="ZYc-vP-1wh" kind="presentation" modalTransitionStyle="crossDissolve" id="CJg-Jt-2kF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uun-54-4K1" userLabel="Settings">
+                                        <rect key="frame" x="98" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="2Bi-m5-JgI"/>
+                                            <constraint firstAttribute="height" constant="50" id="csh-ZJ-UnV"/>
+                                        </constraints>
+                                        <state key="normal" image="Settings button PDF"/>
+                                        <connections>
+                                            <segue destination="IhM-Co-txv" kind="presentation" modalTransitionStyle="crossDissolve" id="W7r-Yc-UmT"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ywl-7B-NPJ">
+                                        <rect key="frame" x="196" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="VcP-Cn-cWB"/>
+                                            <constraint firstAttribute="height" constant="50" id="vhd-lQ-jV8"/>
+                                        </constraints>
+                                        <state key="normal" title="Reset" image="Reset Button PDF"/>
+                                        <connections>
+                                            <action selector="resetButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mXr-q7-HjL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obc-Ps-kwo">
+                                        <rect key="frame" x="294" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="IcL-Nu-58P"/>
+                                            <constraint firstAttribute="width" constant="50" id="vDU-1W-X0H"/>
+                                        </constraints>
+                                        <state key="normal" title="View Color" image="Full screen button PDF"/>
+                                        <connections>
+                                            <segue destination="VYk-WS-zGe" kind="presentation" modalTransitionStyle="crossDissolve" id="ddk-Lr-3M2"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="wib-vc-Xsw"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Vjf-1n-5SP" firstAttribute="top" secondItem="jIT-wL-p6o" secondAttribute="bottom" constant="69" id="01o-La-8vK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jIT-wL-p6o" secondAttribute="trailing" constant="42" id="4n4-kl-gaK"/>
-                            <constraint firstItem="Ywl-7B-NPJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8dU-qO-DTc"/>
                             <constraint firstItem="Vjf-1n-5SP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Ca8-sK-ldz"/>
+                            <constraint firstAttribute="trailing" secondItem="nK3-tH-wZb" secondAttribute="trailing" constant="15" id="HTz-O0-pvw"/>
                             <constraint firstItem="jIT-wL-p6o" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="S8U-z7-sxX"/>
                             <constraint firstItem="Vjf-1n-5SP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Ugx-Mg-1Zk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8m5-Aw-r0u" secondAttribute="trailing" constant="16" id="akj-lk-Jyv"/>
                             <constraint firstItem="jIT-wL-p6o" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="42" id="b0S-8t-Cj7"/>
-                            <constraint firstItem="cPT-kU-1i6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="cIl-Es-fMm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vjf-1n-5SP" secondAttribute="trailing" constant="18" id="n2f-i5-4yg"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="cPT-kU-1i6" secondAttribute="bottom" constant="20" id="p26-wF-SEa"/>
+                            <constraint firstItem="nK3-tH-wZb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="nVW-ve-ETZ"/>
                             <constraint firstItem="8m5-Aw-r0u" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="qfb-na-uhj"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="obc-Ps-kwo" secondAttribute="bottom" constant="20" id="sxh-dH-N8c"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="obc-Ps-kwo" secondAttribute="trailing" constant="16" id="tWO-SA-HVa"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ywl-7B-NPJ" secondAttribute="bottom" constant="20" id="wKy-vf-d9L"/>
+                            <constraint firstAttribute="bottom" secondItem="nK3-tH-wZb" secondAttribute="bottom" constant="20" id="wMV-SG-nCt"/>
                             <constraint firstItem="8m5-Aw-r0u" firstAttribute="top" secondItem="Vjf-1n-5SP" secondAttribute="bottom" constant="8" id="yHK-6w-QgF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -308,13 +324,62 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="842.42878560719646"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="cSD-PX-gSG">
+            <objects>
+                <viewController id="IhM-Co-txv" userLabel="Settings" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="r1E-8q-xSt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fg2-GN-IbD">
+                                <rect key="frame" x="170.5" y="617" width="34" height="30"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" modalTransitionStyle="crossDissolve" id="ubM-1l-pZo"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Return Value Format" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyn-OP-EZj">
+                                <rect key="frame" x="109" y="22" width="157" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eCJ-gJ-knt">
+                                <rect key="frame" x="16" y="51" width="343" height="29"/>
+                                <segments>
+                                    <segment title="Hex"/>
+                                    <segment title="0 to 255"/>
+                                    <segment title="0 to 1"/>
+                                    <segment title="0 to 360"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vyn-OP-EZj" firstAttribute="centerX" secondItem="r1E-8q-xSt" secondAttribute="centerX" id="0w9-Ia-tP7"/>
+                            <constraint firstItem="vyn-OP-EZj" firstAttribute="top" secondItem="GBd-fh-lNe" secondAttribute="top" constant="2" id="5mg-OB-4h6"/>
+                            <constraint firstItem="fg2-GN-IbD" firstAttribute="centerX" secondItem="r1E-8q-xSt" secondAttribute="centerX" id="8eN-Gh-dEK"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="fg2-GN-IbD" secondAttribute="bottom" constant="20" id="KRS-dQ-ISY"/>
+                            <constraint firstItem="GBd-fh-lNe" firstAttribute="trailing" secondItem="eCJ-gJ-knt" secondAttribute="trailing" constant="16" id="ZXy-1T-pbz"/>
+                            <constraint firstItem="eCJ-gJ-knt" firstAttribute="top" secondItem="vyn-OP-EZj" secondAttribute="bottom" constant="8" id="dG1-og-NVH"/>
+                            <constraint firstItem="eCJ-gJ-knt" firstAttribute="leading" secondItem="GBd-fh-lNe" secondAttribute="leading" constant="16" id="iH5-oI-vcd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="GBd-fh-lNe"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w08-cw-HcU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-442.39999999999998" y="-770.46476761619192"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Full screen adjust button PDF" width="288" height="288"/>
         <image name="Full screen button PDF" width="288" height="288"/>
         <image name="Reset Button PDF" width="288" height="288"/>
+        <image name="Settings button PDF" width="288" height="288"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Cnd-yo-1lM"/>
+        <segue reference="ubM-1l-pZo"/>
     </inferredMetricsTieBreakers>
 </document>
