@@ -17,6 +17,7 @@
 		F48E97EA2235CE3A00171A87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F48E97E82235CE3A00171A87 /* LaunchScreen.storyboard */; };
 		F49B5B9A22DD380A00762E01 /* hex convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49B5B9922DD380A00762E01 /* hex convert.swift */; };
 		F4F9D87122DD41A600073A4B /* settings save in Resources */ = {isa = PBXBuildFile; fileRef = F4F9D87022DD41A600073A4B /* settings save */; };
+		F4F9D87322DD42BD00073A4B /* settingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F9D87222DD42BD00073A4B /* settingsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		F48E97EB2235CE3A00171A87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F49B5B9922DD380A00762E01 /* hex convert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "hex convert.swift"; sourceTree = "<group>"; };
 		F4F9D87022DD41A600073A4B /* settings save */ = {isa = PBXFileReference; lastKnownFileType = text; path = "settings save"; sourceTree = "<group>"; };
+		F4F9D87222DD42BD00073A4B /* settingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,13 +67,14 @@
 			isa = PBXGroup;
 			children = (
 				F48E97DF2235CE3900171A87 /* AppDelegate.swift */,
-				F4F9D87022DD41A600073A4B /* settings save */,
 				F48E97E12235CE3900171A87 /* ViewController.swift */,
+				F4F9D87222DD42BD00073A4B /* settingsManager.swift */,
 				F4541D36228352A600E1552B /* FullScreenColorViewController.swift */,
 				F48E97E32235CE3900171A87 /* Main.storyboard */,
 				F49B5B9922DD380A00762E01 /* hex convert.swift */,
 				F45BB9D922AF323100BFB6C5 /* colorSave.swift */,
 				F45BB9D722AF311F00BFB6C5 /* FullScreenAdjustViewController.swift */,
+				F4F9D87022DD41A600073A4B /* settings save */,
 				F48E97E62235CE3A00171A87 /* Assets.xcassets */,
 				F48E97E82235CE3A00171A87 /* LaunchScreen.storyboard */,
 				F48E97EB2235CE3A00171A87 /* Info.plist */,
@@ -153,6 +156,7 @@
 			files = (
 				F45BB9DA22AF323100BFB6C5 /* colorSave.swift in Sources */,
 				F45BB9D822AF311F00BFB6C5 /* FullScreenAdjustViewController.swift in Sources */,
+				F4F9D87322DD42BD00073A4B /* settingsManager.swift in Sources */,
 				F48E97E22235CE3900171A87 /* ViewController.swift in Sources */,
 				F48E97E02235CE3900171A87 /* AppDelegate.swift in Sources */,
 				F49B5B9A22DD380A00762E01 /* hex convert.swift in Sources */,

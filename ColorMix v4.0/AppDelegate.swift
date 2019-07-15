@@ -16,6 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         appRunning.appJustStartedRunning = true  //warn app that the app has just started running by setting this static var to true (see below)
+        let file = "settings save" //this is the file. we will write to and read from it
+        
+        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            
+            let settingsPlacement = dir.appendingPathComponent(file)
+            //reading
+            do {
+                settingsManager.format = try String(contentsOf: settingsPlacement, encoding: .utf8)
+                print(settingsManager.format)
+            }
+            catch {/* error handling here */}
+        }
         return true
     }
 
