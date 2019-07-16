@@ -327,7 +327,7 @@
         <!--Settings-->
         <scene sceneID="cSD-PX-gSG">
             <objects>
-                <viewController id="IhM-Co-txv" userLabel="Settings" sceneMemberID="viewController">
+                <viewController id="IhM-Co-txv" userLabel="Settings" customClass="SettingsView" customModule="ColorMix_v4_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="r1E-8q-xSt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -353,6 +353,9 @@
                                     <segment title="0 to 1"/>
                                     <segment title="0 to 360"/>
                                 </segments>
+                                <connections>
+                                    <action selector="changeInSelection:" destination="IhM-Co-txv" eventType="valueChanged" id="0AS-SY-6Mu"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -367,6 +370,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GBd-fh-lNe"/>
                     </view>
+                    <connections>
+                        <outlet property="formatSelector" destination="eCJ-gJ-knt" id="VWU-Vc-YNb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w08-cw-HcU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

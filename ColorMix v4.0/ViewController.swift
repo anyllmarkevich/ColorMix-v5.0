@@ -78,6 +78,7 @@ class ViewController: UIViewController {
         // Save color and state
         saveState.color = color
         saveState.sliders = stateStorage(rsw: redSwitch.isOn, rsl: redSlider.value, gsw: greenSwitch.isOn, gsl: greenSlider.value, bsw: blueSwitch.isOn, bsl: blueSlider.value)
+        updateReturnString()
     }
     
     func resetColor(){  //this is called when the reset button is pressed
@@ -91,6 +92,17 @@ class ViewController: UIViewController {
         blueSlider.value = 0
         // finish by updating color
         updateColor()
+    }
+    func updateReturnString(){
+        if settingsManager.format == "0"{
+            let hexString = saveState.color.toHexString()
+            outputText.text = hexString
+        }
+        if settingsManager.format == "1"{
+            let red = Float()
+            let green = Float()
+            let blue = Float()
+        }
     }
     
     //views
@@ -137,5 +149,6 @@ class ViewController: UIViewController {
     @IBAction func resetButtonPressed(_ sender: Any) {
         resetColor()
     }
+    //Text views
     @IBOutlet weak var outputText: UITextView!
 }

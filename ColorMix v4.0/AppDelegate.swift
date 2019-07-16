@@ -16,14 +16,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         appRunning.appJustStartedRunning = true  //warn app that the app has just started running by setting this static var to true (see below)
-        let file = "settings save" //this is the file. we will write to and read from it
+        let fileToRead = "settings save" //this is the file. we will write to and read from it
         
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
             
-            let settingsPlacement = dir.appendingPathComponent(file)
+            let settingsPlacement = dir.appendingPathComponent(fileToRead)
+            if isAppAlreadyLaunchedOnce() == false{
+                //writing
+                do {
+                    try "0".write(to: settingsPlacement, atomically: false, encoding: .utf8)
+                }
+                catch {/* error handling here */}
+            }
             //reading
             do {
-                settingsManager.format = try String(contentsOf: settingsPlacement, encoding: .utf8)
+                let settingsText = try String(contentsOf: settingsPlacement, encoding: .utf8)
+                settingsManager.format = settingsText
                 print(settingsManager.format)
             }
             catch {/* error handling here */}
@@ -58,4 +66,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 class appRunning{  //will tell ViewController.swift if the app has just started running. It will be equal to true if that is true, and false if it is not
     static var appJustStartedRunning: Bool = false  //start out false
+}
+
+func isAppAlreadyLaunchedOnce()->Bool{
+    let defaults = UserDefaults.standard
+    if let _ = defaults.string(forKey: "isAppAlreadyLaunchedOnce"){
+        print("App already launched")
+        return true
+    }else{
+        defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
+        print("App launched first time")
+        return false
+    }
 }
