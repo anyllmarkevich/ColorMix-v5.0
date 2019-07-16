@@ -99,9 +99,40 @@ class ViewController: UIViewController {
             outputText.text = hexString
         }
         if settingsManager.format == "1"{
-            let red = Float()
-            let green = Float()
-            let blue = Float()
+            let colorToUse = saveState.color
+            let red = colorToUse.components?.red
+            let green = colorToUse.components?.green
+            let blue = colorToUse.components?.blue
+            var string = String(Int(Float(red!)*255))
+            string += ", "
+            string += String(Int(Float(green!)*255))
+            string += ", "
+            string += String(Int(Float(blue!)*255))
+            outputText.text = string
+        }
+        if settingsManager.format == "2"{
+            let colorToUse = saveState.color
+            let red = colorToUse.components?.red
+            let green = colorToUse.components?.green
+            let blue = colorToUse.components?.blue
+            var string = String(round(Float(red!)*1000)/1000)
+            string += ", "
+            string += String(round(Float(green!)*1000)/1000)
+            string += ", "
+            string += String(round(Float(blue!)*1000)/1000)
+            outputText.text = string
+        }
+        if settingsManager.format == "3"{
+            let colorToUse = saveState.color
+            let red = colorToUse.components?.red
+            let green = colorToUse.components?.green
+            let blue = colorToUse.components?.blue
+            var string = String(Int(Float(red!)*360))
+            string += ", "
+            string += String(Int(Float(green!)*360))
+            string += ", "
+            string += String(Int(Float(blue!)*360))
+            outputText.text = string
         }
     }
     
