@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         colorView.layer.cornerRadius = 20
         colorView.layer.borderColor = UIColor.black.cgColor
         // Set up output text
+        outputText.layer.cornerRadius = 5
         outputText.isEditable = false
         outputText.isSelectable = true
         // enable and disable controls by using update controls
