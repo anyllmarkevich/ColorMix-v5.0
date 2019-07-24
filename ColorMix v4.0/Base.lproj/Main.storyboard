@@ -390,7 +390,7 @@
         <!--Input page-->
         <scene sceneID="oPJ-8G-6Se">
             <objects>
-                <viewController id="mC0-xG-gyw" userLabel="Input page" sceneMemberID="viewController">
+                <viewController id="mC0-xG-gyw" userLabel="Input page" customClass="EnterColorViewController" customModule="ColorMix_v4_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dti-rQ-ygX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -400,6 +400,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="doneEditing:" destination="mC0-xG-gyw" eventType="editingDidEnd" id="jMx-1B-cj7"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the color you want to display:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHa-J0-ZeB">
                                 <rect key="frame" x="22.5" y="45" width="330" height="24"/>
@@ -424,6 +427,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ww4-im-2Ck"/>
                     </view>
+                    <connections>
+                        <outlet property="inputText" destination="ehR-gu-mau" id="T28-kL-kpe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eR0-vN-oIT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

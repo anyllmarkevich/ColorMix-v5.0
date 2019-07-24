@@ -10,6 +10,7 @@
 		F4541D37228352A600E1552B /* FullScreenColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4541D36228352A600E1552B /* FullScreenColorViewController.swift */; };
 		F45BB9D822AF311F00BFB6C5 /* FullScreenAdjustViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45BB9D722AF311F00BFB6C5 /* FullScreenAdjustViewController.swift */; };
 		F45BB9DA22AF323100BFB6C5 /* colorSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45BB9D922AF323100BFB6C5 /* colorSave.swift */; };
+		F485E8F822E8CF12005C2516 /* EnterColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F485E8F722E8CF12005C2516 /* EnterColorViewController.swift */; };
 		F48E97E02235CE3900171A87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48E97DF2235CE3900171A87 /* AppDelegate.swift */; };
 		F48E97E22235CE3900171A87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48E97E12235CE3900171A87 /* ViewController.swift */; };
 		F48E97E52235CE3900171A87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F48E97E32235CE3900171A87 /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 		F4541D36228352A600E1552B /* FullScreenColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenColorViewController.swift; sourceTree = "<group>"; };
 		F45BB9D722AF311F00BFB6C5 /* FullScreenAdjustViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenAdjustViewController.swift; sourceTree = "<group>"; };
 		F45BB9D922AF323100BFB6C5 /* colorSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorSave.swift; sourceTree = "<group>"; };
+		F485E8F722E8CF12005C2516 /* EnterColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterColorViewController.swift; sourceTree = "<group>"; };
 		F48E97DC2235CE3900171A87 /* ColorMix v4.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ColorMix v4.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F48E97DF2235CE3900171A87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F48E97E12235CE3900171A87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; tabWidth = 5; };
@@ -88,6 +90,7 @@
 				F4541D36228352A600E1552B /* FullScreenColorViewController.swift */,
 				F45BB9D722AF311F00BFB6C5 /* FullScreenAdjustViewController.swift */,
 				F4C97D4922DE4C00007A96CB /* SettingsView.swift */,
+				F485E8F722E8CF12005C2516 /* EnterColorViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F45BB9DA22AF323100BFB6C5 /* colorSave.swift in Sources */,
+				F485E8F822E8CF12005C2516 /* EnterColorViewController.swift in Sources */,
 				F4C97D4A22DE4C00007A96CB /* SettingsView.swift in Sources */,
 				F45BB9D822AF311F00BFB6C5 /* FullScreenAdjustViewController.swift in Sources */,
 				F4F9D87322DD42BD00073A4B /* settingsManager.swift in Sources */,
