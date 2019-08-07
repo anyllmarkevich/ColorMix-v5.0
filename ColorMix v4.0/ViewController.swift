@@ -22,6 +22,7 @@ class ViewController: UIViewController {
         outputText.layer.cornerRadius = 10
         outputText.textContainer.maximumNumberOfLines = 1
         outputText.textContainer.lineBreakMode = .byWordWrapping
+        outputTextBackgroundColor = outputText.backgroundColor!
         // enable and disable controls by using update controls
         updateControls()
         // Check to see if app was just opened (links to AppDelegate file through static var)
@@ -46,6 +47,7 @@ class ViewController: UIViewController {
     //setup
     
     var outputTextEditable = false
+    var outputTextBackgroundColor: UIColor = .black
     
     struct stateStorage{  //this is what we use to store the state of the app.
         var rsw: Bool = true
@@ -195,6 +197,11 @@ class ViewController: UIViewController {
             outputTextEditable = false
             outputText.isEditable = false
             inputButton.setTitle("Edit",for: .normal)
+            if outputText.text == "111"{
+                outputText.backgroundColor = outputTextBackgroundColor
+            }else{
+                outputText.backgroundColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
+            }
             //print(test)
         }
     }
