@@ -355,7 +355,7 @@
                                     <segment title="Hex"/>
                                     <segment title="0 to 255"/>
                                     <segment title="0 to 1"/>
-                                    <segment title="HSBA"/>
+                                    <segment title="HSB"/>
                                 </segments>
                                 <connections>
                                     <action selector="changeInSelection:" destination="IhM-Co-txv" eventType="valueChanged" id="0AS-SY-6Mu"/>
