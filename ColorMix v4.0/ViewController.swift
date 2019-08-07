@@ -18,9 +18,10 @@ class ViewController: UIViewController {
         colorView.layer.cornerRadius = 20
         colorView.layer.borderColor = UIColor.black.cgColor
         // Set up output text
-        outputText.layer.cornerRadius = 5
         outputText.isEditable = false
-        outputText.isSelectable = true
+        outputText.layer.cornerRadius = 10
+        outputText.textContainer.maximumNumberOfLines = 1
+        outputText.textContainer.lineBreakMode = .byWordWrapping
         // enable and disable controls by using update controls
         updateControls()
         // Check to see if app was just opened (links to AppDelegate file through static var)
@@ -175,11 +176,17 @@ class ViewController: UIViewController {
         updateColor()
     }
     
-    //buttons
+    //Buttons
     
+    // reset
     @IBOutlet weak var resetButton: UIButton!  //reset button
     @IBAction func resetButtonPressed(_ sender: Any) {
         resetColor()
+    }
+    //input / cancel
+    @IBOutlet weak var inputButton: UIButton!
+    @IBAction func inputButtonPressed(_ sender: Any) {
+        outputText.isEditable = true
     }
     //Text views
     @IBOutlet weak var outputText: UITextView!
