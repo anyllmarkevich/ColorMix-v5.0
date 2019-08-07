@@ -44,6 +44,9 @@ class ViewController: UIViewController {
         updateColor()  //in update color, the stored state is updated, meaning that this is all we have to do to reset to a correct state
     }
     //setup
+    
+    var outputTextEditable = false
+    
     struct stateStorage{  //this is what we use to store the state of the app.
         var rsw: Bool = true
         var rsl: Float = 1
@@ -126,14 +129,12 @@ class ViewController: UIViewController {
         }
         if settingsManager.format == "3"{
             let colorToUse = saveState.color
-            let red = colorToUse.components?.red
-            let green = colorToUse.components?.green
-            let blue = colorToUse.components?.blue
-            var string = String(Int(Float(red!)*360))
+            let hsbReturn = colorToUse.hsbColor
+            var string = String(Int(Float(hsbReturn.hue)*255))
             string += ", "
-            string += String(Int(Float(green!)*360))
+            string += String(Int(Float(hsbReturn.saturation)*255))
             string += ", "
-            string += String(Int(Float(blue!)*360))
+            string += String(Int(Float(hsbReturn.brightness)*255))
             outputText.text = string
         }
     }
@@ -186,8 +187,20 @@ class ViewController: UIViewController {
     //input / cancel
     @IBOutlet weak var inputButton: UIButton!
     @IBAction func inputButtonPressed(_ sender: Any) {
-        outputText.isEditable = true
+        if outputTextEditable == false{
+            outputText.isEditable = true
+            outputTextEditable = true
+            inputButton.setTitle("Done",for: .normal)
+        }else{
+            outputTextEditable = false
+            outputText.isEditable = false
+            inputButton.setTitle("Edit",for: .normal)
+            //print(test)
+        }
     }
     //Text views
     @IBOutlet weak var outputText: UITextView!
+    /*
+    var test = UIColor(red: 0.5, green: 0.3, blue: 1, alpha: 1).hsbColor
+ */
 }
