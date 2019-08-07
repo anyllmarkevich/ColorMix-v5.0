@@ -140,6 +140,18 @@ class ViewController: UIViewController {
             outputText.text = string
         }
     }
+    class isRightFormat{
+        func is255Format(_ input: String) -> Bool{
+            var good = true
+            let r = String(input.substring(toIndex: 0)) + String(input.substring(toIndex: 1)) + String(input.substring(toIndex: 2))
+            if r.isNumeric == true{
+                
+            }else{
+                good = false
+            }
+            return true
+        }
+    }
     
     //views
     @IBOutlet weak var colorView: UIView!  // this is the display
