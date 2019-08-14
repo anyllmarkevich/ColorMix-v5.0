@@ -142,7 +142,10 @@ class ViewController: UIViewController {
         }
     }
     class isRightFormat{
-        static func is255Format(_ input: String) -> Bool{
+        static var outputedColors = [Float]()
+        static func is255Format(_ inputtedString: String) -> Bool{
+            var input = ""
+            input = inputtedString.removingWhitespaces()
             var good = true
             var characters = [String]()
             var comas = [Int]()
@@ -177,12 +180,13 @@ class ViewController: UIViewController {
             if good == true{ if g.isNumeric{}else{ good = false } }
             if good == true{ if b.isNumeric{}else{ good = false } }
             if good == true{
-                let rn = Int(r)
-                let gn = Int(g)
-                let bn = Int(b)
+                let rn = Float(r)
+                let gn = Float(g)
+                let bn = Float(b)
                 if rn! < 256{}else{ good = false }
                 if gn! < 256{}else{ good = false }
                 if bn! < 256{}else{ good = false }
+                outputedColors = [rn!/255, gn!/255, bn!/255]
             }
             return good
         }
@@ -246,6 +250,10 @@ class ViewController: UIViewController {
             inputButton.setTitle("Edit",for: .normal)
             if isRightFormat.is255Format(outputText.text) && settingsManager.format == "1"{
                 outputText.backgroundColor = outputTextBackgroundColor
+                redSlider.value = isRightFormat.outputedColors[0]
+                greenSlider.value = isRightFormat.outputedColors[1]
+                blueSlider.value = isRightFormat.outputedColors[2]
+                updateColor()
             }else{
                 outputText.backgroundColor = UIColor(red: 1, green: 0.2, blue: 0.2, alpha: 1)
             }

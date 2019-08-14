@@ -139,3 +139,8 @@ extension String {
         return Set(self.characters).isSubset(of: nums)
     }
 }
+extension String {
+    func removingWhitespaces() -> String {
+        return components(separatedBy: .whitespaces).joined()
+    }
+}
