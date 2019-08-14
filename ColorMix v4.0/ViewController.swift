@@ -86,6 +86,7 @@ class ViewController: UIViewController {
         saveState.color = color
         saveState.sliders = stateStorage(rsw: redSwitch.isOn, rsl: redSlider.value, gsw: greenSwitch.isOn, gsl: greenSlider.value, bsw: blueSwitch.isOn, bsl: blueSlider.value)
         updateReturnString()
+        outputText.backgroundColor = outputTextBackgroundColor
     }
     
     func resetColor(){  //this is called when the reset button is pressed
@@ -141,15 +142,49 @@ class ViewController: UIViewController {
         }
     }
     class isRightFormat{
-        func is255Format(_ input: String) -> Bool{
+        static func is255Format(_ input: String) -> Bool{
             var good = true
-            let r = String(input.substring(toIndex: 0)) + String(input.substring(toIndex: 1)) + String(input.substring(toIndex: 2))
-            if r.isNumeric == true{
-                
-            }else{
-                good = false
+            var characters = [String]()
+            var comas = [Int]()
+            var count = 0
+            for i in input{
+                characters.append(String(i))
+                if i == ","{
+                    comas.append(count)
+                }
+                count+=1
             }
-            return true
+            if comas.count == 2{}else{ good = false }
+            if good == true{ if comas[0] < 4 && comas[1] < comas[0] + 5{}else{ good = false } }
+            if good == true{ if comas[0] > 0 && comas[1] > comas[0] + 1{}else{ good = false } }
+            var r = ""
+            var g = ""
+            var b = ""
+            count = 0
+            if good == true{
+                for i in characters{
+                    if count < comas[0]{
+                        r += String(i)
+                    }else if count > comas[0] && count < comas[1]{
+                        g += String(i)
+                    }else if count > comas[1]{
+                        b += String(i)
+                    }
+                    count+=1
+                }
+            }
+            if good == true{ if r.isNumeric{}else{ good = false } }
+            if good == true{ if g.isNumeric{}else{ good = false } }
+            if good == true{ if b.isNumeric{}else{ good = false } }
+            if good == true{
+                let rn = Int(r)
+                let gn = Int(g)
+                let bn = Int(b)
+                if rn! < 256{}else{ good = false }
+                if gn! < 256{}else{ good = false }
+                if bn! < 256{}else{ good = false }
+            }
+            return good
         }
     }
     
@@ -209,7 +244,7 @@ class ViewController: UIViewController {
             outputTextEditable = false
             outputText.isEditable = false
             inputButton.setTitle("Edit",for: .normal)
-            if outputText.text == "111"{
+            if isRightFormat.is255Format(outputText.text){
                 outputText.backgroundColor = outputTextBackgroundColor
             }else{
                 outputText.backgroundColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
