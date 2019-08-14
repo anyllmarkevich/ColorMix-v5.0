@@ -133,11 +133,11 @@ class ViewController: UIViewController {
         if settingsManager.format == "3"{
             let colorToUse = saveState.color
             let hsbReturn = colorToUse.hsbColor
-            var string = String(Int(Float(hsbReturn.hue)*255))
+            var string = String(Int(Float(hsbReturn.hue)*360))
             string += ", "
-            string += String(Int(Float(hsbReturn.saturation)*255))
+            string += String(Int(Float(hsbReturn.saturation)*100))
             string += ", "
-            string += String(Int(Float(hsbReturn.brightness)*255))
+            string += String(Int(Float(hsbReturn.brightness)*100))
             outputText.text = string
         }
     }
@@ -187,6 +187,62 @@ class ViewController: UIViewController {
                 if gn! < 256{}else{ good = false }
                 if bn! < 256{}else{ good = false }
                 outputedColors = [rn!/255, gn!/255, bn!/255]
+            }
+            return good
+        }
+        //////
+        
+        //////
+        static func isHSBFormat(_ inputtedString: String) -> Bool{
+            var input = ""
+            input = inputtedString.removingWhitespaces()
+            var good = true
+            var characters = [String]()
+            var comas = [Int]()
+            var count = 0
+            for i in input{
+                characters.append(String(i))
+                if i == ","{
+                    comas.append(count)
+                }
+                count+=1
+            }
+            if comas.count == 2{}else{ good = false }
+            if good == true{ if comas[0] < 4 && comas[1] < comas[0] + 5{}else{ good = false } }
+            if good == true{ if comas[0] > 0 && comas[1] > comas[0] + 1{}else{ good = false } }
+            var h = ""
+            var s = ""
+            var l = ""
+            count = 0
+            if good == true{
+                for i in characters{
+                    if count < comas[0]{
+                        h += String(i)
+                    }else if count > comas[0] && count < comas[1]{
+                        s += String(i)
+                    }else if count > comas[1]{
+                        l += String(i)
+                    }
+                    count+=1
+                }
+            }
+            if good == true{ if h.isNumeric{}else{ good = false } }
+            if good == true{ if s.isNumeric{}else{ good = false } }
+            if good == true{ if l.isNumeric{}else{ good = false } }
+            if good == true{
+                let hn = Float(h)
+                let sn = Float(s)
+                let ln = Float(l)
+                if hn! < 361{}else{ good = false }
+                if sn! < 101{}else{ good = false }
+                if ln! < 101{}else{ good = false }
+                outputedColors = []
+                let uicolorInput = UIColor(hue: CGFloat(hn!/360), saturation: CGFloat(sn!/100), brightness: CGFloat(ln!/100), alpha: 1)
+                outputedColors = [Float(uicolorInput.rgba.red), Float(uicolorInput.rgba.green), Float(uicolorInput.rgba.blue)]
+                print("INFORMATION CHECK")
+                print("App found ",String(hn!), String(sn!), String(ln!), " as the HSB 255 values.")
+                print("App found ",uicolorInput.rgba.red,uicolorInput.rgba.green,uicolorInput.rgba.blue, " as the RGB equivalent.")
+                print("End Message.\n\n")
             }
             return good
         }
@@ -249,6 +305,12 @@ class ViewController: UIViewController {
             outputText.isEditable = false
             inputButton.setTitle("Edit",for: .normal)
             if isRightFormat.is255Format(outputText.text) && settingsManager.format == "1"{
+                outputText.backgroundColor = outputTextBackgroundColor
+                redSlider.value = isRightFormat.outputedColors[0]
+                greenSlider.value = isRightFormat.outputedColors[1]
+                blueSlider.value = isRightFormat.outputedColors[2]
+                updateColor()
+            }else if isRightFormat.isHSBFormat(outputText.text) && settingsManager.format == "3"{
                 outputText.backgroundColor = outputTextBackgroundColor
                 redSlider.value = isRightFormat.outputedColors[0]
                 greenSlider.value = isRightFormat.outputedColors[1]
