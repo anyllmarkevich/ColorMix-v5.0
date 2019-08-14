@@ -244,10 +244,10 @@ class ViewController: UIViewController {
             outputTextEditable = false
             outputText.isEditable = false
             inputButton.setTitle("Edit",for: .normal)
-            if isRightFormat.is255Format(outputText.text){
+            if isRightFormat.is255Format(outputText.text) && settingsManager.format == "1"{
                 outputText.backgroundColor = outputTextBackgroundColor
             }else{
-                outputText.backgroundColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
+                outputText.backgroundColor = UIColor(red: 1, green: 0.2, blue: 0.2, alpha: 1)
             }
             //print(test)
         }
