@@ -239,10 +239,6 @@ class ViewController: UIViewController {
                 outputedColors = []
                 let uicolorInput = UIColor(hue: CGFloat(hn!/360), saturation: CGFloat(sn!/100), brightness: CGFloat(ln!/100), alpha: 1)
                 outputedColors = [Float(uicolorInput.rgba.red), Float(uicolorInput.rgba.green), Float(uicolorInput.rgba.blue)]
-                print("INFORMATION CHECK")
-                print("App found ",String(hn!), String(sn!), String(ln!), " as the HSB 255 values.")
-                print("App found ",uicolorInput.rgba.red,uicolorInput.rgba.green,uicolorInput.rgba.blue, " as the RGB equivalent.")
-                print("End Message.\n\n")
             }
             return good
         }
