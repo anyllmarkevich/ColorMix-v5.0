@@ -242,6 +242,62 @@ class ViewController: UIViewController {
             }
             return good
         }
+        /////
+        
+        
+        /////
+        static func is0To1Format(_ inputtedString: String) -> Bool{
+            var input = ""
+            input = inputtedString.removingWhitespaces()
+            var good = true
+            var characters = [String]()
+            var comas = [Int]()
+            var dots = [Int]()
+            var count = 0
+            for i in input{
+                characters.append(String(i))
+                if i == ","{
+                    comas.append(count)
+                }
+                if i == "."{
+                    dots.append(count)
+                }
+                count+=1
+            }
+            if comas.count == 2{}else{ good = false }
+            if dots.count == 3{}else{ good = false }
+            if good == true{ if comas[0] > 0 && comas[1] > comas[0] + 1{}else{ good = false } }
+            if good == true{ if comas[0] > dots[0] && dots[1] > comas[0] && comas[1] > dots[1] && comas[1] < dots[2]{}else{ good = false } }
+            var r = ""
+            var g = ""
+            var b = ""
+            count = 0
+            if good == true{
+                for i in characters{
+                    if count < comas[0]{
+                        r += String(i)
+                    }else if count > comas[0] && count < comas[1]{
+                        g += String(i)
+                    }else if count > comas[1]{
+                        b += String(i)
+                    }
+                    count+=1
+                }
+            }
+            if good == true{ if r.isDecimal{}else{ good = false } }
+            if good == true{ if g.isDecimal{}else{ good = false } }
+            if good == true{ if b.isDecimal{}else{ good = false } }
+            if good == true{
+                let rn = Float(r)
+                let gn = Float(g)
+                let bn = Float(b)
+                if rn! <= 1{}else{ good = false }
+                if gn! <= 1{}else{ good = false }
+                if bn! <= 1{}else{ good = false }
+                outputedColors = [rn!, gn!, bn!]
+            }
+            return good
+        }
     }
     
     //views
@@ -307,6 +363,12 @@ class ViewController: UIViewController {
                 blueSlider.value = isRightFormat.outputedColors[2]
                 updateColor()
             }else if isRightFormat.isHSBFormat(outputText.text) && settingsManager.format == "3"{
+                outputText.backgroundColor = outputTextBackgroundColor
+                redSlider.value = isRightFormat.outputedColors[0]
+                greenSlider.value = isRightFormat.outputedColors[1]
+                blueSlider.value = isRightFormat.outputedColors[2]
+                updateColor()
+            }else if isRightFormat.is0To1Format(outputText.text) && settingsManager.format == "2"{
                 outputText.backgroundColor = outputTextBackgroundColor
                 redSlider.value = isRightFormat.outputedColors[0]
                 greenSlider.value = isRightFormat.outputedColors[1]

@@ -138,10 +138,51 @@ extension String {
         let nums: Set<Character> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
         return Set(self.characters).isSubset(of: nums)
     }
+    var isDecimal: Bool {
+        var good = true
+        var stringList = [String]()
+        guard self.characters.count > 0 else { return false }
+        let nums: Set<Character> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9","."]
+        good = Set(self.characters).isSubset(of: nums)
+        for i in self{
+            stringList.append(String(i))
+        }
+        var count = 0
+        var dec = 0
+        var decFound = 0
+        for i in stringList{
+            if i == "." && decFound == 1{
+                good = false
+            }else if i == "." && decFound == 0{
+                dec = count
+                decFound = 1
+            }
+            count+=1
+        }
+        var preDot = ""
+        var postDot = ""
+        count = 0
+        if good == true{
+            for i in stringList{
+                if count < dec{
+                    preDot+=i
+                }else if count > dec{
+                    postDot+=i
+                }
+                count+=1
+            }
+            if preDot.isNumeric{}else{good = false}
+            if postDot.isNumeric{}else{good = false}
+        }
+        return good
+    }
 }
 extension String {
     func removingWhitespaces() -> String {
         return components(separatedBy: .whitespaces).joined()
+    }
+    func removingDots() -> String {
+        return components(separatedBy: ".").joined()
     }
 }
 extension UIColor {
