@@ -138,6 +138,17 @@ extension String {
         let nums: Set<Character> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
         return Set(self.characters).isSubset(of: nums)
     }
+    var isHex: Bool {
+        var inputString = self.lowercased()
+        var good = true
+        if inputString[0] == "#"{
+            inputString.remove(at: inputString.startIndex)
+        }
+        guard inputString.characters.count > 0 else { return false }
+        let nums: Set<Character> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"]
+        good = Set(inputString.characters).isSubset(of: nums)
+        return good
+    }
     var isDecimal: Bool {
         var good = true
         var stringList = [String]()
@@ -194,5 +205,25 @@ extension UIColor {
         getRed(&red, green: &green, blue: &blue, alpha: &alpha)
         
         return (red, green, blue, alpha)
+    }
+}
+extension String{
+    var isColorHex: Bool{
+        var editVar = self
+        if editVar[0] == "#"{
+            editVar.remove(at: editVar.startIndex)
+        }
+        if editVar.isHex && editVar.count == 6{
+            return true
+        }else{return false}
+    }
+}
+extension String{
+    var hexToNum: Int?{
+        if self.isHex{
+            let h2 = self
+            let d4 = Int(h2, radix: 16)!
+            return d4
+        }else{return nil}
     }
 }
