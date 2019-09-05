@@ -310,7 +310,10 @@ class ViewController: UIViewController {
                 let r = input[0]+input[1]
                 let g = input[2]+input[3]
                 let b = input[4]+input[5]
-                outputedColors = [Float(r.hexToNum!), Float(g.hexToNum!), Float(b.hexToNum!)]
+                let rn = Float(r.hexToNum!)/255
+                let gn = Float(g.hexToNum!)/255
+                let bn = Float(b.hexToNum!)/255
+                outputedColors = [rn, gn, bn]
             }
             return good
         }
