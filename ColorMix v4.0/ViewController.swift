@@ -298,6 +298,22 @@ class ViewController: UIViewController {
             }
             return good
         }
+        static func isHexFormat(_ inputtedString: String) -> Bool{
+            var input = ""
+            input = inputtedString.removingWhitespaces()
+            if input[0] == "#"{
+                input.remove(at: input.startIndex)
+            }
+            var good = true
+            if input.isColorHex{}else{good = false}
+            if good == true{
+                let r = input[0]+input[1]
+                let g = input[2]+input[3]
+                let b = input[4]+input[5]
+                outputedColors = [Float(r.hexToNum!), Float(g.hexToNum!), Float(b.hexToNum!)]
+            }
+            return good
+        }
     }
     
     //views
@@ -369,6 +385,12 @@ class ViewController: UIViewController {
                 blueSlider.value = isRightFormat.outputedColors[2]
                 updateColor()
             }else if isRightFormat.is0To1Format(outputText.text) && settingsManager.format == "2"{
+                outputText.backgroundColor = outputTextBackgroundColor
+                redSlider.value = isRightFormat.outputedColors[0]
+                greenSlider.value = isRightFormat.outputedColors[1]
+                blueSlider.value = isRightFormat.outputedColors[2]
+                updateColor()
+            }else if isRightFormat.isHexFormat(outputText.text) && settingsManager.format == "0"{
                 outputText.backgroundColor = outputTextBackgroundColor
                 redSlider.value = isRightFormat.outputedColors[0]
                 greenSlider.value = isRightFormat.outputedColors[1]
