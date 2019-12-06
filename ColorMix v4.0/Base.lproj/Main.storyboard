@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina3_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,13 +11,13 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ColorMix_v4_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="ColorMix_v4_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="vdJ-EF-aFn">
-                                <rect key="frame" x="71" y="209.5" width="235" height="31"/>
+                                <rect key="frame" x="71" y="303" width="290" height="31"/>
                                 <color key="minimumTrackTintColor" red="1" green="0.01164490638" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="thumbTintColor" red="0.5" green="0.0058224531920000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
@@ -27,7 +25,7 @@
                                 </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="YQr-cF-UHF">
-                                <rect key="frame" x="71" y="270" width="235" height="31"/>
+                                <rect key="frame" x="71" y="363.5" width="290" height="31"/>
                                 <color key="minimumTrackTintColor" red="0.057249147049999997" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="thumbTintColor" red="0.0" green="0.45081768129999999" blue="0.034948257580000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
@@ -35,11 +33,11 @@
                                 </connections>
                             </slider>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jIT-wL-p6o">
-                                <rect key="frame" x="42" y="20" width="236" height="75.5"/>
+                                <rect key="frame" x="42" y="0.0" width="291" height="189"/>
                                 <color key="backgroundColor" red="0.4791446808" green="0.076676772219999995" blue="0.022240891209999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="12" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Wtb-rw-xxG">
-                                <rect key="frame" x="57" y="135.5" width="245" height="36"/>
+                                <rect key="frame" x="57" y="229" width="300" height="36"/>
                                 <color key="backgroundColor" red="0.93254128889999999" green="0.93254128889999999" blue="0.93254128889999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="s3q-Bh-8a3"/>
@@ -48,14 +46,14 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wkw-lj-EZj">
-                                <rect key="frame" x="16" y="138.5" width="30" height="30"/>
+                                <rect key="frame" x="16" y="232" width="30" height="30"/>
                                 <state key="normal" title="Edit"/>
                                 <connections>
                                     <action selector="inputButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mQH-Qb-FSR"/>
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="1f6-9S-mKG">
-                                <rect key="frame" x="71" y="330.5" width="235" height="31"/>
+                                <rect key="frame" x="71" y="424" width="290" height="31"/>
                                 <color key="minimumTrackTintColor" red="0.041681021149999997" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="thumbTintColor" red="0.020840510570000002" green="0.0" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
@@ -63,7 +61,7 @@
                                 </connections>
                             </slider>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="Zo4-cV-LdS">
-                                <rect key="frame" x="16" y="209.5" width="49" height="151"/>
+                                <rect key="frame" x="16" y="303" width="49" height="151"/>
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BR0-Gx-hsu">
                                         <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
@@ -95,7 +93,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="oq8-cF-dnh">
-                                <rect key="frame" x="16.5" y="410" width="287" height="50"/>
+                                <rect key="frame" x="44" y="597" width="287" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPT-kU-1i6">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -116,7 +114,7 @@
                                         </constraints>
                                         <state key="normal" image="Settings button PDF"/>
                                         <connections>
-                                            <segue destination="IhM-Co-txv" kind="presentation" modalTransitionStyle="crossDissolve" id="W7r-Yc-UmT"/>
+                                            <segue destination="IhM-Co-txv" kind="presentation" id="W7r-Yc-UmT"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ywl-7B-NPJ">
@@ -197,13 +195,19 @@
         <!--Full frame color-->
         <scene sceneID="ekV-XE-Q5d">
             <objects>
-                <viewController id="VYk-WS-zGe" userLabel="Full frame color" customClass="FullScreenColorViewController" customModule="ColorMix_v4_0" customModuleProvider="target" sceneMemberID="viewController">
+                <tapGestureRecognizer id="ic0-pG-B83">
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" modalTransitionStyle="crossDissolve" id="YMO-E1-6KY"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FUx-bc-oJL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="VYk-WS-zGe" userLabel="Full frame color" customClass="FullScreenColorViewController" customModule="ColorMix_v4_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aDu-7P-esa">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bx2-tr-egC">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -224,28 +228,22 @@
                         <outlet property="FullScreenColorView" destination="Bx2-tr-egC" id="p8E-xx-DW3"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FUx-bc-oJL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="ic0-pG-B83">
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="presentation" modalTransitionStyle="crossDissolve" id="YMO-E1-6KY"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="838" y="100"/>
+            <point key="canvasLocation" x="836.25" y="100"/>
         </scene>
         <!--Full Screen Adjust-->
         <scene sceneID="pMw-8z-QDp">
             <objects>
-                <viewController id="ZYc-vP-1wh" userLabel="Full Screen Adjust" customClass="FullScreenAdjustViewController" customModule="ColorMix_v4_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="ZYc-vP-1wh" userLabel="Full Screen Adjust" customClass="FullScreenAdjustViewController" customModule="ColorMix_v4_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DUl-mG-p1X">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aD9-1c-u7g">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="58K-3n-dtw" userLabel="Green Slider">
-                                        <rect key="frame" x="11" y="225" width="298" height="31"/>
+                                        <rect key="frame" x="11" y="318.5" width="353" height="31"/>
                                         <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -254,7 +252,7 @@
                                         </connections>
                                     </slider>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="uJK-xx-liY" userLabel="Blue Slider">
-                                        <rect key="frame" x="11" y="293" width="298" height="31"/>
+                                        <rect key="frame" x="11" y="386.5" width="353" height="31"/>
                                         <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -263,7 +261,7 @@
                                         </connections>
                                     </slider>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hSL-Hr-ycf" userLabel="Red Slider">
-                                        <rect key="frame" x="11" y="157" width="298" height="31"/>
+                                        <rect key="frame" x="11" y="250.5" width="353" height="31"/>
                                         <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -287,7 +285,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fUf-pG-TC6">
-                                <rect key="frame" x="143" y="442" width="34" height="30"/>
+                                <rect key="frame" x="170.5" y="629" width="34" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="w5y-Z9-CmW"/>
                                 </constraints>
@@ -325,32 +323,33 @@
         <!--Settings-->
         <scene sceneID="cSD-PX-gSG">
             <objects>
-                <viewController id="IhM-Co-txv" userLabel="Settings" customClass="SettingsView" customModule="ColorMix_v4_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="IhM-Co-txv" userLabel="Settings" customClass="SettingsView" customModule="ColorMix_v4_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="r1E-8q-xSt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fg2-GN-IbD">
-                                <rect key="frame" x="143" y="430" width="34" height="30"/>
+                                <rect key="frame" x="170.5" y="617" width="34" height="30"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="presentation" modalTransitionStyle="crossDissolve" id="ubM-1l-pZo"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Return Value Format" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyn-OP-EZj">
-                                <rect key="frame" x="81.5" y="22" width="157" height="21"/>
+                                <rect key="frame" x="109" y="2" width="157" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eCJ-gJ-knt">
-                                <rect key="frame" x="16" y="51" width="288" height="29"/>
+                                <rect key="frame" x="16" y="31" width="343" height="32"/>
                                 <segments>
                                     <segment title="Hex"/>
                                     <segment title="0 to 255"/>
                                     <segment title="0 to 1"/>
                                     <segment title="HSB"/>
                                 </segments>
+                                <color key="selectedSegmentTintColor" red="0.43244199472081668" green="0.73469475217987901" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="changeInSelection:" destination="IhM-Co-txv" eventType="valueChanged" id="0AS-SY-6Mu"/>
                                 </connections>
@@ -368,6 +367,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GBd-fh-lNe"/>
                     </view>
+                    <navigationItem key="navigationItem" id="0dP-yt-PNL"/>
                     <connections>
                         <outlet property="formatSelector" destination="eCJ-gJ-knt" id="VWU-Vc-YNb"/>
                     </connections>
@@ -378,12 +378,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Full screen adjust button PDF" width="288" height="288"/>
-        <image name="Full screen button PDF" width="288" height="288"/>
-        <image name="Reset Button PDF" width="288" height="288"/>
-        <image name="Settings button PDF" width="288" height="288"/>
+        <image name="Full screen adjust button PDF" width="1200" height="1200"/>
+        <image name="Full screen button PDF" width="1200" height="1200"/>
+        <image name="Reset Button PDF" width="1200" height="1200"/>
+        <image name="Settings button PDF" width="1200" height="1200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Cnd-yo-1lM"/>
+        <segue reference="ubM-1l-pZo"/>
     </inferredMetricsTieBreakers>
 </document>
