@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
@@ -195,12 +195,6 @@
         <!--Full frame color-->
         <scene sceneID="ekV-XE-Q5d">
             <objects>
-                <tapGestureRecognizer id="ic0-pG-B83">
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="presentation" modalTransitionStyle="crossDissolve" id="YMO-E1-6KY"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FUx-bc-oJL" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="VYk-WS-zGe" userLabel="Full frame color" customClass="FullScreenColorViewController" customModule="ColorMix_v4_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aDu-7P-esa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -228,6 +222,12 @@
                         <outlet property="FullScreenColorView" destination="Bx2-tr-egC" id="p8E-xx-DW3"/>
                     </connections>
                 </viewController>
+                <tapGestureRecognizer id="ic0-pG-B83">
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" modalTransitionStyle="crossDissolve" id="YMO-E1-6KY"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FUx-bc-oJL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="836.25" y="100"/>
         </scene>
