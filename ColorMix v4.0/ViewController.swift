@@ -23,6 +23,20 @@ class ViewController: UIViewController {
         outputText.textContainer.maximumNumberOfLines = 1
         outputText.textContainer.lineBreakMode = .byWordWrapping
         outputTextBackgroundColor = outputText.backgroundColor!
+        if #available(iOS 13.0, *) { // check if dark mode is suported...
+            BackgroundView.backgroundColor = .systemBackground //Change background of backgroundView based on dark mode.
+            if self.traitCollection.userInterfaceStyle == .dark {
+                // User Interface is Dark
+                colorView.layer.borderColor = UIColor.darkGray.cgColor
+                outputText.backgroundColor = .darkGray
+            }else{
+                colorView.layer.borderColor = UIColor.black.cgColor
+                outputText.backgroundColor = .lightGray
+            }
+        } else {
+            // Fallback on earlier versions
+        }
+        outputTextBackgroundColor = outputText.backgroundColor!
         // enable and disable controls by using update controls
         updateControls()
         // Check to see if app was just opened (links to AppDelegate file through static var)
@@ -321,6 +335,9 @@ class ViewController: UIViewController {
     
     //views
     @IBOutlet weak var colorView: UIView!  // this is the display
+    // background view:
+    @IBOutlet var BackgroundView: UIView!
+    
     
     //sliders
     

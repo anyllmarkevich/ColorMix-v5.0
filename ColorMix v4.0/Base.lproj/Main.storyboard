@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <deployment identifier="iOS"/>
+        <deployment version="4864" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -176,6 +176,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="BackgroundView" destination="8bC-Xf-vdC" id="EEt-it-bTI"/>
                         <outlet property="blueSlider" destination="1f6-9S-mKG" id="Nbg-4j-4fm"/>
                         <outlet property="blueSwitch" destination="g9o-Uy-wvK" id="LQ2-qO-ffh"/>
                         <outlet property="colorView" destination="jIT-wL-p6o" id="4fo-9M-M0i"/>
@@ -369,6 +370,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="0dP-yt-PNL"/>
                     <connections>
+                        <outlet property="backgroundView" destination="r1E-8q-xSt" id="wA8-d2-oDc"/>
                         <outlet property="formatSelector" destination="eCJ-gJ-knt" id="VWU-Vc-YNb"/>
                     </connections>
                 </viewController>

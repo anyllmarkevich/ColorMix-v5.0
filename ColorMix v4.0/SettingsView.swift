@@ -16,7 +16,18 @@ class SettingsView: UIViewController {
         // Do any additional setup after loading the view.
         let saveFormat = Int(settingsManager.format)
         formatSelector.selectedSegmentIndex = saveFormat!
+        if #available(iOS 13.0, *) {
+            backgroundView.backgroundColor = .systemBackground
+            if self.traitCollection.userInterfaceStyle == .dark {
+                // User Interface is Dark
+                formatSelector.backgroundColor = .darkGray
+                formatSelector.selectedSegmentTintColor = .blue
+            }
+        } else {
+            // Fallback on earlier versions
+        }
     }
+    @IBOutlet var backgroundView: UIView!
     @IBOutlet weak var formatSelector: UISegmentedControl!
     @IBAction func changeInSelection(_ sender: Any) {
         settingsManager.format = String(formatSelector.selectedSegmentIndex)
