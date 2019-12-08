@@ -18,9 +18,11 @@ class ViewController: UIViewController {
         colorView.layer.cornerRadius = 20
         colorView.layer.borderColor = UIColor.black.cgColor
         // Set up output text
-        outputText.layer.cornerRadius = 5
         outputText.isEditable = false
-        outputText.isSelectable = true
+        outputText.layer.cornerRadius = 10
+        outputText.textContainer.maximumNumberOfLines = 1
+        outputText.textContainer.lineBreakMode = .byWordWrapping
+        outputTextBackgroundColor = outputText.backgroundColor!
         // enable and disable controls by using update controls
         updateControls()
         // Check to see if app was just opened (links to AppDelegate file through static var)
@@ -43,6 +45,10 @@ class ViewController: UIViewController {
         updateColor()  //in update color, the stored state is updated, meaning that this is all we have to do to reset to a correct state
     }
     //setup
+    
+    var outputTextEditable = false
+    var outputTextBackgroundColor: UIColor = .black
+    
     struct stateStorage{  //this is what we use to store the state of the app.
         var rsw: Bool = true
         var rsl: Float = 1
@@ -80,6 +86,7 @@ class ViewController: UIViewController {
         saveState.color = color
         saveState.sliders = stateStorage(rsw: redSwitch.isOn, rsl: redSlider.value, gsw: greenSwitch.isOn, gsl: greenSlider.value, bsw: blueSwitch.isOn, bsl: blueSlider.value)
         updateReturnString()
+        outputText.backgroundColor = outputTextBackgroundColor
     }
     
     func resetColor(){  //this is called when the reset button is pressed
@@ -125,15 +132,190 @@ class ViewController: UIViewController {
         }
         if settingsManager.format == "3"{
             let colorToUse = saveState.color
-            let red = colorToUse.components?.red
-            let green = colorToUse.components?.green
-            let blue = colorToUse.components?.blue
-            var string = String(Int(Float(red!)*360))
+            let hsbReturn = colorToUse.hsbColor
+            var string = String(Int(Float(hsbReturn.hue)*360))
             string += ", "
-            string += String(Int(Float(green!)*360))
+            string += String(Int(Float(hsbReturn.saturation)*100))
             string += ", "
-            string += String(Int(Float(blue!)*360))
+            string += String(Int(Float(hsbReturn.brightness)*100))
             outputText.text = string
+        }
+    }
+    class isRightFormat{
+        static var outputedColors = [Float]()
+        static func is255Format(_ inputtedString: String) -> Bool{
+            var input = ""
+            input = inputtedString.removingWhitespaces()
+            var good = true
+            var characters = [String]()
+            var comas = [Int]()
+            var count = 0
+            for i in input{
+                characters.append(String(i))
+                if i == ","{
+                    comas.append(count)
+                }
+                count+=1
+            }
+            if comas.count == 2{}else{ good = false }
+            if good == true{ if comas[0] < 4 && comas[1] < comas[0] + 5{}else{ good = false } }
+            if good == true{ if comas[0] > 0 && comas[1] > comas[0] + 1{}else{ good = false } }
+            var r = ""
+            var g = ""
+            var b = ""
+            count = 0
+            if good == true{
+                for i in characters{
+                    if count < comas[0]{
+                        r += String(i)
+                    }else if count > comas[0] && count < comas[1]{
+                        g += String(i)
+                    }else if count > comas[1]{
+                        b += String(i)
+                    }
+                    count+=1
+                }
+            }
+            if good == true{ if r.isNumeric{}else{ good = false } }
+            if good == true{ if g.isNumeric{}else{ good = false } }
+            if good == true{ if b.isNumeric{}else{ good = false } }
+            if good == true{
+                let rn = Float(r)
+                let gn = Float(g)
+                let bn = Float(b)
+                if rn! < 256{}else{ good = false }
+                if gn! < 256{}else{ good = false }
+                if bn! < 256{}else{ good = false }
+                outputedColors = [rn!/255, gn!/255, bn!/255]
+            }
+            return good
+        }
+        //////
+        
+        //////
+        static func isHSBFormat(_ inputtedString: String) -> Bool{
+            var input = ""
+            input = inputtedString.removingWhitespaces()
+            var good = true
+            var characters = [String]()
+            var comas = [Int]()
+            var count = 0
+            for i in input{
+                characters.append(String(i))
+                if i == ","{
+                    comas.append(count)
+                }
+                count+=1
+            }
+            if comas.count == 2{}else{ good = false }
+            if good == true{ if comas[0] < 4 && comas[1] < comas[0] + 5{}else{ good = false } }
+            if good == true{ if comas[0] > 0 && comas[1] > comas[0] + 1{}else{ good = false } }
+            var h = ""
+            var s = ""
+            var l = ""
+            count = 0
+            if good == true{
+                for i in characters{
+                    if count < comas[0]{
+                        h += String(i)
+                    }else if count > comas[0] && count < comas[1]{
+                        s += String(i)
+                    }else if count > comas[1]{
+                        l += String(i)
+                    }
+                    count+=1
+                }
+            }
+            if good == true{ if h.isNumeric{}else{ good = false } }
+            if good == true{ if s.isNumeric{}else{ good = false } }
+            if good == true{ if l.isNumeric{}else{ good = false } }
+            if good == true{
+                let hn = Float(h)
+                let sn = Float(s)
+                let ln = Float(l)
+                if hn! < 361{}else{ good = false }
+                if sn! < 101{}else{ good = false }
+                if ln! < 101{}else{ good = false }
+                outputedColors = []
+                let uicolorInput = UIColor(hue: CGFloat(hn!/360), saturation: CGFloat(sn!/100), brightness: CGFloat(ln!/100), alpha: 1)
+                outputedColors = [Float(uicolorInput.rgba.red), Float(uicolorInput.rgba.green), Float(uicolorInput.rgba.blue)]
+            }
+            return good
+        }
+        /////
+        
+        
+        /////
+        static func is0To1Format(_ inputtedString: String) -> Bool{
+            var input = ""
+            input = inputtedString.removingWhitespaces()
+            var good = true
+            var characters = [String]()
+            var comas = [Int]()
+            var dots = [Int]()
+            var count = 0
+            for i in input{
+                characters.append(String(i))
+                if i == ","{
+                    comas.append(count)
+                }
+                if i == "."{
+                    dots.append(count)
+                }
+                count+=1
+            }
+            if comas.count == 2{}else{ good = false }
+            if dots.count == 3{}else{ good = false }
+            if good == true{ if comas[0] > 0 && comas[1] > comas[0] + 1{}else{ good = false } }
+            if good == true{ if comas[0] > dots[0] && dots[1] > comas[0] && comas[1] > dots[1] && comas[1] < dots[2]{}else{ good = false } }
+            var r = ""
+            var g = ""
+            var b = ""
+            count = 0
+            if good == true{
+                for i in characters{
+                    if count < comas[0]{
+                        r += String(i)
+                    }else if count > comas[0] && count < comas[1]{
+                        g += String(i)
+                    }else if count > comas[1]{
+                        b += String(i)
+                    }
+                    count+=1
+                }
+            }
+            if good == true{ if r.isDecimal{}else{ good = false } }
+            if good == true{ if g.isDecimal{}else{ good = false } }
+            if good == true{ if b.isDecimal{}else{ good = false } }
+            if good == true{
+                let rn = Float(r)
+                let gn = Float(g)
+                let bn = Float(b)
+                if rn! <= 1{}else{ good = false }
+                if gn! <= 1{}else{ good = false }
+                if bn! <= 1{}else{ good = false }
+                outputedColors = [rn!, gn!, bn!]
+            }
+            return good
+        }
+        static func isHexFormat(_ inputtedString: String) -> Bool{
+            var input = ""
+            input = inputtedString.removingWhitespaces()
+            if input[0] == "#"{
+                input.remove(at: input.startIndex)
+            }
+            var good = true
+            if input.isColorHex{}else{good = false}
+            if good == true{
+                let r = input[0]+input[1]
+                let g = input[2]+input[3]
+                let b = input[4]+input[5]
+                let rn = Float(r.hexToNum!)/255
+                let gn = Float(g.hexToNum!)/255
+                let bn = Float(b.hexToNum!)/255
+                outputedColors = [rn, gn, bn]
+            }
+            return good
         }
     }
     
@@ -175,12 +357,57 @@ class ViewController: UIViewController {
         updateColor()
     }
     
-    //buttons
+    //Buttons
     
+    // reset
     @IBOutlet weak var resetButton: UIButton!  //reset button
     @IBAction func resetButtonPressed(_ sender: Any) {
         resetColor()
     }
+    //input / cancel
+    @IBOutlet weak var inputButton: UIButton!
+    @IBAction func inputButtonPressed(_ sender: Any) {
+        if outputTextEditable == false{
+            outputText.isEditable = true
+            outputTextEditable = true
+            inputButton.setTitle("Done",for: .normal)
+        }else{
+            outputTextEditable = false
+            outputText.isEditable = false
+            inputButton.setTitle("Edit",for: .normal)
+            if isRightFormat.is255Format(outputText.text) && settingsManager.format == "1"{
+                outputText.backgroundColor = outputTextBackgroundColor
+                redSlider.value = isRightFormat.outputedColors[0]
+                greenSlider.value = isRightFormat.outputedColors[1]
+                blueSlider.value = isRightFormat.outputedColors[2]
+                updateColor()
+            }else if isRightFormat.isHSBFormat(outputText.text) && settingsManager.format == "3"{
+                outputText.backgroundColor = outputTextBackgroundColor
+                redSlider.value = isRightFormat.outputedColors[0]
+                greenSlider.value = isRightFormat.outputedColors[1]
+                blueSlider.value = isRightFormat.outputedColors[2]
+                updateColor()
+            }else if isRightFormat.is0To1Format(outputText.text) && settingsManager.format == "2"{
+                outputText.backgroundColor = outputTextBackgroundColor
+                redSlider.value = isRightFormat.outputedColors[0]
+                greenSlider.value = isRightFormat.outputedColors[1]
+                blueSlider.value = isRightFormat.outputedColors[2]
+                updateColor()
+            }else if isRightFormat.isHexFormat(outputText.text) && settingsManager.format == "0"{
+                outputText.backgroundColor = outputTextBackgroundColor
+                redSlider.value = isRightFormat.outputedColors[0]
+                greenSlider.value = isRightFormat.outputedColors[1]
+                blueSlider.value = isRightFormat.outputedColors[2]
+                updateColor()
+            }else{
+                outputText.backgroundColor = UIColor(red: 1, green: 0.2, blue: 0.2, alpha: 1)
+            }
+            //print(test)
+        }
+    }
     //Text views
     @IBOutlet weak var outputText: UITextView!
+    /*
+    var test = UIColor(red: 0.5, green: 0.3, blue: 1, alpha: 1).hsbColor
+ */
 }
