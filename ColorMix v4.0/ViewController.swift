@@ -427,4 +427,25 @@ class ViewController: UIViewController {
     /*
     var test = UIColor(red: 0.5, green: 0.3, blue: 1, alpha: 1).hsbColor
  */
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        colorView.layer.borderColor = UIColor.black.cgColor
+        outputTextBackgroundColor = outputText.backgroundColor!
+        if #available(iOS 13.0, *) { // check if dark mode is suported...
+            BackgroundView.backgroundColor = .systemBackground //Change background of backgroundView based on dark mode.
+            if self.traitCollection.userInterfaceStyle == .dark {
+                // User Interface is Dark
+                colorView.layer.borderColor = UIColor.darkGray.cgColor
+                if outputText.backgroundColor != UIColor(red: 1, green: 0.2, blue: 0.2, alpha: 1){
+                    outputText.backgroundColor = .darkGray
+                }
+            }else{
+                colorView.layer.borderColor = UIColor.black.cgColor
+                if outputText.backgroundColor != UIColor(red: 1, green: 0.2, blue: 0.2, alpha: 1){
+                    outputText.backgroundColor = .lightGray
+                }
+            }
+        } else {
+            // Fallback on earlier versions
+        }
+    }
 }
