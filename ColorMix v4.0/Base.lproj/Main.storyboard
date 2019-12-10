@@ -38,7 +38,7 @@
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="12" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Wtb-rw-xxG">
                                 <rect key="frame" x="57" y="229" width="300" height="36"/>
-                                <color key="backgroundColor" red="0.93254128889999999" green="0.93254128889999999" blue="0.93254128889999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="s3q-Bh-8a3"/>
                                 </constraints>
@@ -350,7 +350,7 @@
                                     <segment title="0 to 1"/>
                                     <segment title="HSB"/>
                                 </segments>
-                                <color key="selectedSegmentTintColor" red="0.43244199472081668" green="0.73469475217987901" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="selectedSegmentTintColor" red="0.43137254901960786" green="0.73333333333333328" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="changeInSelection:" destination="IhM-Co-txv" eventType="valueChanged" id="0AS-SY-6Mu"/>
                                 </connections>

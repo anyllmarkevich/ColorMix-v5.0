@@ -22,6 +22,9 @@ class SettingsView: UIViewController {
                 // User Interface is Dark
                 formatSelector.backgroundColor = .darkGray
                 formatSelector.selectedSegmentTintColor = .blue
+            }else{
+                formatSelector.selectedSegmentTintColor = UIColor(hexString: "6EBBFF")
+                formatSelector.backgroundColor = .lightGray
             }
         } else {
             // Fallback on earlier versions
@@ -45,6 +48,19 @@ class SettingsView: UIViewController {
 
         }
     }
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+    if #available(iOS 13.0, *) { // check if dark mode is suported...
+        if self.traitCollection.userInterfaceStyle == .dark {
+            // User Interface is Dark
+            formatSelector.backgroundColor = .darkGray
+            formatSelector.selectedSegmentTintColor = .blue
+        }else{
+            formatSelector.backgroundColor = .lightGray
+            formatSelector.selectedSegmentTintColor = UIColor(hexString: "6EBBFF")
+        }
+    } else {
+        // Fallback on earlier versions
+    }
     
 
     /*
@@ -57,4 +73,5 @@ class SettingsView: UIViewController {
     }
     */
 
+}
 }
