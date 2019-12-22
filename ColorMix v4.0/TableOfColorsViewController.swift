@@ -12,9 +12,6 @@ class TableOfColorsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        listOfColors = ["red","green","blue"]
-        print("Created list")
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -22,7 +19,6 @@ class TableOfColorsViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-    var listOfColors = [String]()
     
     // MARK: - Table view data source
 
@@ -35,13 +31,13 @@ class TableOfColorsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         print("Going to return listOfColors.count")
-        return listOfColors.count
+        return SavedColors.SavedColorsList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ColorTableViewCell", for: indexPath)
         print("defined cell")
-        cell.textLabel?.text = listOfColors[indexPath.row]
+        cell.textLabel?.text = SavedColors.SavedColorsList[indexPath.row]
         print("added text to cell\n going to return cell")
 
         return cell

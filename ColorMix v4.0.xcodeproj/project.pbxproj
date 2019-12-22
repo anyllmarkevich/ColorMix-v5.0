@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F41B44F923AEED520090E12A /* TableOfColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41B44F823AEED520090E12A /* TableOfColorsViewController.swift */; };
 		F41B44FB23B0029A0090E12A /* ColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41B44FA23B0029A0090E12A /* ColorTableViewCell.swift */; };
+		F41B44FD23B008A50090E12A /* ListOfColorsSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41B44FC23B008A50090E12A /* ListOfColorsSave.swift */; };
 		F4541D37228352A600E1552B /* FullScreenColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4541D36228352A600E1552B /* FullScreenColorViewController.swift */; };
 		F45BB9D822AF311F00BFB6C5 /* FullScreenAdjustViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45BB9D722AF311F00BFB6C5 /* FullScreenAdjustViewController.swift */; };
 		F45BB9DA22AF323100BFB6C5 /* colorSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45BB9D922AF323100BFB6C5 /* colorSave.swift */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		F41B44F823AEED520090E12A /* TableOfColorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableOfColorsViewController.swift; sourceTree = "<group>"; };
 		F41B44FA23B0029A0090E12A /* ColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableViewCell.swift; sourceTree = "<group>"; };
+		F41B44FC23B008A50090E12A /* ListOfColorsSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfColorsSave.swift; sourceTree = "<group>"; };
 		F4541D36228352A600E1552B /* FullScreenColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenColorViewController.swift; sourceTree = "<group>"; };
 		F45BB9D722AF311F00BFB6C5 /* FullScreenAdjustViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenAdjustViewController.swift; sourceTree = "<group>"; };
 		F45BB9D922AF323100BFB6C5 /* colorSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorSave.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				F45BB9D922AF323100BFB6C5 /* colorSave.swift */,
+				F41B44FC23B008A50090E12A /* ListOfColorsSave.swift */,
 				F4F9D87222DD42BD00073A4B /* settingsManager.swift */,
 			);
 			name = "Static Variable Classes";
@@ -205,6 +208,7 @@
 				F41B44F923AEED520090E12A /* TableOfColorsViewController.swift in Sources */,
 				F4F9D87322DD42BD00073A4B /* settingsManager.swift in Sources */,
 				F48E97E22235CE3900171A87 /* ViewController.swift in Sources */,
+				F41B44FD23B008A50090E12A /* ListOfColorsSave.swift in Sources */,
 				F41B44FB23B0029A0090E12A /* ColorTableViewCell.swift in Sources */,
 				F48E97E02235CE3900171A87 /* AppDelegate.swift in Sources */,
 				F49B5B9A22DD380A00762E01 /* Extensions.swift in Sources */,
