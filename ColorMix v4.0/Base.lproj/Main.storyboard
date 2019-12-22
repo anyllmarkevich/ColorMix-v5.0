@@ -311,6 +311,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <accessibility key="accessibilityConfiguration" identifier="ColorCell"/>
+                                <connections>
+                                    <outlet property="ColorBackground" destination="Mks-dx-W3e" id="kU8-1N-fkh"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

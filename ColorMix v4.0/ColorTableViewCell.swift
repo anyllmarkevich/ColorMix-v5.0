@@ -13,8 +13,11 @@ class ColorTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        ColorBackground.backgroundColor = .green
+        self.textLabel?.textColor = .black
     }
 
+    @IBOutlet weak var ColorBackground: UIView!
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
