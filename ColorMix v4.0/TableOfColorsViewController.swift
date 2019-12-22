@@ -39,7 +39,7 @@ class TableOfColorsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ColorCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ColorTableViewCell", for: indexPath)
         print("defined cell")
         cell.textLabel?.text = listOfColors[indexPath.row]
         print("added text to cell\n going to return cell")

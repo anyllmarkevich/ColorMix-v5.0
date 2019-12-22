@@ -291,7 +291,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="VRT-N1-BWL" userLabel="ColorCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ColorTableViewCell" id="VRT-N1-BWL" userLabel="ColorCell" customClass="ColorTableViewCell" customModule="ColorMix_v4_0" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="73" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VRT-N1-BWL" id="TXv-kz-oot">
@@ -302,22 +302,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         </view>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Hi" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fyF-jd-mfa">
-                                            <rect key="frame" x="19" y="4" width="337" height="34"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="34" id="b8E-6J-5Zq"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="fyF-jd-mfa" firstAttribute="top" secondItem="TXv-kz-oot" secondAttribute="top" constant="4" id="6jX-Bi-Cjo"/>
                                         <constraint firstItem="Mks-dx-W3e" firstAttribute="top" secondItem="TXv-kz-oot" secondAttribute="top" id="EpA-ng-dgQ"/>
                                         <constraint firstItem="Mks-dx-W3e" firstAttribute="leading" secondItem="TXv-kz-oot" secondAttribute="leading" id="MC8-3m-pyi"/>
                                         <constraint firstAttribute="bottom" secondItem="Mks-dx-W3e" secondAttribute="bottom" id="Uij-aA-3W8"/>
-                                        <constraint firstItem="fyF-jd-mfa" firstAttribute="leading" secondItem="TXv-kz-oot" secondAttribute="leading" constant="19" id="W2l-gf-Lr2"/>
-                                        <constraint firstAttribute="trailing" secondItem="fyF-jd-mfa" secondAttribute="trailing" constant="19" id="exb-h1-mO9"/>
                                         <constraint firstAttribute="trailing" secondItem="Mks-dx-W3e" secondAttribute="trailing" id="nAZ-8z-d1v"/>
                                     </constraints>
                                 </tableViewCellContentView>
