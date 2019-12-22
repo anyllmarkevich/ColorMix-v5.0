@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait" appearance="dark"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="4864" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
@@ -145,6 +145,14 @@
                                     <constraint firstAttribute="width" constant="287" id="m8R-35-qD9"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGr-dC-KK9">
+                                <rect key="frame" x="164" y="509" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="n7f-26-vgh" kind="presentation" id="OKr-Do-UVL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -231,6 +239,100 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FUx-bc-oJL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="836.25" y="100"/>
+        </scene>
+        <!--Table Of Colors View Controller-->
+        <scene sceneID="OvW-IR-InJ">
+            <objects>
+                <tableViewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="n7f-26-vgh" customClass="TableOfColorsViewController" customModule="ColorMix_v4_0" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="god-Fd-eCz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="1gI-9a-4NR">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="boO-9U-Gqy">
+                                    <rect key="frame" x="8" y="0.0" width="50" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="50" id="Q3v-yg-PUY"/>
+                                        <constraint firstAttribute="height" constant="50" id="vtK-Fg-mss"/>
+                                    </constraints>
+                                    <state key="normal" title="Button" image="Reset Button PDF"/>
+                                    <connections>
+                                        <segue destination="BYZ-38-t0r" kind="presentation" id="9gl-gi-60t"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2H-0J-eO1">
+                                    <rect key="frame" x="167.5" y="2" width="40" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="40" id="8rV-zz-kPD"/>
+                                        <constraint firstAttribute="height" constant="40" id="MPn-F4-RuS"/>
+                                    </constraints>
+                                    <state key="normal" title="Button" image="Trash PDF"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jrs-eC-1es">
+                                    <rect key="frame" x="327" y="2" width="40" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="40" id="brz-Xq-xBF"/>
+                                        <constraint firstAttribute="height" constant="40" id="v2v-Iz-2Ly"/>
+                                    </constraints>
+                                    <state key="normal" title="Button" image="Save PDF"/>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstItem="jrs-eC-1es" firstAttribute="top" secondItem="1gI-9a-4NR" secondAttribute="top" constant="2" id="1AT-cu-gBf"/>
+                                <constraint firstItem="d2H-0J-eO1" firstAttribute="top" secondItem="1gI-9a-4NR" secondAttribute="top" constant="2" id="Aqf-YP-Lws"/>
+                                <constraint firstItem="boO-9U-Gqy" firstAttribute="top" secondItem="1gI-9a-4NR" secondAttribute="top" id="MtE-O6-kbP"/>
+                                <constraint firstItem="d2H-0J-eO1" firstAttribute="centerX" secondItem="1gI-9a-4NR" secondAttribute="centerX" id="fVp-C2-Se2"/>
+                                <constraint firstAttribute="trailing" secondItem="jrs-eC-1es" secondAttribute="trailing" constant="8" id="gSu-ue-S3T"/>
+                                <constraint firstItem="boO-9U-Gqy" firstAttribute="leading" secondItem="1gI-9a-4NR" secondAttribute="leading" constant="8" id="sga-97-3MS"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="VRT-N1-BWL" userLabel="ColorCell">
+                                <rect key="frame" x="0.0" y="73" width="375" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VRT-N1-BWL" id="TXv-kz-oot">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mks-dx-W3e">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        </view>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Hi" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fyF-jd-mfa">
+                                            <rect key="frame" x="19" y="4" width="337" height="34"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="34" id="b8E-6J-5Zq"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="fyF-jd-mfa" firstAttribute="top" secondItem="TXv-kz-oot" secondAttribute="top" constant="4" id="6jX-Bi-Cjo"/>
+                                        <constraint firstItem="Mks-dx-W3e" firstAttribute="top" secondItem="TXv-kz-oot" secondAttribute="top" id="EpA-ng-dgQ"/>
+                                        <constraint firstItem="Mks-dx-W3e" firstAttribute="leading" secondItem="TXv-kz-oot" secondAttribute="leading" id="MC8-3m-pyi"/>
+                                        <constraint firstAttribute="bottom" secondItem="Mks-dx-W3e" secondAttribute="bottom" id="Uij-aA-3W8"/>
+                                        <constraint firstItem="fyF-jd-mfa" firstAttribute="leading" secondItem="TXv-kz-oot" secondAttribute="leading" constant="19" id="W2l-gf-Lr2"/>
+                                        <constraint firstAttribute="trailing" secondItem="fyF-jd-mfa" secondAttribute="trailing" constant="19" id="exb-h1-mO9"/>
+                                        <constraint firstAttribute="trailing" secondItem="Mks-dx-W3e" secondAttribute="trailing" id="nAZ-8z-d1v"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" identifier="ColorCell"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="n7f-26-vgh" id="L5E-LO-JuJ"/>
+                            <outlet property="delegate" destination="n7f-26-vgh" id="WBw-xk-oMT"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EhL-ko-2SH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2495.1999999999998" y="-477.21139430284859"/>
         </scene>
         <!--Full Screen Adjust-->
         <scene sceneID="pMw-8z-QDp">
@@ -383,9 +485,12 @@
         <image name="Full screen adjust button PDF" width="1200" height="1200"/>
         <image name="Full screen button PDF" width="1200" height="1200"/>
         <image name="Reset Button PDF" width="1200" height="1200"/>
+        <image name="Save PDF" width="1200" height="1200"/>
         <image name="Settings button PDF" width="1200" height="1200"/>
+        <image name="Trash PDF" width="1200" height="1200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ubM-1l-pZo"/>
+        <segue reference="9gl-gi-60t"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.54503643509999999" green="0.54513353109999996" blue="0.54503029579999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
