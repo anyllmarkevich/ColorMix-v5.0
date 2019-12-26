@@ -243,26 +243,15 @@
         <!--Table Of Colors View Controller-->
         <scene sceneID="OvW-IR-InJ">
             <objects>
-                <tableViewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="n7f-26-vgh" customClass="TableOfColorsViewController" customModule="ColorMix_v4_0" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController modalTransitionStyle="crossDissolve" id="n7f-26-vgh" customClass="TableOfColorsViewController" customModule="ColorMix_v4_0" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="god-Fd-eCz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="1gI-9a-4NR">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="boO-9U-Gqy">
-                                    <rect key="frame" x="8" y="0.0" width="50" height="50"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="50" id="Q3v-yg-PUY"/>
-                                        <constraint firstAttribute="height" constant="50" id="vtK-Fg-mss"/>
-                                    </constraints>
-                                    <state key="normal" title="Button" image="Reset Button PDF"/>
-                                    <connections>
-                                        <segue destination="BYZ-38-t0r" kind="presentation" id="9gl-gi-60t"/>
-                                    </connections>
-                                </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2H-0J-eO1">
                                     <rect key="frame" x="167.5" y="2" width="40" height="40"/>
                                     <constraints>
@@ -284,10 +273,8 @@
                             <constraints>
                                 <constraint firstItem="jrs-eC-1es" firstAttribute="top" secondItem="1gI-9a-4NR" secondAttribute="top" constant="2" id="1AT-cu-gBf"/>
                                 <constraint firstItem="d2H-0J-eO1" firstAttribute="top" secondItem="1gI-9a-4NR" secondAttribute="top" constant="2" id="Aqf-YP-Lws"/>
-                                <constraint firstItem="boO-9U-Gqy" firstAttribute="top" secondItem="1gI-9a-4NR" secondAttribute="top" id="MtE-O6-kbP"/>
                                 <constraint firstItem="d2H-0J-eO1" firstAttribute="centerX" secondItem="1gI-9a-4NR" secondAttribute="centerX" id="fVp-C2-Se2"/>
                                 <constraint firstAttribute="trailing" secondItem="jrs-eC-1es" secondAttribute="trailing" constant="8" id="gSu-ue-S3T"/>
-                                <constraint firstItem="boO-9U-Gqy" firstAttribute="leading" secondItem="1gI-9a-4NR" secondAttribute="leading" constant="8" id="sga-97-3MS"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -467,7 +454,7 @@
         <image name="Trash PDF" width="1200" height="1200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9gl-gi-60t"/>
+        <segue reference="Cnd-yo-1lM"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.54503643509999999" green="0.54513353109999996" blue="0.54503029579999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
