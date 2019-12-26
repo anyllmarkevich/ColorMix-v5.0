@@ -297,23 +297,8 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VRT-N1-BWL" id="TXv-kz-oot">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mks-dx-W3e">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        </view>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Mks-dx-W3e" firstAttribute="top" secondItem="TXv-kz-oot" secondAttribute="top" id="EpA-ng-dgQ"/>
-                                        <constraint firstItem="Mks-dx-W3e" firstAttribute="leading" secondItem="TXv-kz-oot" secondAttribute="leading" id="MC8-3m-pyi"/>
-                                        <constraint firstAttribute="bottom" secondItem="Mks-dx-W3e" secondAttribute="bottom" id="Uij-aA-3W8"/>
-                                        <constraint firstAttribute="trailing" secondItem="Mks-dx-W3e" secondAttribute="trailing" id="nAZ-8z-d1v"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                                 <accessibility key="accessibilityConfiguration" identifier="ColorCell"/>
-                                <connections>
-                                    <outlet property="ColorBackground" destination="Mks-dx-W3e" id="kU8-1N-fkh"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

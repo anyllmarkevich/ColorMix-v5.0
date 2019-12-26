@@ -39,7 +39,7 @@ class TableOfColorsViewController: UITableViewController {
         print("defined cell")
         cell.textLabel?.text = SavedColors.SavedColorsList[indexPath.row]
         print("added text to cell\n going to return cell")
-        cell.ColorBackground? = .purple
+        cell.backgroundColor = SavedColors.SavedColorsColor[indexPath.row]
 
         return cell
     }
