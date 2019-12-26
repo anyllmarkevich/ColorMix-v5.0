@@ -11,5 +11,6 @@ import UIKit
 
 class SavedColors: NSCoder{
     static var SavedColorsList = ["red","green"]
+    static var SavedColorsColor = [UIColor.red, UIColor.green]
 }
 

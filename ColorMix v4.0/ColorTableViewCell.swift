@@ -12,9 +12,20 @@ class ColorTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         // Initialization code
-        ColorBackground.backgroundColor = .green
+        /*ColorBackground.backgroundColor = .green
         self.textLabel?.textColor = .black
+        var myItemNumber = 0
+        var iterations = 0
+        for _ in SavedColors.SavedColorsList{
+            if textLabel?.text == SavedColors.SavedColorsList[iterations]{
+                myItemNumber = iterations
+            }
+            iterations += 1
+        }
+        ColorBackground.backgroundColor = SavedColors.SavedColorsColor[myItemNumber]
+         */
     }
 
     @IBOutlet weak var ColorBackground: UIView!

@@ -115,8 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				F45BB9D922AF323100BFB6C5 /* colorSave.swift */,
-				F41B44FC23B008A50090E12A /* ListOfColorsSave.swift */,
 				F4F9D87222DD42BD00073A4B /* settingsManager.swift */,
+				F41B44FC23B008A50090E12A /* ListOfColorsSave.swift */,
 			);
 			name = "Static Variable Classes";
 			sourceTree = "<group>";
