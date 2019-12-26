@@ -251,31 +251,7 @@
                         <view key="tableHeaderView" contentMode="scaleToFill" id="1gI-9a-4NR">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2H-0J-eO1">
-                                    <rect key="frame" x="167.5" y="2" width="40" height="40"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="40" id="8rV-zz-kPD"/>
-                                        <constraint firstAttribute="height" constant="40" id="MPn-F4-RuS"/>
-                                    </constraints>
-                                    <state key="normal" title="Button" image="Trash PDF"/>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jrs-eC-1es">
-                                    <rect key="frame" x="327" y="2" width="40" height="40"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="40" id="brz-Xq-xBF"/>
-                                        <constraint firstAttribute="height" constant="40" id="v2v-Iz-2Ly"/>
-                                    </constraints>
-                                    <state key="normal" title="Button" image="Save PDF"/>
-                                </button>
-                            </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            <constraints>
-                                <constraint firstItem="jrs-eC-1es" firstAttribute="top" secondItem="1gI-9a-4NR" secondAttribute="top" constant="2" id="1AT-cu-gBf"/>
-                                <constraint firstItem="d2H-0J-eO1" firstAttribute="top" secondItem="1gI-9a-4NR" secondAttribute="top" constant="2" id="Aqf-YP-Lws"/>
-                                <constraint firstItem="d2H-0J-eO1" firstAttribute="centerX" secondItem="1gI-9a-4NR" secondAttribute="centerX" id="fVp-C2-Se2"/>
-                                <constraint firstAttribute="trailing" secondItem="jrs-eC-1es" secondAttribute="trailing" constant="8" id="gSu-ue-S3T"/>
-                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ColorTableViewCell" id="VRT-N1-BWL" userLabel="ColorCell" customClass="ColorTableViewCell" customModule="ColorMix_v4_0" customModuleProvider="target">
@@ -449,9 +425,7 @@
         <image name="Full screen adjust button PDF" width="1200" height="1200"/>
         <image name="Full screen button PDF" width="1200" height="1200"/>
         <image name="Reset Button PDF" width="1200" height="1200"/>
-        <image name="Save PDF" width="1200" height="1200"/>
         <image name="Settings button PDF" width="1200" height="1200"/>
-        <image name="Trash PDF" width="1200" height="1200"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Cnd-yo-1lM"/>
