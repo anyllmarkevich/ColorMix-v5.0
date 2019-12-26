@@ -40,9 +40,25 @@ class TableOfColorsViewController: UITableViewController {
         cell.textLabel?.text = SavedColors.SavedColorsList[indexPath.row]
         print("added text to cell\n going to return cell")
         cell.backgroundColor = SavedColors.SavedColorsColor[indexPath.row]
+        cell.textLabel?.textColor = findATextColor(color: SavedColors.SavedColorsColor[indexPath.row])
 
         return cell
     }
+    
+    func findATextColor(color: UIColor) -> UIColor{  //find a number that will inform app of background darkness
+        let valueList = [Float(color.rgbColor.red), Float(color.rgbColor.green), Float(color.rgbColor.blue)]  //create a list with the efective value of sliders
+           var biggestValue: Float = 0  //keep track of the biggest slider with this variable
+           for i in valueList{  //repeat for the length of the list (3)
+               if i > biggestValue{  // if this is the largest value yet:
+                   biggestValue = i  //set the biggest value  var to it
+               }
+           }
+           if biggestValue > 0.3{
+            return .black
+           }else{  //else
+            return .white  // turn the sliders black
+           }
+       }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
