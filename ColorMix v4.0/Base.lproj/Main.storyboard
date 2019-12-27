@@ -251,7 +251,45 @@
                         <view key="tableHeaderView" contentMode="scaleToFill" id="1gI-9a-4NR">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="59" translatesAutoresizingMaskIntoConstraints="NO" id="ASp-fc-3ba">
+                                    <rect key="frame" x="22" y="7.5" width="331" height="30"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qg2-jt-yfv">
+                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                            <state key="normal" title="Add">
+                                                <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bm-E0-FKx">
+                                            <rect key="frame" x="89" y="0.0" width="38" height="30"/>
+                                            <state key="normal" title="Open">
+                                                <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eKz-1c-r2y">
+                                            <rect key="frame" x="186" y="0.0" width="30" height="30"/>
+                                            <state key="normal" title="Edit">
+                                                <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keW-gr-ACQ">
+                                            <rect key="frame" x="275" y="0.0" width="56" height="30"/>
+                                            <state key="normal" title="Rename">
+                                                <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="331" id="oYw-U1-15j"/>
+                                    </constraints>
+                                </stackView>
+                            </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstItem="ASp-fc-3ba" firstAttribute="centerY" secondItem="1gI-9a-4NR" secondAttribute="centerY" id="ikf-XY-4sB"/>
+                                <constraint firstItem="ASp-fc-3ba" firstAttribute="centerX" secondItem="1gI-9a-4NR" secondAttribute="centerX" id="s0j-Xq-MYm"/>
+                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ColorTableViewCell" id="VRT-N1-BWL" userLabel="ColorCell" customClass="ColorTableViewCell" customModule="ColorMix_v4_0" customModuleProvider="target">
