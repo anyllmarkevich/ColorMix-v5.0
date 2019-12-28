@@ -46,23 +46,19 @@ class TableOfColorsViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        print("Going to return numberOfSections = 1")
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        print("Going to return listOfColors.count")
         return SavedColors.SavedColorsList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ColorTableViewCell", for: indexPath)
-        print("defined cell")
-        cell.textLabel?.text = (SavedColors.SavedColorsList[indexPath.row][0] as! String)
-        print("added text to cell\n going to return cell")
-        cell.backgroundColor = (SavedColors.SavedColorsList[indexPath.row][1] as! UIColor)
-        cell.textLabel?.textColor = findATextColor(color: SavedColors.SavedColorsList[indexPath.row][1] as! UIColor)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ColorTableViewCell", for: indexPath)  // define a cell
+        cell.textLabel?.text = (SavedColors.SavedColorsList[indexPath.row][0] as! String)  // make text of cell
+        cell.backgroundColor = (SavedColors.SavedColorsList[indexPath.row][1] as! UIColor)  // set background color of cell.
+        cell.textLabel?.textColor = findATextColor(color: SavedColors.SavedColorsList[indexPath.row][1] as! UIColor)  // set text color of cell.
 
         return cell
     }

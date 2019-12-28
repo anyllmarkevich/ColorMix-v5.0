@@ -146,8 +146,6 @@ class FullScreenAdjustViewController: UIViewController {
         saveState.sliders.bsw = true
         changeColors()
     }
-    
-    
 
     /*
     // MARK: - Navigation

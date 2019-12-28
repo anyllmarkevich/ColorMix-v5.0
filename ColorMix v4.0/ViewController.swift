@@ -13,16 +13,22 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //DO PRIMARY SETUP OF VIEW
+        
         // Set up the color area
-        colorView.layer.borderWidth = 5
-        colorView.layer.cornerRadius = 20
-        colorView.layer.borderColor = UIColor.black.cgColor
+        colorView.layer.borderWidth = 5  //border
+        colorView.layer.cornerRadius = 20  //reounded border
+        colorView.layer.borderColor = UIColor.black.cgColor  //black border
         // Set up output text
-        outputText.isEditable = false
-        outputText.layer.cornerRadius = 10
-        outputText.textContainer.maximumNumberOfLines = 1
-        outputText.textContainer.lineBreakMode = .byWordWrapping
-        outputTextBackgroundColor = outputText.backgroundColor!
+        outputText.isEditable = false  //make sure that the user can't edit text
+        outputText.layer.cornerRadius = 10  // add rounded corners
+        outputText.textContainer.maximumNumberOfLines = 1  //!!Try to keep user from using more than one line, but this is finicky, and needs to be impoved.
+        outputText.textContainer.lineBreakMode = .byWordWrapping  //When the user tries to use more than one word, the text will "wordwrap"
+        outputTextBackgroundColor = outputText.backgroundColor!  //save the background color of the text for later use.
+        
+        // DARK MODE
+        
         if #available(iOS 13.0, *) { // check if dark mode is suported...
             BackgroundView.backgroundColor = .systemBackground //Change background of backgroundView based on dark mode.
             if self.traitCollection.userInterfaceStyle == .dark {
@@ -30,13 +36,17 @@ class ViewController: UIViewController {
                 colorView.layer.borderColor = UIColor.darkGray.cgColor
                 outputText.backgroundColor = .darkGray
             }else{
+                // User interface is Light
                 colorView.layer.borderColor = UIColor.black.cgColor
                 outputText.backgroundColor = .lightGray
             }
         } else {
             // Fallback on earlier versions
         }
-        outputTextBackgroundColor = outputText.backgroundColor!
+        outputTextBackgroundColor = outputText.backgroundColor!  //save the new background color of the text
+        
+        //COTROLS
+        
         // enable and disable controls by using update controls
         updateControls()
         // Check to see if app was just opened (links to AppDelegate file through static var)
@@ -59,6 +69,7 @@ class ViewController: UIViewController {
         updateColor()  //in update color, the stored state is updated, meaning that this is all we have to do to reset to a correct state
     }
     //setup
+    // MARK: - Functions, Types
     
     var outputTextEditable = false
     var outputTextBackgroundColor: UIColor = .black
@@ -115,24 +126,30 @@ class ViewController: UIViewController {
         // finish by updating color
         updateColor()
     }
+    // FUntion to update the text in the text box
     func updateReturnString(){
-        if settingsManager.format == "0"{
-            let hexString = saveState.color.toHexString()
-            outputText.text = hexString
+        if settingsManager.format == "0"{  // if is in HEX format
+            let hexString = saveState.color.toHexString()  //convert to hex format
+            outputText.text = hexString  // output (note the outputText.text saveing area)
         }
-        if settingsManager.format == "1"{
-            let colorToUse = saveState.color
+        if settingsManager.format == "1"{  // if is 255 format
+            let colorToUse = saveState.color  // create and easy to access variable
+            // Extract the color components of the color to use.
             let red = colorToUse.components?.red
             let green = colorToUse.components?.green
             let blue = colorToUse.components?.blue
+            
+            // Crete the string to be desplaued by adding the value of each component times 255, with parentheses between each component...
             var string = String(Int(Float(red!)*255))
             string += ", "
             string += String(Int(Float(green!)*255))
             string += ", "
             string += String(Int(Float(blue!)*255))
-            outputText.text = string
+            
+            outputText.text = string  // Output
         }
-        if settingsManager.format == "2"{
+        if settingsManager.format == "2"{  //if format is Decimal
+            //Repeat the same steps as for 255, above
             let colorToUse = saveState.color
             let red = colorToUse.components?.red
             let green = colorToUse.components?.green
@@ -144,42 +161,50 @@ class ViewController: UIViewController {
             string += String(round(Float(blue!)*1000)/1000)
             outputText.text = string
         }
-        if settingsManager.format == "3"{
-            let colorToUse = saveState.color
-            let hsbReturn = colorToUse.hsbColor
+        if settingsManager.format == "3"{  // if format is HSB
+            let colorToUse = saveState.color  // Put the color in an easy to access variable
+            let hsbReturn = colorToUse.hsbColor  // tun it into a decimal HSB format
+            // generate string
             var string = String(Int(Float(hsbReturn.hue)*360))
             string += ", "
             string += String(Int(Float(hsbReturn.saturation)*100))
             string += ", "
             string += String(Int(Float(hsbReturn.brightness)*100))
-            outputText.text = string
+            
+            outputText.text = string //output
         }
     }
+    
+    // When a user inputs a color, make sure it is valid. Else turn the color of the text box red (this is done in another place).
     class isRightFormat{
-        static var outputedColors = [Float]()
-        static func is255Format(_ inputtedString: String) -> Bool{
-            var input = ""
-            input = inputtedString.removingWhitespaces()
-            var good = true
-            var characters = [String]()
-            var comas = [Int]()
-            var count = 0
-            for i in input{
-                characters.append(String(i))
-                if i == ","{
-                    comas.append(count)
+        static var outputedColors = [Float]() //this will contain comuter accessibel colors that the user inputed. Note that these will be floats representing the UIColor components r,g,b in that order.
+        
+        static func is255Format(_ inputtedString: String) -> Bool{  //is in 255 format?
+            var input = ""  // variable for the input
+            input = inputtedString.removingWhitespaces()  // remouve " " characters for unifomaization.
+            var good = true  // assume string is acceptable
+            var characters = [String]()  // a list to hold all the characters of the input.
+            var comas = [Int]()  // count the number and lovation of comas in the input. Note that the location will be the n'th character in the input, starting from 0.
+            var count = 0  // used to count stuff, duh!  xD  :)
+            for i in input{  //cycle through the input
+                characters.append(String(i))  //add each character to the characters list.
+                if i == ","{  // look for comas.
+                    comas.append(count)  // add the location of the coma to the coma list.
                 }
-                count+=1
+                count+=1  // increase count
             }
-            if comas.count == 2{}else{ good = false }
-            if good == true{ if comas[0] < 4 && comas[1] < comas[0] + 5{}else{ good = false } }
-            if good == true{ if comas[0] > 0 && comas[1] > comas[0] + 1{}else{ good = false } }
+            if comas.count == 2{}else{ good = false }  // if the number of comas is not 2, say the input is invalid.
+            if good == true{ if comas[0] < 4 && comas[1] < comas[0] + 5{}else{ good = false } }  // make sure the comas are in a reasonable position (eg. the first coma isn't the 6th cahacter)
+            if good == true{ if comas[0] > 0 && comas[1] > comas[0] + 1{}else{ good = false } }  // make sure the comas are in a not too close to eachother, such as ",,,255255255"
+            //define variables for each color component
             var r = ""
             var g = ""
             var b = ""
-            count = 0
-            if good == true{
+            count = 0  //reset count
+            
+            if good == true{ //if all is still well:
                 for i in characters{
+                    // add the characters between the comas to the appropriate color component.
                     if count < comas[0]{
                         r += String(i)
                     }else if count > comas[0] && count < comas[1]{
@@ -190,24 +215,31 @@ class ViewController: UIViewController {
                     count+=1
                 }
             }
+            
+            // if all is still well, make sure that all the color components are numbers...
             if good == true{ if r.isNumeric{}else{ good = false } }
             if good == true{ if g.isNumeric{}else{ good = false } }
             if good == true{ if b.isNumeric{}else{ good = false } }
-            if good == true{
+            if good == true{  // if all is still well:
+                // covert each color component to a float.
                 let rn = Float(r)
                 let gn = Float(g)
                 let bn = Float(b)
+                // make sure each color component is within the range of 255
                 if rn! < 256{}else{ good = false }
                 if gn! < 256{}else{ good = false }
                 if bn! < 256{}else{ good = false }
+                //add each color component to the output list!
                 outputedColors = [rn!/255, gn!/255, bn!/255]
             }
-            return good
+            return good  // confirm or not that the input was valid.
         }
         //////
         
         //////
-        static func isHSBFormat(_ inputtedString: String) -> Bool{
+        
+        
+        static func isHSBFormat(_ inputtedString: String) -> Bool{ //check to make sure inpur is in HSB forat (see 255 abouve too).
             var input = ""
             input = inputtedString.removingWhitespaces()
             var good = true
@@ -251,7 +283,7 @@ class ViewController: UIViewController {
                 if sn! < 101{}else{ good = false }
                 if ln! < 101{}else{ good = false }
                 outputedColors = []
-                let uicolorInput = UIColor(hue: CGFloat(hn!/360), saturation: CGFloat(sn!/100), brightness: CGFloat(ln!/100), alpha: 1)
+                let uicolorInput = UIColor(hue: CGFloat(hn!/360), saturation: CGFloat(sn!/100), brightness: CGFloat(ln!/100), alpha: 1)//note that we are using the HSB input for UIColor
                 outputedColors = [Float(uicolorInput.rgba.red), Float(uicolorInput.rgba.green), Float(uicolorInput.rgba.blue)]
             }
             return good
@@ -260,7 +292,7 @@ class ViewController: UIViewController {
         
         
         /////
-        static func is0To1Format(_ inputtedString: String) -> Bool{
+        static func is0To1Format(_ inputtedString: String) -> Bool{  // check to see if input is in decimal format (see 255 two functions above).
             var input = ""
             input = inputtedString.removingWhitespaces()
             var good = true
@@ -308,22 +340,27 @@ class ViewController: UIViewController {
                 if rn! <= 1{}else{ good = false }
                 if gn! <= 1{}else{ good = false }
                 if bn! <= 1{}else{ good = false }
-                outputedColors = [rn!, gn!, bn!]
+                outputedColors = [rn!, gn!, bn!]  // note that no conversion is necessary
             }
             return good
         }
-        static func isHexFormat(_ inputtedString: String) -> Bool{
+        static func isHexFormat(_ inputtedString: String) -> Bool{  // chack to see if input is in hex format (see 255 three functions above)
             var input = ""
             input = inputtedString.removingWhitespaces()
+            // make sure to remove the "#" symbol if present.
             if input[0] == "#"{
                 input.remove(at: input.startIndex)
             }
+            
             var good = true
             if input.isColorHex{}else{good = false}
             if good == true{
+                // each color component is the joining of two letters, so do that.
                 let r = input[0]+input[1]
                 let g = input[2]+input[3]
                 let b = input[4]+input[5]
+                
+                // turn from hexadecimal to decimal
                 let rn = Float(r.hexToNum!)/255
                 let gn = Float(g.hexToNum!)/255
                 let bn = Float(b.hexToNum!)/255
@@ -332,6 +369,8 @@ class ViewController: UIViewController {
             return good
         }
     }
+    
+    //MARK: - UI Elements
     
     //views
     @IBOutlet weak var colorView: UIView!  // this is the display
@@ -384,14 +423,16 @@ class ViewController: UIViewController {
     //input / cancel
     @IBOutlet weak var inputButton: UIButton!
     @IBAction func inputButtonPressed(_ sender: Any) {
-        if outputTextEditable == false{
+        if outputTextEditable == false{  // if the text was not editable, make it editable.
             outputText.isEditable = true
             outputTextEditable = true
-            inputButton.setTitle("Done",for: .normal)
-        }else{
+            inputButton.setTitle("Done",for: .normal)  ///change button title to "done"
+        }else{  //if button is editable, make it not so
             outputTextEditable = false
             outputText.isEditable = false
-            inputButton.setTitle("Edit",for: .normal)
+            inputButton.setTitle("Edit",for: .normal)  /// change button text back to "edit"
+            
+            //WHEN DONE IS PRESSED, MAKE SURE THE INPUT IS VALID, AND CHANGE ACCORDINGLY, USING "ISRIGHTFORMAT.OUTPUTEDCOLORS TO CHANGE COLOR VIEWS COLOR.
             if isRightFormat.is255Format(outputText.text) && settingsManager.format == "1"{
                 outputText.backgroundColor = outputTextBackgroundColor
                 redSlider.value = isRightFormat.outputedColors[0]
@@ -419,14 +460,12 @@ class ViewController: UIViewController {
             }else{
                 outputText.backgroundColor = UIColor(red: 1, green: 0.2, blue: 0.2, alpha: 1)
             }
-            //print(test)
         }
     }
     //Text views
     @IBOutlet weak var outputText: UITextView!
-    /*
-    var test = UIColor(red: 0.5, green: 0.3, blue: 1, alpha: 1).hsbColor
- */
+    
+    // IF DARK/LIGHT MODE CHANGES WHILE APP IS RUNNING.
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         colorView.layer.borderColor = UIColor.black.cgColor
         outputTextBackgroundColor = outputText.backgroundColor!

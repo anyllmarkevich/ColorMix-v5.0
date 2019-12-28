@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         appRunning.appJustStartedRunning = true  //warn app that the app has just started running by setting this static var to true (see below)
         let fileToRead = "settings save" //this is the file. we will write to and read from it
-        settingsManager.format = openFileNamed(fileToRead, type: "r", write: "") ?? "0"
+        settingsManager.format = openFileNamed(fileToRead, type: "r", write: "") ?? "0"  //put setting from file into appropriate class.
         return true
     }
 
@@ -61,16 +61,19 @@ func isAppAlreadyLaunchedOnce()->Bool{
         return false
     }
 }
+
+// MARK: - Read/Write Function vvv
+
 func openFileNamed(_ fileName: String, type: String, write: String) -> String?{
-    let fileToRead = fileName //this is the file. we will write to and read from it
-    var returnText: String? = nil
+    // Write "w" to write, adn "r" read in type
+    var returnText: String? = nil  /// assume output is nil
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
             
-            let filePlacement = dir.appendingPathComponent(fileToRead)
+            let filePlacement = dir.appendingPathComponent(fileName)
             //writing
             if type == "w"{
                 do {
-                    try "0".write(to: filePlacement, atomically: false, encoding: .utf8)
+                    try write.write(to: filePlacement, atomically: false, encoding: .utf8)
                     returnText = "[text not used]"
                     print("File named \(fileName) written to.")
                 }
