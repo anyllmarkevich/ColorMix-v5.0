@@ -19,6 +19,28 @@ class TableOfColorsViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    var indexPathForSelectedRow: IndexPath?
+    
+    func isARowSelected() -> Bool{
+        if indexPathForSelectedRow != nil {
+            return true
+        }else{
+            return false
+        }
+    }
+    
+    // MARK: - Button Connections
+   
+    @IBAction func AddActivated(_ sender: Any) {
+    }
+    @IBAction func OpenActivated(_ sender: Any) {
+    }
+    @IBAction func EditActivated(_ sender: Any) {
+    }
+    @IBAction func RenameActivated(_ sender: Any) {
+    }
+    
+    
     
     // MARK: - Table view data source
 

@@ -260,24 +260,36 @@
                                             <state key="normal" title="Add">
                                                 <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="AddActivated:" destination="n7f-26-vgh" eventType="touchUpInside" id="VZ9-kZ-mXF"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bm-E0-FKx">
                                             <rect key="frame" x="89" y="0.0" width="38" height="30"/>
                                             <state key="normal" title="Open">
                                                 <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="OpenActivated:" destination="n7f-26-vgh" eventType="touchUpInside" id="xYj-dd-19Q"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eKz-1c-r2y">
                                             <rect key="frame" x="186" y="0.0" width="30" height="30"/>
                                             <state key="normal" title="Edit">
                                                 <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="EditActivated:" destination="n7f-26-vgh" eventType="touchUpInside" id="Au8-Q8-Emy"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keW-gr-ACQ">
                                             <rect key="frame" x="275" y="0.0" width="56" height="30"/>
                                             <state key="normal" title="Rename">
                                                 <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="RenameActivated:" destination="n7f-26-vgh" eventType="touchUpInside" id="yJz-1e-L3A"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>

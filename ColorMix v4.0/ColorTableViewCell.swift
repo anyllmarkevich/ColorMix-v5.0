@@ -14,6 +14,7 @@ class ColorTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         // Initialization code
+        self.layer.borderWidth = 0
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
