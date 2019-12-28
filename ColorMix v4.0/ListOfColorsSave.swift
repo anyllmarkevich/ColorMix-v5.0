@@ -10,6 +10,6 @@ import Foundation
 import UIKit
 
 class SavedColors: NSCoder{
-    static var SavedColorsList = [["red", UIColor.red],["green", UIColor.green], ["blue", UIColor.blue], ["black", UIColor.black]]
+    static var SavedColorsList = [["red", UIColor.red],["green", UIColor.green], ["blue", UIColor.blue], ["black", UIColor.black]]  //save colors in list view here.
 }
 
