@@ -10,6 +10,7 @@
 		F41B44F923AEED520090E12A /* TableOfColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41B44F823AEED520090E12A /* TableOfColorsViewController.swift */; };
 		F41B44FB23B0029A0090E12A /* ColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41B44FA23B0029A0090E12A /* ColorTableViewCell.swift */; };
 		F41B44FD23B008A50090E12A /* ListOfColorsSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41B44FC23B008A50090E12A /* ListOfColorsSave.swift */; };
+		F41B450323B7CAF20090E12A /* SavedColors in Resources */ = {isa = PBXBuildFile; fileRef = F41B450223B7CAF20090E12A /* SavedColors */; };
 		F4541D37228352A600E1552B /* FullScreenColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4541D36228352A600E1552B /* FullScreenColorViewController.swift */; };
 		F45BB9D822AF311F00BFB6C5 /* FullScreenAdjustViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45BB9D722AF311F00BFB6C5 /* FullScreenAdjustViewController.swift */; };
 		F45BB9DA22AF323100BFB6C5 /* colorSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45BB9D922AF323100BFB6C5 /* colorSave.swift */; };
@@ -29,6 +30,7 @@
 		F41B44F823AEED520090E12A /* TableOfColorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableOfColorsViewController.swift; sourceTree = "<group>"; };
 		F41B44FA23B0029A0090E12A /* ColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableViewCell.swift; sourceTree = "<group>"; };
 		F41B44FC23B008A50090E12A /* ListOfColorsSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfColorsSave.swift; sourceTree = "<group>"; };
+		F41B450223B7CAF20090E12A /* SavedColors */ = {isa = PBXFileReference; lastKnownFileType = text; path = SavedColors; sourceTree = "<group>"; };
 		F4541D36228352A600E1552B /* FullScreenColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenColorViewController.swift; sourceTree = "<group>"; };
 		F45BB9D722AF311F00BFB6C5 /* FullScreenAdjustViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenAdjustViewController.swift; sourceTree = "<group>"; };
 		F45BB9D922AF323100BFB6C5 /* colorSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorSave.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				F4F9D87022DD41A600073A4B /* settings save */,
+				F41B450223B7CAF20090E12A /* SavedColors */,
 			);
 			name = "Saving text files";
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 			files = (
 				F48E97EA2235CE3A00171A87 /* LaunchScreen.storyboard in Resources */,
 				F4F9D87122DD41A600073A4B /* settings save in Resources */,
+				F41B450323B7CAF20090E12A /* SavedColors in Resources */,
 				F48E97E72235CE3A00171A87 /* Assets.xcassets in Resources */,
 				F48E97E52235CE3900171A87 /* Main.storyboard in Resources */,
 			);

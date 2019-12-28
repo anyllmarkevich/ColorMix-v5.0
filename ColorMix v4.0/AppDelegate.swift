@@ -17,25 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         appRunning.appJustStartedRunning = true  //warn app that the app has just started running by setting this static var to true (see below)
         let fileToRead = "settings save" //this is the file. we will write to and read from it
-        
-        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            
-            let settingsPlacement = dir.appendingPathComponent(fileToRead)
-            if isAppAlreadyLaunchedOnce() == false{
-                //writing
-                do {
-                    try "0".write(to: settingsPlacement, atomically: false, encoding: .utf8)
-                }
-                catch {/* error handling here */}
-            }
-            //reading
-            do {
-                let settingsText = try String(contentsOf: settingsPlacement, encoding: .utf8)
-                settingsManager.format = settingsText
-                print(settingsManager.format)
-            }
-            catch {/* error handling here */}
-        }
+        settingsManager.format = openFileNamed(fileToRead, type: "r", write: "") ?? "0"
         return true
     }
 
@@ -79,3 +61,31 @@ func isAppAlreadyLaunchedOnce()->Bool{
         return false
     }
 }
+func openFileNamed(_ fileName: String, type: String, write: String) -> String?{
+    let fileToRead = fileName //this is the file. we will write to and read from it
+    var returnText: String? = nil
+        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            
+            let filePlacement = dir.appendingPathComponent(fileToRead)
+            //writing
+            if type == "w"{
+                do {
+                    try "0".write(to: filePlacement, atomically: false, encoding: .utf8)
+                    returnText = "[text not used]"
+                    print("File named \(fileName) written to.")
+                }
+                catch {/* error handling here */}
+            }
+            //reading
+            if type == "r"{
+                do {
+                    returnText = try String(contentsOf: filePlacement, encoding: .utf8)
+                    print("File named \(fileName) read.")
+                }
+                catch {/* error handling here */}
+            }
+        }
+    return returnText
+    }
+
+

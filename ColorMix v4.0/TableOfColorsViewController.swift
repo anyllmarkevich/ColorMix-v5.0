@@ -59,10 +59,10 @@ class TableOfColorsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ColorTableViewCell", for: indexPath)
         print("defined cell")
-        cell.textLabel?.text = SavedColors.SavedColorsList[indexPath.row]
+        cell.textLabel?.text = (SavedColors.SavedColorsList[indexPath.row][0] as! String)
         print("added text to cell\n going to return cell")
-        cell.backgroundColor = SavedColors.SavedColorsColor[indexPath.row]
-        cell.textLabel?.textColor = findATextColor(color: SavedColors.SavedColorsColor[indexPath.row])
+        cell.backgroundColor = (SavedColors.SavedColorsList[indexPath.row][1] as! UIColor)
+        cell.textLabel?.textColor = findATextColor(color: SavedColors.SavedColorsList[indexPath.row][1] as! UIColor)
 
         return cell
     }
