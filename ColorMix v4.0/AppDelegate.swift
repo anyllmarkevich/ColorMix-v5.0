@@ -18,8 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appRunning.appJustStartedRunning = true  //warn app that the app has just started running by setting this static var to true (see below)
         let fileToRead = "settings save" //this is the file. we will write to and read from it
         settingsManager.format = openFileNamed(fileToRead, type: "r", write: "") ?? "0"  //put setting from file into appropriate class.
-        //TEST:
-        openFileNamed("SavedColors", type: "w", write: "red|1,0,0/green|0,1,0/blue|0,0,1/white|1,1,1/black|0,0,0/what|0.56,0.93485,0.22/black2|0,0,0/")
+        if isAppAlreadyLaunchedOnce() == false{ // if this is the first time app is launched
+            openFileNamed("SavedColors", type: "w", write: "red|1,0,0/green|0,1,0/blue|0,0,1/white|1,1,1/black|0,0,0/what|0.56,0.93485,0.22/black2|0,0,0/")  // put in default set of colors
+        }
         return true
     }
 
