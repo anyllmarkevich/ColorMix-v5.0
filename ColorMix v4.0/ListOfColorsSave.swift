@@ -10,6 +10,10 @@ import Foundation
 import UIKit
 
 class SavedColors: NSCoder{
-    static var SavedColorsList = [["red", UIColor.red],["green", UIColor.green], ["blue", UIColor.blue], ["black", UIColor.black]]  //save colors in list view here.
+    static var SavedColorsList = [colorFileElement(Name: "red", Color: .red), colorFileElement(Name: "green", Color: .green), colorFileElement(Name: "blue", Color: .blue), colorFileElement(Name: "black", Color: .black)]  //save colors in list view here.
 }
 
+struct colorFileElement {
+    var Name: String
+    var Color: UIColor
+}

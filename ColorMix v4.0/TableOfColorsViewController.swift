@@ -18,10 +18,14 @@ class TableOfColorsViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        parseFileOfColors(text: openFileNamed("SavedColors", type: "r", write: "")!)
     }
-    var indexPathForSelectedRow: IndexPath?
     
-    func isARowSelected() -> Bool{
+    //MARK: - Setup
+    var indexPathForSelectedRow: IndexPath?  // the currently selected row, but returns nil if none is selected.
+    
+    func isARowSelected() -> Bool{  // find out if a row is selected.
         if indexPathForSelectedRow != nil {
             return true
         }else{
@@ -29,6 +33,89 @@ class TableOfColorsViewController: UITableViewController {
         }
     }
     
+    func openFileNamed(_ fileName: String, type: String, write: String) -> String?{
+    // Write "w" to write, adn "r" read in type
+    var returnText: String? = nil  /// assume output is nil
+        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            
+            let filePlacement = dir.appendingPathComponent(fileName)
+            //writing
+            if type == "w"{
+                do {
+                    try write.write(to: filePlacement, atomically: false, encoding: .utf8)
+                    returnText = "[text not used]"
+                    print("File named \(fileName) written to.")
+                }
+                catch {/* error handling here */}
+            }
+            //reading
+            if type == "r"{
+                do {
+                    returnText = try String(contentsOf: filePlacement, encoding: .utf8)
+                    print("File named \(fileName) read.")
+                }
+                catch {/* error handling here */}
+            }
+        }
+    return returnText
+    }
+    
+    
+    func parseFileOfColors(text: String){
+        let contents = text
+        var listOfCharacters = [String]()
+        var subList = [String]()
+        var exportList = [["", ""]]
+        exportList = []
+        var finalExportList = [colorFileElement]()
+        var hold = ""
+        for i in contents{
+            listOfCharacters.append(String(i))
+        }
+        for i in listOfCharacters{
+            if i != "/" && i != "|"{
+                hold += i
+            }else{
+                if i == "|"{
+                    subList.append(hold)
+                    hold = ""
+                }else if i == "/"{
+                    subList.append(hold)
+                    hold = ""
+                    exportList.append(subList)
+                    subList = []
+                }
+            }
+        }
+        var h1 = ""
+        var h2 = ""
+        var r = ""
+        var g = ""
+        var b = ""
+        var comas = 0
+        for i in exportList{
+            h1 = i[0]
+            h2 = i[1]
+            r = ""
+            g = ""
+            b = ""
+            comas = 0
+            for j in h2{
+                if j != "," && comas == 0{
+                    r += String(j)
+                }else if j != "," && comas == 1{
+                    g += String(j)
+                }else if j != "," && comas == 2{
+                    b += String(j)
+                }
+                if j == ","{
+                    comas += 1
+                }
+            }
+            finalExportList.append(colorFileElement(Name: h1, Color: UIColor(red: CGFloat(Float(r)!), green: CGFloat(Float(g)!), blue: CGFloat(Float(b)!), alpha: 1)))
+        }
+        SavedColors.SavedColorsList = finalExportList
+    }
     // MARK: - Button Connections
    
     @IBAction func AddActivated(_ sender: Any) {
@@ -56,9 +143,9 @@ class TableOfColorsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ColorTableViewCell", for: indexPath)  // define a cell
-        cell.textLabel?.text = (SavedColors.SavedColorsList[indexPath.row][0] as! String)  // make text of cell
-        cell.backgroundColor = (SavedColors.SavedColorsList[indexPath.row][1] as! UIColor)  // set background color of cell.
-        cell.textLabel?.textColor = findATextColor(color: SavedColors.SavedColorsList[indexPath.row][1] as! UIColor)  // set text color of cell.
+        cell.textLabel?.text = (SavedColors.SavedColorsList[indexPath.row].Name)  // make text of cell
+        cell.backgroundColor = (SavedColors.SavedColorsList[indexPath.row].Color)  // set background color of cell.
+        cell.textLabel?.textColor = findATextColor(color: SavedColors.SavedColorsList[indexPath.row].Color)  // set text color of cell.
 
         return cell
     }
