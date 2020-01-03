@@ -61,60 +61,63 @@ class TableOfColorsViewController: UITableViewController {
     }
     
     
-    func parseFileOfColors(text: String){
-        let contents = text
-        var listOfCharacters = [String]()
-        var subList = [String]()
-        var exportList = [["", ""]]
-        exportList = []
-        var finalExportList = [colorFileElement]()
-        var hold = ""
-        for i in contents{
-            listOfCharacters.append(String(i))
+    func parseFileOfColors(text: String){  //decode contents of file saving colors
+        let contents = text  /// Make a more editable version...
+        var listOfCharacters = [String]()  /// make a list to conatin all the characters of the input.
+        var subList = [String]()  /// use this list to help decode
+        var exportList = [["", ""]]  /// make a list that is capable of handling  a list of string lists
+        exportList = []  /// empty the list
+        var finalExportList = [colorFileElement]()  // this is what will be exported! Note that colorFileElement is defined in the file ListOfColorsSave.swift
+        var hold = ""  ///  Use this to hold string values
+        for i in contents{  // make a list conataining all the characters of the input.
+            listOfCharacters.append(String(i))  /// execute this
         }
-        for i in listOfCharacters{
-            if i != "/" && i != "|"{
-                hold += i
-            }else{
-                if i == "|"{
-                    subList.append(hold)
-                    hold = ""
-                }else if i == "/"{
-                    subList.append(hold)
-                    hold = ""
-                    exportList.append(subList)
-                    subList = []
+        for i in listOfCharacters{  // for every character in the input
+            if i != "/" && i != "|"{  ///check to make sure it is not one of the "breakpoint" characters.
+                hold += i  /// add the current character to hold.
+            }else{  /// if it is a breakpoint character:
+                if i == "|"{  /// if it is a "|" symbol
+                    subList.append(hold)  /// add the newly constructed string to a temporary list.
+                    hold = ""  /// empty the hold string
+                }else if i == "/"{  /// if it is a "/" symbol
+                    subList.append(hold)  /// add the newly constructed string to a temporary list.
+                    hold = ""  /// empty the hold string
+                    exportList.append(subList)  /// add the temporary string to the preliinary export list. NOte that this is a list of lists of strings.
+                    subList = []  // empty the sublist.
                 }
             }
         }
-        var h1 = ""
-        var h2 = ""
+        var h1 = ""  // this will hold the name of the color
+        var h2 = ""  // this will hold the color of the color
+        // define a variable for each color component.
         var r = ""
         var g = ""
         var b = ""
-        var comas = 0
-        for i in exportList{
-            h1 = i[0]
-            h2 = i[1]
+        
+        var comas = 0  // keep track of how many comas we have "passed"
+        for i in exportList{  /// for every sub-item
+            h1 = i[0]  // add the name to h1
+            h2 = i[1]  // ad the color to h2
+            /// clear color component variables
             r = ""
             g = ""
             b = ""
-            comas = 0
-            for j in h2{
-                if j != "," && comas == 0{
+            comas = 0 /// clear comas we have passed
+            for j in h2{  /// for every number in the color
+                if j != "," && comas == 0{  // check to make sure it is not a coma, and add the number to the right color based on the number of comas passed
                     r += String(j)
                 }else if j != "," && comas == 1{
                     g += String(j)
                 }else if j != "," && comas == 2{
                     b += String(j)
                 }
-                if j == ","{
-                    comas += 1
+                if j == ","{  // if is a coma
+                    comas += 1  // increase the coma count by one
                 }
             }
-            finalExportList.append(colorFileElement(Name: h1, Color: UIColor(red: CGFloat(Float(r)!), green: CGFloat(Float(g)!), blue: CGFloat(Float(b)!), alpha: 1)))
+            finalExportList.append(colorFileElement(Name: h1, Color: UIColor(red: CGFloat(Float(r)!), green: CGFloat(Float(g)!), blue: CGFloat(Float(b)!), alpha: 1)))  // create a colorFileElement structure based on the name and the newly constructed color
         }
-        SavedColors.SavedColorsList = finalExportList
+        SavedColors.SavedColorsList = finalExportList  // export all of it.
     }
     // MARK: - Button Connections
    
