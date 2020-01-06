@@ -119,6 +119,15 @@ class TableOfColorsViewController: UITableViewController {
         }
         SavedColors.SavedColorsList = finalExportList  // export all of it.
     }
+    
+    func codeListOfColors() -> String{
+        var textString = ""
+        for i in SavedColors.SavedColorsList{
+            textString += i.Name + "|" + String(Float(i.Color.components!.red)) + "," + String(Float(i.Color.components!.green)) + "," + String(Float(i.Color.components!.blue)) + "/"
+            print("Coded " + i.Name + "|" + String(Float(i.Color.components!.red)) + "," + String(Float(i.Color.components!.green)) + "," + String(Float(i.Color.components!.blue)) + "/ from saved colors")
+        }
+        return textString
+    }
     // MARK: - Button Connections
    
     @IBAction func AddActivated(_ sender: Any) {

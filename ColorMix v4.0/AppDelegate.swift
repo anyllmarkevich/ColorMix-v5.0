@@ -93,5 +93,13 @@ func openFileNamed(_ fileName: String, type: String, write: String) -> String?{
         }
     return returnText
     }
+func codeListOfColors() -> String{
+    var textString = ""
+    for i in SavedColors.SavedColorsList{
+        textString += i.Name + "|" + String(Float(i.Color.components!.red)) + "," + String(Float(i.Color.components!.green)) + "," + String(Float(i.Color.components!.blue)) + "/"
+        print("Coded " + i.Name + "|" + String(Float(i.Color.components!.red)) + "," + String(Float(i.Color.components!.green)) + "," + String(Float(i.Color.components!.blue)) + "/ from saved colors")
+    }
+    return textString
+}
 
 
