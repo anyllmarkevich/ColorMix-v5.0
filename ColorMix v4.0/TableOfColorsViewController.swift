@@ -8,6 +8,17 @@
 
 import UIKit
 
+extension UITableView {  // Allows you to deselect the selected row.
+
+    func deselectSelectedRow(animated: Bool)
+    {
+        if let indexPathForSelectedRow = self.indexPathForSelectedRow
+        {
+            self.deselectRow(at: indexPathForSelectedRow, animated: animated)
+        }
+    }
+}
+
 class TableOfColorsViewController: UITableViewController {
 
     override func viewDidLoad() {
@@ -20,17 +31,12 @@ class TableOfColorsViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         parseFileOfColors(text: openFileNamed("SavedColors", type: "r", write: "")!)
+        //print(indexPathForSelectedRow)
     }
     
     //MARK: - Setup
-    var indexPathForSelectedRow: IndexPath?  // the currently selected row, but returns nil if none is selected.
-    
-    func isARowSelected() -> Bool{  // find out if a row is selected.
-        if indexPathForSelectedRow != nil {
-            return true
-        }else{
-            return false
-        }
+    class isARowSelected{
+        static var selectedRowIndex: Int? = nil
     }
     
     func openFileNamed(_ fileName: String, type: String, write: String) -> String?{
@@ -120,13 +126,13 @@ class TableOfColorsViewController: UITableViewController {
         SavedColors.SavedColorsList = finalExportList  // export all of it.
     }
     
-    func codeListOfColors() -> String{
-        var textString = ""
-        for i in SavedColors.SavedColorsList{
-            textString += i.Name + "|" + String(Float(i.Color.components!.red)) + "," + String(Float(i.Color.components!.green)) + "," + String(Float(i.Color.components!.blue)) + "/"
-            print("Coded " + i.Name + "|" + String(Float(i.Color.components!.red)) + "," + String(Float(i.Color.components!.green)) + "," + String(Float(i.Color.components!.blue)) + "/ from saved colors")
+    func codeListOfColors() -> String{  //Generate code to store colors.
+        var textString = ""  /// Use this to store stuff
+        for i in SavedColors.SavedColorsList{  ///For every color
+            textString += i.Name + "|" + String(Float(i.Color.components!.red)) + "," + String(Float(i.Color.components!.green)) + "," + String(Float(i.Color.components!.blue)) + "/"  /// Add the code
+            print("Coded " + i.Name + "|" + String(Float(i.Color.components!.red)) + "," + String(Float(i.Color.components!.green)) + "," + String(Float(i.Color.components!.blue)) + "/ from saved colors")   ///print the code
         }
-        return textString
+        return textString  /// return the code
     }
     // MARK: - Button Connections
    
@@ -137,6 +143,23 @@ class TableOfColorsViewController: UITableViewController {
     @IBAction func EditActivated(_ sender: Any) {
     }
     @IBAction func RenameActivated(_ sender: Any) {
+        if isARowSelected.selectedRowIndex != nil{
+            let alert = UIAlertController(title: "What do you want to name the color?", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+            alert.addTextField(configurationHandler: { textField in
+                textField.placeholder = "Input new name here..."
+            })
+
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                if let name = alert.textFields?.first?.text{
+                    SavedColors.SavedColorsList[0].Name = name
+                    self.openFileNamed("SavedColors", type: "w", write: self.codeListOfColors())
+                }
+            }))
+            self.present(alert, animated: true)
+            print("Presented alert")
+        }
     }
     
     
@@ -158,6 +181,7 @@ class TableOfColorsViewController: UITableViewController {
         cell.textLabel?.text = (SavedColors.SavedColorsList[indexPath.row].Name)  // make text of cell
         cell.backgroundColor = (SavedColors.SavedColorsList[indexPath.row].Color)  // set background color of cell.
         cell.textLabel?.textColor = findATextColor(color: SavedColors.SavedColorsList[indexPath.row].Color)  // set text color of cell.
+        print("The current cell is " + String(indexPath.row) + " and its name is " + SavedColors.SavedColorsList[indexPath.row].Name + ".")
 
         return cell
     }
@@ -188,16 +212,14 @@ class TableOfColorsViewController: UITableViewController {
 
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            SavedColors.SavedColorsList.remove(at: indexPath.row)
-            openFileNamed("SavedColors", type: "w", write: codeListOfColors())
-            tableView.deleteRows(at: [indexPath], with: .fade)
+        if editingStyle == .delete {  // when an item is deleted
+            SavedColors.SavedColorsList.remove(at: indexPath.row)  // remouve the item from teh static list
+            openFileNamed("SavedColors", type: "w", write: codeListOfColors())  // write to file the new list
+            tableView.deleteRows(at: [indexPath], with: .fade)  // delete the row
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-
-
 
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
@@ -209,6 +231,13 @@ class TableOfColorsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
+    }
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPathForSelection: IndexPath) {
+        
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPathForSelection: IndexPath) {
+        print("User pressed '" + SavedColors.SavedColorsList[indexPathForSelection.row].Name + "' (row #\(indexPathForSelection.row)).")
     }
 
     /*
