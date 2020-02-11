@@ -37,6 +37,7 @@ class TableOfColorsViewController: UITableViewController {
     //MARK: - Setup
     class isARowSelected{
         static var selectedRowIndex: Int? = nil
+        static var wholeIndex: IndexPath? = nil
     }
     
     func openFileNamed(_ fileName: String, type: String, write: String) -> String?{
@@ -144,6 +145,7 @@ class TableOfColorsViewController: UITableViewController {
     }
     @IBAction func RenameActivated(_ sender: Any) {
         if isARowSelected.selectedRowIndex != nil{
+            self.tableView.deselectSelectedRow(animated: true)
             let alert = UIAlertController(title: "What do you want to name the color?", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 
@@ -155,6 +157,10 @@ class TableOfColorsViewController: UITableViewController {
                 if let name = alert.textFields?.first?.text{
                     SavedColors.SavedColorsList[0].Name = name
                     self.openFileNamed("SavedColors", type: "w", write: self.codeListOfColors())
+                    if let cell = self.tableView.cellForRow(at: isARowSelected.wholeIndex!){
+                        cell.textLabel?.text = name
+                        cell.textLabel?.textColor = self.findATextColor(color: SavedColors.SavedColorsList[isARowSelected.selectedRowIndex!].Color)
+                    }
                 }
             }))
             self.present(alert, animated: true)
@@ -234,10 +240,13 @@ class TableOfColorsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPathForSelection: IndexPath) {
-        
+        isARowSelected.selectedRowIndex = nil
+        isARowSelected.wholeIndex = nil
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPathForSelection: IndexPath) {
         print("User pressed '" + SavedColors.SavedColorsList[indexPathForSelection.row].Name + "' (row #\(indexPathForSelection.row)).")
+        isARowSelected.selectedRowIndex = indexPathForSelection.row
+        isARowSelected.wholeIndex = indexPathForSelection
     }
 
     /*
