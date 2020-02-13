@@ -32,6 +32,7 @@ class TableOfColorsViewController: UITableViewController {
         
         parseFileOfColors(text: openFileNamed("SavedColors", type: "r", write: "")!)
         //print(indexPathForSelectedRow)
+        RenameButton.isEnabled = false // disable reanme button
     }
     
     //MARK: - Setup
@@ -141,8 +142,6 @@ class TableOfColorsViewController: UITableViewController {
     }
     @IBAction func OpenActivated(_ sender: Any) {
     }
-    @IBAction func EditActivated(_ sender: Any) {
-    }
     @IBAction func RenameActivated(_ sender: Any) {
         if isARowSelected.selectedRowIndex != nil{
             self.tableView.deselectSelectedRow(animated: true)
@@ -167,7 +166,7 @@ class TableOfColorsViewController: UITableViewController {
             print("Presented alert")
         }
     }
-    
+    @IBOutlet weak var RenameButton: UIButton!
     
     
     // MARK: - Table view data source
@@ -188,7 +187,6 @@ class TableOfColorsViewController: UITableViewController {
         cell.backgroundColor = (SavedColors.SavedColorsList[indexPath.row].Color)  // set background color of cell.
         cell.textLabel?.textColor = findATextColor(color: SavedColors.SavedColorsList[indexPath.row].Color)  // set text color of cell.
         print("The current cell is " + String(indexPath.row) + " and its name is " + SavedColors.SavedColorsList[indexPath.row].Name + ".")
-
         return cell
     }
     
@@ -242,11 +240,23 @@ class TableOfColorsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPathForSelection: IndexPath) {
         isARowSelected.selectedRowIndex = nil
         isARowSelected.wholeIndex = nil
+        RenameButton.isEnabled = false
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPathForSelection: IndexPath) {
         print("User pressed '" + SavedColors.SavedColorsList[indexPathForSelection.row].Name + "' (row #\(indexPathForSelection.row)).")
         isARowSelected.selectedRowIndex = indexPathForSelection.row
         isARowSelected.wholeIndex = indexPathForSelection
+        RenameButton.isEnabled = true
+    }
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+
+        if let indexPathForSelectedRow = tableView.indexPathForSelectedRow,
+            indexPathForSelectedRow == indexPath {
+            tableView.deselectRow(at: indexPath, animated: false)
+            return nil
+        }
+        return indexPath
     }
 
     /*
