@@ -145,6 +145,8 @@ class TableOfColorsViewController: UITableViewController {
     @IBAction func RenameActivated(_ sender: Any) {
         if isARowSelected.selectedRowIndex != nil{
             self.tableView.deselectSelectedRow(animated: true)
+            isARowSelected.selectedRowIndex = nil
+            isARowSelected.wholeIndex = nil
             let alert = UIAlertController(title: "What do you want to name the color?", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 
@@ -153,7 +155,7 @@ class TableOfColorsViewController: UITableViewController {
             })
 
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                if let name = alert.textFields?.first?.text{
+                if let name = alert.textFields?.first?.text!{
                     SavedColors.SavedColorsList[0].Name = name
                     self.openFileNamed("SavedColors", type: "w", write: self.codeListOfColors())
                     if let cell = self.tableView.cellForRow(at: isARowSelected.wholeIndex!){
@@ -254,6 +256,8 @@ class TableOfColorsViewController: UITableViewController {
         if let indexPathForSelectedRow = tableView.indexPathForSelectedRow,
             indexPathForSelectedRow == indexPath {
             tableView.deselectRow(at: indexPath, animated: false)
+            isARowSelected.selectedRowIndex = nil
+            isARowSelected.wholeIndex = nil
             return nil
         }
         return indexPath
