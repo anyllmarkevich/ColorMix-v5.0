@@ -41,6 +41,19 @@ class TableOfColorsViewController: UITableViewController {
         static var wholeIndex: IndexPath? = nil
     }
     
+    func unIndex(){
+        print("About to nil info about IndexPath. Currently row is \(String(describing: isARowSelected.selectedRowIndex)).")
+        isARowSelected.selectedRowIndex = nil
+        isARowSelected.wholeIndex = nil
+        print("did nil")
+    }
+    func index(_ path: IndexPath){
+        print("About to save index path at \(path.row).")
+        isARowSelected.selectedRowIndex = path.row
+        isARowSelected.wholeIndex = path
+        print("Did save indexes.")
+    }
+    
     func openFileNamed(_ fileName: String, type: String, write: String) -> String?{
     // Write "w" to write, adn "r" read in type
     var returnText: String? = nil  /// assume output is nil
@@ -144,9 +157,6 @@ class TableOfColorsViewController: UITableViewController {
     }
     @IBAction func RenameActivated(_ sender: Any) {
         if isARowSelected.selectedRowIndex != nil{
-            self.tableView.deselectSelectedRow(animated: true)
-            isARowSelected.selectedRowIndex = nil
-            isARowSelected.wholeIndex = nil
             let alert = UIAlertController(title: "What do you want to name the color?", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 
@@ -155,7 +165,7 @@ class TableOfColorsViewController: UITableViewController {
             })
 
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                if let name = alert.textFields?.first?.text!{
+                if let name = alert.textFields?.first?.text{
                     SavedColors.SavedColorsList[0].Name = name
                     self.openFileNamed("SavedColors", type: "w", write: self.codeListOfColors())
                     if let cell = self.tableView.cellForRow(at: isARowSelected.wholeIndex!){
@@ -166,6 +176,7 @@ class TableOfColorsViewController: UITableViewController {
             }))
             self.present(alert, animated: true)
             print("Presented alert")
+            self.tableView.deselectSelectedRow(animated: true)
         }
     }
     @IBOutlet weak var RenameButton: UIButton!
@@ -240,8 +251,8 @@ class TableOfColorsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPathForSelection: IndexPath) {
-        isARowSelected.selectedRowIndex = nil
-        isARowSelected.wholeIndex = nil
+        //isARowSelected.selectedRowIndex = nil
+        //isARowSelected.wholeIndex = nil
         RenameButton.isEnabled = false
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPathForSelection: IndexPath) {
@@ -259,7 +270,10 @@ class TableOfColorsViewController: UITableViewController {
             isARowSelected.selectedRowIndex = nil
             isARowSelected.wholeIndex = nil
             return nil
+        }else{
         }
+        isARowSelected.selectedRowIndex = indexPath.row
+        isARowSelected.wholeIndex = indexPath
         return indexPath
     }
 
