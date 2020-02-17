@@ -42,16 +42,14 @@ class TableOfColorsViewController: UITableViewController {
     }
     
     func unIndex(){
-        print("About to nil info about IndexPath. Currently row is \(String(describing: isARowSelected.selectedRowIndex)).")
+        print("About to nil info about IndexPath.")
         isARowSelected.selectedRowIndex = nil
         isARowSelected.wholeIndex = nil
-        print("did nil")
     }
     func index(_ path: IndexPath){
-        print("About to save index path at \(path.row).")
+        print("About to save index path.")
         isARowSelected.selectedRowIndex = path.row
         isARowSelected.wholeIndex = path
-        print("Did save indexes.")
     }
     
     func openFileNamed(_ fileName: String, type: String, write: String) -> String?{
@@ -257,8 +255,7 @@ class TableOfColorsViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPathForSelection: IndexPath) {
         print("User pressed '" + SavedColors.SavedColorsList[indexPathForSelection.row].Name + "' (row #\(indexPathForSelection.row)).")
-        isARowSelected.selectedRowIndex = indexPathForSelection.row
-        isARowSelected.wholeIndex = indexPathForSelection
+        index(indexPathForSelection)
         RenameButton.isEnabled = true
     }
     
@@ -267,13 +264,11 @@ class TableOfColorsViewController: UITableViewController {
         if let indexPathForSelectedRow = tableView.indexPathForSelectedRow,
             indexPathForSelectedRow == indexPath {
             tableView.deselectRow(at: indexPath, animated: false)
-            isARowSelected.selectedRowIndex = nil
-            isARowSelected.wholeIndex = nil
+            unIndex()
             return nil
         }else{
         }
-        isARowSelected.selectedRowIndex = indexPath.row
-        isARowSelected.wholeIndex = indexPath
+        index(indexPath)
         return indexPath
     }
 
