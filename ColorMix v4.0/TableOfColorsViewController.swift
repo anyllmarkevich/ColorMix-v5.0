@@ -142,6 +142,7 @@ class TableOfColorsViewController: UITableViewController {
     func codeListOfColors() -> String{  //Generate code to store colors.
         var textString = ""  /// Use this to store stuff
         for i in SavedColors.SavedColorsList{  ///For every color
+            print("About to code \(i.Name).")
             textString += i.Name + "|" + String(Float(i.Color.components!.red)) + "," + String(Float(i.Color.components!.green)) + "," + String(Float(i.Color.components!.blue)) + "/"  /// Add the code
             print("Coded " + i.Name + "|" + String(Float(i.Color.components!.red)) + "," + String(Float(i.Color.components!.green)) + "," + String(Float(i.Color.components!.blue)) + "/ from saved colors")   ///print the code
         }
@@ -164,7 +165,7 @@ class TableOfColorsViewController: UITableViewController {
 
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
                 if let name = alert.textFields?.first?.text{
-                    SavedColors.SavedColorsList[0].Name = name
+                    SavedColors.SavedColorsList[isARowSelected.selectedRowIndex!].Name = name
                     self.openFileNamed("SavedColors", type: "w", write: self.codeListOfColors())
                     if let cell = self.tableView.cellForRow(at: isARowSelected.wholeIndex!){
                         cell.textLabel?.text = name
