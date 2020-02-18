@@ -151,6 +151,26 @@ class TableOfColorsViewController: UITableViewController {
     // MARK: - Button Connections
    
     @IBAction func AddActivated(_ sender: Any) {
+        let alert = UIAlertController(title: "What do you want to name the new saved color?", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addTextField(configurationHandler: { textField in
+            textField.placeholder = "Input new name here..."
+        })
+        alert.addAction(UIAlertAction(title: "Add Current Color", style: .default, handler: { action in
+            if let name = alert.textFields?.first?.text{
+                SavedColors.SavedColorsList.append(colorFileElement(Name: name, Color: saveState.color))
+                self.openFileNamed("SavedColors", type: "w", write: self.codeListOfColors())
+                self.tableView.beginUpdates()
+                self.tableView.insertRows(at: [IndexPath.init(row: SavedColors.SavedColorsList.count-1, section: 0)], with: .automatic)
+                self.tableView.endUpdates()
+                
+                if let cell = self.tableView.cellForRow(at: IndexPath.init(row: SavedColors.SavedColorsList.count-1, section: 0)){
+                    cell.textLabel?.text = name
+                    cell.textLabel?.textColor = self.findATextColor(color: SavedColors.SavedColorsList[SavedColors.SavedColorsList.count-1].Color)
+                }
+            }
+        }))
+        self.present(alert, animated: true)
     }
     @IBAction func OpenActivated(_ sender: Any) {
     }
