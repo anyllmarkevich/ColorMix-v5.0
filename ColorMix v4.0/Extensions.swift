@@ -227,4 +227,27 @@ extension String{
         }else{return nil}
     }
 }
-
+extension String{
+    var removeProblemCharacters: String{
+        let originalString = self
+        var stringList = [String]()
+        for i in originalString{
+            stringList.append(String(i))
+        }
+        print(stringList)
+        var it = 0
+        for i in stringList{
+            if i == "|" || i == "/"{
+                stringList.remove(at: it)
+                it -= 1
+            }
+            print(it)
+            it += 1
+        }
+        var returnString = ""
+        for i in stringList{
+            returnString += i
+        }
+        return returnString
+    }
+}

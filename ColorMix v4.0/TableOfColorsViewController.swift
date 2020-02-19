@@ -157,7 +157,8 @@ class TableOfColorsViewController: UITableViewController {
             textField.placeholder = "Input new name here..."
         })
         alert.addAction(UIAlertAction(title: "Add Current Color", style: .default, handler: { action in
-            if let name = alert.textFields?.first?.text{
+            if var name = alert.textFields?.first?.text{
+                name = name.removeProblemCharacters
                 SavedColors.SavedColorsList.append(colorFileElement(Name: name, Color: saveState.color))
                 self.openFileNamed("SavedColors", type: "w", write: self.codeListOfColors())
                 self.tableView.beginUpdates()
@@ -184,7 +185,8 @@ class TableOfColorsViewController: UITableViewController {
             })
 
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                if let name = alert.textFields?.first?.text{
+                if var name = alert.textFields?.first?.text{
+                    name = name.removeProblemCharacters
                     SavedColors.SavedColorsList[isARowSelected.selectedRowIndex!].Name = name
                     self.openFileNamed("SavedColors", type: "w", write: self.codeListOfColors())
                     if let cell = self.tableView.cellForRow(at: isARowSelected.wholeIndex!){
