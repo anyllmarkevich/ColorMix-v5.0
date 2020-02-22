@@ -175,6 +175,19 @@ class ViewController: UIViewController {
         }
     }
     
+    func changeThingsFromADistance(){
+        colorView.backgroundColor = saveState.color  //set color back to saved color
+        let revertToState = saveState.sliders  //putting the state in a variable
+        //Set everything to its correct value
+        redSwitch.isOn = revertToState.rsw
+        greenSwitch.isOn = revertToState.gsw
+        blueSwitch.isOn = revertToState.bsw
+        redSlider.value = revertToState.rsl
+        greenSlider.value = revertToState.gsl
+        blueSlider.value = revertToState.bsl
+        updateControls()
+    }
+    
     // When a user inputs a color, make sure it is valid. Else turn the color of the text box red (this is done in another place).
     class isRightFormat{
         static var outputedColors = [Float]() //this will contain comuter accessibel colors that the user inputed. Note that these will be floats representing the UIColor components r,g,b in that order.
@@ -465,6 +478,22 @@ class ViewController: UIViewController {
     //Text views
     @IBOutlet weak var outputText: UITextView!
     
+    //over views
+    /*@IBAction func OpenButton(_ sender: UIButton) {
+        colorView.backgroundColor = saveState.color  //set color back to saved color
+        let revertToState = saveState.sliders  //putting the state in a variable
+        //Set everything to its correct value
+        redSwitch.isOn = revertToState.rsw
+        greenSwitch.isOn = revertToState.gsw
+        blueSwitch.isOn = revertToState.bsw
+        redSlider.value = revertToState.rsl
+        greenSlider.value = revertToState.gsl
+        blueSlider.value = revertToState.bsl
+        updateControls()
+    }*/
+    
+    
+    
     // IF DARK/LIGHT MODE CHANGES WHILE APP IS RUNNING.
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         colorView.layer.borderColor = UIColor.black.cgColor
@@ -487,4 +516,8 @@ class ViewController: UIViewController {
             // Fallback on earlier versions
         }
     }
+    
+    /*override func transition(from fromViewController: UIViewController, to toViewController: UIViewController, duration: TimeInterval, options: UIView.AnimationOptions = [], animations: (() -> Void)?, completion: ((Bool) -> Void)? = nil) {
+        changeThingsFromADistance()
+    }*/
 }

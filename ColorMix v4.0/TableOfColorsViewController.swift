@@ -174,6 +174,16 @@ class TableOfColorsViewController: UITableViewController {
         self.present(alert, animated: true)
     }
     @IBAction func OpenActivated(_ sender: Any) {
+        if isARowSelected.selectedRowIndex != nil{
+            let selectedcolor = SavedColors.SavedColorsList[isARowSelected.selectedRowIndex!]
+            saveState.color = selectedcolor.Color
+            let r = selectedcolor.Color.components?.red
+            let g = selectedcolor.Color.components?.green
+            let b = selectedcolor.Color.components?.blue
+            print(r!,g!,b!)
+            saveState.sliders = ViewController.stateStorage(rsw: true, rsl: Float(r!), gsw: true, gsl: Float(g!), bsw: true, bsl: Float(b!))
+            //colorView.backgroundColor = selectedcolor.Color
+        }
     }
     @IBAction func RenameActivated(_ sender: Any) {
         if isARowSelected.selectedRowIndex != nil{
