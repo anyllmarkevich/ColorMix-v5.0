@@ -11,6 +11,7 @@ import UIKit
 
 class SavedColors: NSCoder{
     static var SavedColorsList = [colorFileElement(Name: "red", Color: .red), colorFileElement(Name: "green", Color: .green), colorFileElement(Name: "blue", Color: .blue), colorFileElement(Name: "black", Color: .black), colorFileElement(Name: "pink", Color: .systemPink)]  //save colors in list view here.
+    static var currentColor: Int? = nil
 }
 
 struct colorFileElement {

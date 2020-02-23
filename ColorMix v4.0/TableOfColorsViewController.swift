@@ -182,6 +182,7 @@ class TableOfColorsViewController: UITableViewController {
             let b = selectedcolor.Color.components?.blue
             print(r!,g!,b!)
             saveState.sliders = ViewController.stateStorage(rsw: true, rsl: Float(r!), gsw: true, gsl: Float(g!), bsw: true, bsl: Float(b!))
+            SavedColors.currentColor = isARowSelected.selectedRowIndex
             //colorView.backgroundColor = selectedcolor.Color
         }
     }

@@ -188,6 +188,16 @@ class ViewController: UIViewController {
         updateControls()
     }
     
+    func codeListOfColors() -> String{  //Generate code to store colors.
+        var textString = ""  /// Use this to store stuff
+        for i in SavedColors.SavedColorsList{  ///For every color
+            print("About to code \(i.Name).")
+            textString += i.Name + "|" + String(Float(i.Color.components!.red)) + "," + String(Float(i.Color.components!.green)) + "," + String(Float(i.Color.components!.blue)) + "/"  /// Add the code
+            print("Coded " + i.Name + "|" + String(Float(i.Color.components!.red)) + "," + String(Float(i.Color.components!.green)) + "," + String(Float(i.Color.components!.blue)) + "/ from saved colors")   ///print the code
+        }
+        return textString  /// return the code
+    }
+    
     // When a user inputs a color, make sure it is valid. Else turn the color of the text box red (this is done in another place).
     class isRightFormat{
         static var outputedColors = [Float]() //this will contain comuter accessibel colors that the user inputed. Note that these will be floats representing the UIColor components r,g,b in that order.
@@ -478,6 +488,52 @@ class ViewController: UIViewController {
     //Text views
     @IBOutlet weak var outputText: UITextView!
     
+    
+    //Deal with the save button
+    @IBAction func SaveActivated(_ sender: Any) {
+        if SavedColors.currentColor == nil{
+            let alert = UIAlertController(title: "What do you want to name the new color that will be saved to your colors?", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            alert.addTextField(configurationHandler: { textField in
+                textField.placeholder = "Input new name here..."
+            })
+            alert.addAction(UIAlertAction(title: "Add Current Color", style: .default, handler: { action in
+                if var name = alert.textFields?.first?.text{
+                    name = name.removeProblemCharacters
+                    SavedColors.SavedColorsList.append(colorFileElement(Name: name, Color: saveState.color))
+                    openFileNamed("SavedColors", type: "w", write: self.codeListOfColors())
+                }
+            }))
+            self.present(alert, animated: true)
+        }else{
+            let nameOfRow = SavedColors.SavedColorsList[SavedColors.currentColor!].Name
+            let alert = UIAlertController(title: "You are about to edit the color \"\(nameOfRow)\". are you sure you want to proceed?", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                SavedColors.SavedColorsList[SavedColors.currentColor!].Color = saveState.color
+                openFileNamed("SavedColors", type: "w", write: self.codeListOfColors())
+            }))
+            alert.addAction(UIAlertAction(title: "Save as new color", style: .default, handler: { action in
+                let alert2 = UIAlertController(title: "What do you want to name the new color that will be saved to your colors?", message: nil, preferredStyle: .alert)
+                alert2.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                alert2.addTextField(configurationHandler: { textField in
+                    textField.placeholder = "Input new name here..."
+                })
+                alert2.addAction(UIAlertAction(title: "Add New Color", style: .default, handler: { action in
+                    SavedColors.currentColor = nil
+                    if var name = alert2.textFields?.first?.text{
+                        name = name.removeProblemCharacters
+                        SavedColors.SavedColorsList.append(colorFileElement(Name: name, Color: saveState.color))
+                        openFileNamed("SavedColors", type: "w", write: self.codeListOfColors())
+                    }
+                }))
+                self.present(alert2, animated: true)
+            }))
+            self.present(alert, animated: true)
+        }
+    }
+    
+    
     //over views
     /*@IBAction func OpenButton(_ sender: UIButton) {
         colorView.backgroundColor = saveState.color  //set color back to saved color
@@ -493,6 +549,7 @@ class ViewController: UIViewController {
     }*/
     
     
+    // MARK: - Overrides
     
     // IF DARK/LIGHT MODE CHANGES WHILE APP IS RUNNING.
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
