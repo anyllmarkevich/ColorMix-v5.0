@@ -268,8 +268,8 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" spacing="63" translatesAutoresizingMaskIntoConstraints="NO" id="ASp-fc-3ba">
-                                    <rect key="frame" x="14" y="7.5" width="347" height="30"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="ASp-fc-3ba">
+                                    <rect key="frame" x="36.5" y="7.5" width="302" height="30"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8er-Rt-2ch" userLabel="Back">
                                             <rect key="frame" x="0.0" y="0.0" width="34" height="30"/>
@@ -281,7 +281,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qg2-jt-yfv">
-                                            <rect key="frame" x="97" y="0.0" width="30" height="30"/>
+                                            <rect key="frame" x="82" y="0.0" width="30" height="30"/>
                                             <state key="normal" title="Add">
                                                 <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
@@ -290,7 +290,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bm-E0-FKx">
-                                            <rect key="frame" x="190" y="0.0" width="38" height="30"/>
+                                            <rect key="frame" x="160" y="0.0" width="38" height="30"/>
                                             <state key="normal" title="Open">
                                                 <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
@@ -300,7 +300,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keW-gr-ACQ">
-                                            <rect key="frame" x="291" y="0.0" width="56" height="30"/>
+                                            <rect key="frame" x="246" y="0.0" width="56" height="30"/>
                                             <state key="normal" title="Rename">
                                                 <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
@@ -311,7 +311,7 @@
                                     </subviews>
                                     <gestureRecognizers/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="347" id="74X-oM-leE"/>
+                                        <constraint firstAttribute="width" constant="302" id="3SG-zy-aEq"/>
                                     </constraints>
                                 </stackView>
                             </subviews>
@@ -498,7 +498,7 @@
         <image name="Settings button PDF" width="1200" height="1200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Cnd-yo-1lM"/>
+        <segue reference="8tP-2P-C59"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.54503643509999999" green="0.54513353109999996" blue="0.54503029579999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
