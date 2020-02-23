@@ -35,7 +35,7 @@
 		F45BB9D722AF311F00BFB6C5 /* FullScreenAdjustViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenAdjustViewController.swift; sourceTree = "<group>"; };
 		F45BB9D922AF323100BFB6C5 /* colorSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorSave.swift; sourceTree = "<group>"; };
 		F485E8F722E8CF12005C2516 /* EnterColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterColorViewController.swift; sourceTree = "<group>"; };
-		F48E97DC2235CE3900171A87 /* ColorMix v4.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ColorMix v4.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F48E97DC2235CE3900171A87 /* ColorMix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorMix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F48E97DF2235CE3900171A87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F48E97E12235CE3900171A87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; tabWidth = 5; };
 		F48E97E42235CE3900171A87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -70,7 +70,7 @@
 		F48E97DD2235CE3900171A87 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F48E97DC2235CE3900171A87 /* ColorMix v4.0.app */,
+				F48E97DC2235CE3900171A87 /* ColorMix.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -149,7 +149,7 @@
 			);
 			name = "ColorMix v4.0";
 			productName = "ColorMix v4.0";
-			productReference = F48E97DC2235CE3900171A87 /* ColorMix v4.0.app */;
+			productReference = F48E97DC2235CE3900171A87 /* ColorMix.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -370,7 +370,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.ColorMix-v5-0";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ColorMix;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -388,7 +388,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.ColorMix-v5-0";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ColorMix;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
