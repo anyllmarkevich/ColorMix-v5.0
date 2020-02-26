@@ -30,29 +30,27 @@ class TableOfColorsViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        parseFileOfColors(text: openFileNamed("SavedColors", type: "r", write: "") ?? "")
-        //print(indexPathForSelectedRow)
-        RenameButton.isEnabled = false // disable reanme button
+        parseFileOfColors(text: openFileNamed("SavedColors", type: "r", write: "") ?? "")  // update the list of saved colors
     }
     
     //MARK: - Setup
-    class isARowSelected{
-        static var selectedRowIndex: Int? = nil
-        static var wholeIndex: IndexPath? = nil
+    class isARowSelected{  // save info about the currently selected row
+        static var selectedRowIndex: Int? = nil  // selected row number
+        static var wholeIndex: IndexPath? = nil  // selected row index path
     }
     
-    func unIndex(){
+    func unIndex(){  //cear the saved index
         print("About to nil info about IndexPath.")
         isARowSelected.selectedRowIndex = nil
         isARowSelected.wholeIndex = nil
     }
-    func index(_ path: IndexPath){
+    func index(_ path: IndexPath){  // create a saved index
         print("About to save index path.")
         isARowSelected.selectedRowIndex = path.row
         isARowSelected.wholeIndex = path
     }
     
-    func openFileNamed(_ fileName: String, type: String, write: String) -> String?{
+    func openFileNamed(_ fileName: String, type: String, write: String) -> String?{  // open a file and read or write to it
     // Write "w" to write, adn "r" read in type
     var returnText: String? = nil  /// assume output is nil
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
@@ -154,65 +152,65 @@ class TableOfColorsViewController: UITableViewController {
     }
     // MARK: - Button Connections
    
-    @IBAction func AddActivated(_ sender: Any) {
-        let alert = UIAlertController(title: "What do you want to name the new saved color?", message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alert.addTextField(configurationHandler: { textField in
-            textField.placeholder = "Input new name here..."
+    @IBAction func AddActivated(_ sender: Any) {  // when the add button is pressed
+        let alert = UIAlertController(title: "What do you want to name the new saved color?", message: nil, preferredStyle: .alert)  // ask for the name of the new color in an alert
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))  // add cancel button
+        alert.addTextField(configurationHandler: { textField in  // add textfiled with background text
+            textField.placeholder = "Input new name here..."  // add  background text
         })
-        alert.addAction(UIAlertAction(title: "Add Current Color", style: .default, handler: { action in
-            if var name = alert.textFields?.first?.text{
-                name = name.removeProblemCharacters
-                SavedColors.SavedColorsList.append(colorFileElement(Name: name, Color: saveState.color))
-                self.openFileNamed("SavedColors", type: "w", write: self.codeListOfColors())
-                self.tableView.beginUpdates()
-                self.tableView.insertRows(at: [IndexPath.init(row: SavedColors.SavedColorsList.count-1, section: 0)], with: .automatic)
-                self.tableView.endUpdates()
+        alert.addAction(UIAlertAction(title: "Add Current Color", style: .default, handler: { action in  // add ok button that runs following code
+            if var name = alert.textFields?.first?.text{  // open text field and save value
+                name = name.removeProblemCharacters  // remouve problem characters
+                SavedColors.SavedColorsList.append(colorFileElement(Name: name, Color: saveState.color))  // save color
+                self.openFileNamed("SavedColors", type: "w", write: self.codeListOfColors())  // save file
+                self.tableView.beginUpdates()  // update the tableview
+                self.tableView.insertRows(at: [IndexPath.init(row: SavedColors.SavedColorsList.count-1, section: 0)], with: .automatic) // add a row at the end
+                self.tableView.endUpdates()  // stop updating the tableview
                 
-                if let cell = self.tableView.cellForRow(at: IndexPath.init(row: SavedColors.SavedColorsList.count-1, section: 0)){
-                    cell.textLabel?.text = name
-                    cell.textLabel?.textColor = self.findATextColor(color: SavedColors.SavedColorsList[SavedColors.SavedColorsList.count-1].Color)
+                if let cell = self.tableView.cellForRow(at: IndexPath.init(row: SavedColors.SavedColorsList.count-1, section: 0)){  // update cell so that it has the right color and text
+                    cell.textLabel?.text = name  // update text
+                    cell.textLabel?.textColor = self.findATextColor(color: SavedColors.SavedColorsList[SavedColors.SavedColorsList.count-1].Color)  // update color
                 }
             }
         }))
-        self.present(alert, animated: true)
+        self.present(alert, animated: true)  // show alert
     }
-    @IBAction func OpenActivated(_ sender: Any) {
-        if isARowSelected.selectedRowIndex != nil{
-            let selectedcolor = SavedColors.SavedColorsList[isARowSelected.selectedRowIndex!]
-            saveState.color = selectedcolor.Color
+    @IBAction func OpenActivated(_ sender: Any) {  // when ope button is pressed
+        if isARowSelected.selectedRowIndex != nil{  // make sure a row is selected
+            let selectedcolor = SavedColors.SavedColorsList[isARowSelected.selectedRowIndex!]  // save the color of the selected cell
+            saveState.color = selectedcolor.Color  // save that color in such a way that ViewContorller will update to it
+            
+            //Create slider positions:
+            /// find the amount of each color component
             let r = selectedcolor.Color.components?.red
             let g = selectedcolor.Color.components?.green
             let b = selectedcolor.Color.components?.blue
             print(r!,g!,b!)
-            saveState.sliders = ViewController.stateStorage(rsw: true, rsl: Float(r!), gsw: true, gsl: Float(g!), bsw: true, bsl: Float(b!))
-            SavedColors.currentColor = isARowSelected.selectedRowIndex
-            //colorView.backgroundColor = selectedcolor.Color
+            saveState.sliders = ViewController.stateStorage(rsw: true, rsl: Float(r!), gsw: true, gsl: Float(g!), bsw: true, bsl: Float(b!))  /// save the result
+            SavedColors.currentColor = isARowSelected.selectedRowIndex // Make it so a row is selected in all views
         }
     }
-    @IBAction func RenameActivated(_ sender: Any) {
-        if isARowSelected.selectedRowIndex != nil{
-            let alert = UIAlertController(title: "What do you want to name the color?", message: nil, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-
-            alert.addTextField(configurationHandler: { textField in
-                textField.placeholder = "Input new name here..."
+    @IBAction func RenameActivated(_ sender: Any) {  // when rename button is pressed
+        if isARowSelected.selectedRowIndex != nil{  // if a row is slected
+            let alert = UIAlertController(title: "What do you want to name the color?", message: nil, preferredStyle: .alert)  // create alert
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))  //add cancel button
+            alert.addTextField(configurationHandler: { textField in  // texfield
+                textField.placeholder = "Input new name here..."  // add background text
             })
 
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                if var name = alert.textFields?.first?.text{
-                    name = name.removeProblemCharacters
-                    SavedColors.SavedColorsList[isARowSelected.selectedRowIndex!].Name = name
-                    self.openFileNamed("SavedColors", type: "w", write: self.codeListOfColors())
-                    if let cell = self.tableView.cellForRow(at: isARowSelected.wholeIndex!){
-                        cell.textLabel?.text = name
-                        cell.textLabel?.textColor = self.findATextColor(color: SavedColors.SavedColorsList[isARowSelected.selectedRowIndex!].Color)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in  // add ok button that runs following code
+                if var name = alert.textFields?.first?.text{  // find text field value and save it
+                    name = name.removeProblemCharacters  // remouve problematic characters
+                    SavedColors.SavedColorsList[isARowSelected.selectedRowIndex!].Name = name  // update the name of the color
+                    self.openFileNamed("SavedColors", type: "w", write: self.codeListOfColors())  // update file
+                    if let cell = self.tableView.cellForRow(at: isARowSelected.wholeIndex!){  // open a cell to editing
+                        cell.textLabel?.text = name  // change name
+                        cell.textLabel?.textColor = self.findATextColor(color: SavedColors.SavedColorsList[isARowSelected.selectedRowIndex!].Color)  // update the color of the text so that it is visible
                     }
                 }
             }))
-            self.present(alert, animated: true)
-            print("Presented alert")
-            self.tableView.deselectSelectedRow(animated: true)
+            self.present(alert, animated: true)  // show alert
+            self.tableView.deselectSelectedRow(animated: true)  // deslect the row that was selected
         }
     }
     @IBOutlet weak var RenameButton: UIButton!
@@ -298,7 +296,7 @@ class TableOfColorsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-
+        // Deselect rows when they are already selected and tapped again
         if let indexPathForSelectedRow = tableView.indexPathForSelectedRow,
             indexPathForSelectedRow == indexPath {
             tableView.deselectRow(at: indexPath, animated: false)

@@ -228,26 +228,24 @@ extension String{
     }
 }
 extension String{
-    var removeProblemCharacters: String{
-        let originalString = self
-        var stringList = [String]()
-        for i in originalString{
+    var removeProblemCharacters: String{  // remouve characters that could compromise files in saving colors file
+        let originalString = self  // save the value of the string in "string".function
+        var stringList = [String]()  // create a list
+        for i in originalString{  // turn sting into list of sting characters
             stringList.append(String(i))
         }
-        print(stringList)
-        var it = 0
-        for i in stringList{
-            if i == "|" || i == "/"{
-                stringList.remove(at: it)
-                it -= 1
+        var it = 0  // iteration saver
+        for i in stringList{  // for every character
+            if i == "|" || i == "/"{  // if a character is problematic
+                stringList.remove(at: it)  // remouve it at iteration
+                it -= 1  // decrese iterations as there are fewer items now.
             }
-            print(it)
-            it += 1
+            it += 1  // increase iterations
         }
         var returnString = ""
-        for i in stringList{
+        for i in stringList{  // create a final clean string
             returnString += i
         }
-        return returnString
+        return returnString  // return it
     }
 }

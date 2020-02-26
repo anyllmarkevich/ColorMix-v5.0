@@ -490,46 +490,46 @@ class ViewController: UIViewController {
     
     
     //Deal with the save button
-    @IBAction func SaveActivated(_ sender: Any) {
-        if SavedColors.currentColor == nil{
-            let alert = UIAlertController(title: "What do you want to name the new color that will be saved to your colors?", message: nil, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            alert.addTextField(configurationHandler: { textField in
-                textField.placeholder = "Input new name here..."
+    @IBAction func SaveActivated(_ sender: Any) {  //If ths save button is tapped
+        if SavedColors.currentColor == nil{  // If no color is currently open
+            let alert = UIAlertController(title: "What do you want to name the new color that will be saved to your colors?", message: nil, preferredStyle: .alert)  // Creat and alert
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))  // add a cancel button
+            alert.addTextField(configurationHandler: { textField in  // add an input thing
+                textField.placeholder = "Input new name here..."  // Add background text in the input field
             })
-            alert.addAction(UIAlertAction(title: "Add Current Color", style: .default, handler: { action in
-                if var name = alert.textFields?.first?.text{
-                    name = name.removeProblemCharacters
-                    SavedColors.SavedColorsList.append(colorFileElement(Name: name, Color: saveState.color))
-                    openFileNamed("SavedColors", type: "w", write: self.codeListOfColors())
+            alert.addAction(UIAlertAction(title: "Add Current Color", style: .default, handler: { action in  // add an add button. All code in these brackets will run on the pressing of the add button
+                if var name = alert.textFields?.first?.text{  //Open the text field and save its value
+                    name = name.removeProblemCharacters  // Recmove characters that could cause problems
+                    SavedColors.SavedColorsList.append(colorFileElement(Name: name, Color: saveState.color))  // save the new color to the current saved colors list
+                    openFileNamed("SavedColors", type: "w", write: self.codeListOfColors())  // update the save file
                 }
             }))
-            self.present(alert, animated: true)
-        }else{
-            let nameOfRow = SavedColors.SavedColorsList[SavedColors.currentColor!].Name
-            let alert = UIAlertController(title: "You are about to edit the color \"\(nameOfRow)\". are you sure you want to proceed?", message: nil, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                SavedColors.SavedColorsList[SavedColors.currentColor!].Color = saveState.color
-                openFileNamed("SavedColors", type: "w", write: self.codeListOfColors())
+            self.present(alert, animated: true)  // Show the alert
+        }else{  // if there is a currently opened color
+            let nameOfRow = SavedColors.SavedColorsList[SavedColors.currentColor!].Name  // figure out its name
+            let alert = UIAlertController(title: "You are about to edit the color \"\(nameOfRow)\". are you sure you want to proceed?", message: nil, preferredStyle: .alert)  // create alert
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))  // add cancel button
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in  // ad ok buton and run following code
+                SavedColors.SavedColorsList[SavedColors.currentColor!].Color = saveState.color  //update the color
+                openFileNamed("SavedColors", type: "w", write: self.codeListOfColors())  // save to file
             }))
-            alert.addAction(UIAlertAction(title: "Save as new color", style: .default, handler: { action in
-                let alert2 = UIAlertController(title: "What do you want to name the new color that will be saved to your colors?", message: nil, preferredStyle: .alert)
-                alert2.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-                alert2.addTextField(configurationHandler: { textField in
-                    textField.placeholder = "Input new name here..."
+            alert.addAction(UIAlertAction(title: "Save as new color", style: .default, handler: { action in  // add action to allow user to save as a new color instead of updating
+                let alert2 = UIAlertController(title: "What do you want to name the new color that will be saved to your colors?", message: nil, preferredStyle: .alert)  // create a new alert
+                alert2.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))  // add cancel button
+                alert2.addTextField(configurationHandler: { textField in  // add a texfiled with subtext
+                    textField.placeholder = "Input new name here..."  // add subtext
                 })
-                alert2.addAction(UIAlertAction(title: "Add New Color", style: .default, handler: { action in
-                    SavedColors.currentColor = nil
-                    if var name = alert2.textFields?.first?.text{
-                        name = name.removeProblemCharacters
-                        SavedColors.SavedColorsList.append(colorFileElement(Name: name, Color: saveState.color))
-                        openFileNamed("SavedColors", type: "w", write: self.codeListOfColors())
+                alert2.addAction(UIAlertAction(title: "Add New Color", style: .default, handler: { action in  // add an ok button and run following code
+                    SavedColors.currentColor = nil  // void the currently selected color
+                    if var name = alert2.textFields?.first?.text{  // find the value of the textfiled and save it
+                        name = name.removeProblemCharacters  // remouve problematic characters
+                        SavedColors.SavedColorsList.append(colorFileElement(Name: name, Color: saveState.color))  // add the new color to the saved colors list
+                        openFileNamed("SavedColors", type: "w", write: self.codeListOfColors())  // save file
                     }
                 }))
-                self.present(alert2, animated: true)
+                self.present(alert2, animated: true)  // present second alert
             }))
-            self.present(alert, animated: true)
+            self.present(alert, animated: true)  // present first alert
         }
     }
     

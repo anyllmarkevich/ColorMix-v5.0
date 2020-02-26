@@ -67,7 +67,7 @@ func isAppAlreadyLaunchedOnce()->Bool{
 
 // MARK: - Read/Write Function vvv
 
-func openFileNamed(_ fileName: String, type: String, write: String) -> String?{
+func openFileNamed(_ fileName: String, type: String, write: String) -> String?{  // Open a file and read or write to it
     // Write "w" to write, adn "r" read in type
     var returnText: String? = nil  /// assume output is nil
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
@@ -93,13 +93,13 @@ func openFileNamed(_ fileName: String, type: String, write: String) -> String?{
         }
     return returnText
     }
-func codeListOfColors() -> String{
-    var textString = ""
-    for i in SavedColors.SavedColorsList{
-        textString += i.Name + "|" + String(Float(i.Color.components!.red)) + "," + String(Float(i.Color.components!.green)) + "," + String(Float(i.Color.components!.blue)) + "/"
-        print("Coded " + i.Name + "|" + String(Float(i.Color.components!.red)) + "," + String(Float(i.Color.components!.green)) + "," + String(Float(i.Color.components!.blue)) + "/ from saved colors")
+func codeListOfColors() -> String{  // Codes the code that saves colors in a file...
+    var textString = ""  /// empry string
+    for i in SavedColors.SavedColorsList{  // for every item in ths currently saved colors.
+        textString += i.Name + "|" + String(Float(i.Color.components!.red)) + "," + String(Float(i.Color.components!.green)) + "," + String(Float(i.Color.components!.blue)) + "/"  /// add the code for one item
+        print("Coded " + i.Name + "|" + String(Float(i.Color.components!.red)) + "," + String(Float(i.Color.components!.green)) + "," + String(Float(i.Color.components!.blue)) + "/ from saved colors")  /// print the code
     }
-    return textString
+    return textString /// return the complete code
 }
 
 
