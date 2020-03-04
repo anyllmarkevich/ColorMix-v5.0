@@ -31,6 +31,7 @@
 		F41B44FA23B0029A0090E12A /* ColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableViewCell.swift; sourceTree = "<group>"; };
 		F41B44FC23B008A50090E12A /* ListOfColorsSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfColorsSave.swift; sourceTree = "<group>"; };
 		F41B450223B7CAF20090E12A /* SavedColors */ = {isa = PBXFileReference; lastKnownFileType = text; path = SavedColors; sourceTree = "<group>"; };
+		F44B9A48240F5EF400B98E48 /* ColorMix.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ColorMix.entitlements; sourceTree = "<group>"; };
 		F4541D36228352A600E1552B /* FullScreenColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenColorViewController.swift; sourceTree = "<group>"; };
 		F45BB9D722AF311F00BFB6C5 /* FullScreenAdjustViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenAdjustViewController.swift; sourceTree = "<group>"; };
 		F45BB9D922AF323100BFB6C5 /* colorSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorSave.swift; sourceTree = "<group>"; };
@@ -78,6 +79,7 @@
 		F48E97DE2235CE3900171A87 /* ColorMix v4.0 */ = {
 			isa = PBXGroup;
 			children = (
+				F44B9A48240F5EF400B98E48 /* ColorMix.entitlements */,
 				F48E97DF2235CE3900171A87 /* AppDelegate.swift */,
 				F48E97E32235CE3900171A87 /* Main.storyboard */,
 				F4A680A122DEA5ED00C20218 /* View Controllers */,
@@ -362,7 +364,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "ColorMix v4.0/ColorMix.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = T46VUBX943;
 				INFOPLIST_FILE = "ColorMix v4.0/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -371,6 +375,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.ColorMix-v5-0";
 				PRODUCT_NAME = ColorMix;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -380,7 +385,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "ColorMix v4.0/ColorMix.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = T46VUBX943;
 				INFOPLIST_FILE = "ColorMix v4.0/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -389,6 +396,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.ColorMix-v5-0";
 				PRODUCT_NAME = ColorMix;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
